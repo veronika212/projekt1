@@ -12,7 +12,9 @@
     "react-scripts": "1.1.5",
     "react-slick": "^0.23.1",
     "redux": "^4.0.0",
-    "redux-logger": "^3.0.6"
+    "redux-form": "^7.4.2",
+    "redux-logger": "^3.0.6",
+    "redux-saga": "^0.16.0"
   },
   "scripts": {
     "start": "concurrently --kill-others \"yarn react-scripts start\" \"yarn watch-css\"",
