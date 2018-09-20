@@ -7,12 +7,23 @@
   padding: 0 40px;
 }
 
-.btn {
-  display: flex;
+.footer-btn {
+  //display: flex;
   padding-top: 12px;
+
   &__btn-prev {
     background: #e0e0e0;
     border: none;
     color: #fff;
+    border-radius: 3px;
+    //justify-content: start;
+    float: left !important;
+  }
+
+  &__btn-next {
+    background: #e0e0e0 !important;
+    color: #9e9e9e !important;
+    box-shadow: 2px 2px 0 0 #848484;
+    float: right !important;
   }
 }

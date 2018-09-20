@@ -6,10 +6,16 @@
   min-height: 50px;
   padding: 0 40px; }
 
-.btn {
-  display: flex;
+.footer-btn {
   padding-top: 12px; }
-  .btn__btn-prev {
+  .footer-btn__btn-prev {
     background: #e0e0e0;
     border: none;
-    color: #fff; }
+    color: #fff;
+    border-radius: 3px;
+    float: left !important; }
+  .footer-btn__btn-next {
+    background: #e0e0e0 !important;
+    color: #9e9e9e !important;
+    box-shadow: 2px 2px 0 0 #848484;
+    float: right !important; }

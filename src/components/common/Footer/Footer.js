@@ -6,15 +6,20 @@ import './Footer.css';
 const Footer = ({ handlePrevClick, handleNextClick, prevDisabled, nextDisabled }) => {
   return (
     <footer className="footer">
-      <div className="btn">
+      <div className="footer-btn">
         <Button
           disabled={prevDisabled}
           onClick={() => handlePrevClick()}
-          className="btn__btn-prev"
           label={'Zurück'}
+          className="footer-btn__btn-prev"
         />
 
-        <Button disabled={nextDisabled} onClick={() => handleNextClick()} label={'Weiter'} />
+        <Button
+          disabled={nextDisabled}
+          onClick={() => handleNextClick()}
+          label={'Weiter'}
+          className="footer-btn__btn-next"
+        />
       </div>
     </footer>
   );
