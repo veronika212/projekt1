@@ -7,6 +7,7 @@
   text-align: center;
   position: relative;
   height: 28px;
+  overflow: hidden;
 }
 
 .progress-bar {
@@ -17,7 +18,25 @@
   color: #fff;
   text-align: center;
   position: relative;
-  height: 28px;
+
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+    left: 100%;
+    top: 50%;
+    border: solid transparent;
+    content: ' ';
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(136, 183, 213, 0);
+    border-left-color: #257eb8;
+    border-width: 28px;
+    margin-top: -28px;
+    margin-left: -14px;
+  }
 }
 
 .progress-bar-value {

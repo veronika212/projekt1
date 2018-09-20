@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import './ProgressBar.css';
 
 class ProgressBar extends Component {
   render() {
-    const { currentStep, totalSteps } = this.props;
+    const { app } = this.props;
+    if (!app.currentStep) {
+      return null;
+    }
+
+    const progressBarWidth = Math.round((app.currentStep / app.totalSteps) * 100);
     return (
       <div className="progress">
-        <div className="progress-bar">
-          <span className="progress-bar-value">40%</span>
+        <div className="progress-bar" style={{ width: `${progressBarWidth}%` }}>
+          <span className="progress-bar-value">{progressBarWidth}%</span>
         </div>
       </div>
     );
   }
 }
 
-export default ProgressBar;
+const mapStateToProps = store => {
+  return {
+    app: store.app,
+  };
+};
+
+export default connect(mapStateToProps)(ProgressBar);
