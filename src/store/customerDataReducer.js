@@ -21,6 +21,7 @@ export const customerDataReducer = (state = defaultState, action) => {
     case UPDATE_CUSTOMER_DATA:
       return {
         ...state,
+        [action.payload.key]: action.payload.value,
       };
 
     default:

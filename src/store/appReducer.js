@@ -12,8 +12,8 @@ export const updateAppData = payload => {
 
 //reducer
 const defaultState = {
-  currentStep: 0,
-  totalSteps: 0,
+  currentStep: 1,
+  totalSteps: 1,
   title: 'Angaben zur Immobilie',
 };
 
@@ -26,7 +26,7 @@ export const appReducer = (state = defaultState, action) => {
     case UPDATE_APP_DATA:
       return {
         ...state,
-        title: action.payload,
+        ...action.payload,
       };
 
     default:

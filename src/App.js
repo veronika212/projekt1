@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 import { connect } from 'react-redux';
-import HouseType from './steps/HouseType';
-import Region from './steps/Region';
+import PropertyType from './slides/PropertyType';
+import PropertyOccupation from './slides/PropertyOccupation';
+import Region from './slides/Region';
 
 import './App.css';
 
 class App extends Component {
-  state = {
-    currentSlide: 0,
-  };
-
   render() {
     const settings = {
       dots: false,
@@ -20,7 +17,6 @@ class App extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
     };
-    console.log(this.props);
 
     this.goToSlide = slideNumber => {
       this.mainSlider.slickGoTo(slideNumber);
@@ -30,8 +26,9 @@ class App extends Component {
       <div className="App">
         <h2>{app.title}</h2>
         <Slider {...settings} ref={slider => (this.mainSlider = slider)}>
-          <HouseType goToSlide={this.goToSlide} />
-          <Region goToSlide={this.goToSlide} />
+          <PropertyType goToSlide={this.goToSlide} />
+          <PropertyOccupation goToSlide={this.goToSlide} />
+          {/* <Region goToSlide={this.goToSlide} /> */}
           <div>
             <p>Slide 3</p>
           </div>

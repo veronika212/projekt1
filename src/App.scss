@@ -16,3 +16,33 @@ body {
   border-radius: 4px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
+
+.icon {
+  background: url(/images/icons4.png) no-repeat;
+  background-size: auto;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 90px;
+  height: 91px;
+
+  &.icon--wohnung {
+    background-position: 0 0;
+  }
+
+  &.icon--haus {
+    background-position: 0 -90px;
+  }
+
+  &.icon--grundstueck {
+    background-position: 0 -450px;
+  }
+
+  &.icon--gewerbe {
+    background-position: 0 -540px;
+  }
+}
+
+.tiles-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
