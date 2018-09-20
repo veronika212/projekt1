@@ -1,0 +1,27 @@
+.progress {
+  background: 0 0;
+  margin: 7px 40px 20px 40px;
+  border: 1px solid #257eb8;
+  border-radius: 3px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  height: 28px;
+}
+
+.progress-bar {
+  margin-bottom: 0;
+  background: #257eb8;
+  border: 1px solid #257eb8;
+  border-radius: 3px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  height: 28px;
+}
+
+.progress-bar-value {
+  line-height: 26px;
+  font-weight: 400;
+  font-size: 12px;
+}
