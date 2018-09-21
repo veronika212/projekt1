@@ -1,12 +1,33 @@
 .tile {
+  padding: 15px 15px 0px 15px;
+  height: 174.5px;
+  // width: 172px;
+  width: 25%;
   border: 3px solid #257eb8;
   border-radius: 3px;
-  width: 20%;
-  height: 150px;
   margin-right: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: all 0.1s ease-in-out;
+  &:hover {
+    border: 3px solid #33a723;
+  }
+  // &:visited {
+  //   border-color: #33a723;
+  //   transform: scale(1.05);
+  // }
+  &:nth-child(4) {
+    margin-right: 0;
+  }
+  &__title {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 20px 5px 10px 5px;
+    &:hover {
+      color: #2780ba;
+    }
+  }
 }

@@ -23,8 +23,10 @@ class App extends Component {
     };
     const { app } = this.props;
     return (
-      <div className="App">
-        <h2>{app.title}</h2>
+      <div className="app">
+        <div className="app__header">
+          <h2 className="app__title">{app.title}</h2>
+        </div>
         <Slider {...settings} ref={slider => (this.mainSlider = slider)}>
           <PropertyType goToSlide={this.goToSlide} />
           <PropertyOccupation goToSlide={this.goToSlide} />
