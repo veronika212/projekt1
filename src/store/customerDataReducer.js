@@ -12,6 +12,8 @@ export const updateCustomerData = payload => {
 //reducer
 const defaultState = {
   propertyType: '',
+  propertyOccupation: '',
+  propertyCondition: '',
   area: 0,
   year: 0,
 };

@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 import { connect } from 'react-redux';
+
 import PropertyType from './slides/PropertyType';
 import PropertyOccupation from './slides/PropertyOccupation';
-import Region from './slides/Region';
+import PropertyCondition from './slides/PropertyCondition';
 
 import './App.css';
 
@@ -30,10 +31,7 @@ class App extends Component {
         <Slider {...settings} ref={slider => (this.mainSlider = slider)}>
           <PropertyType goToSlide={this.goToSlide} />
           <PropertyOccupation goToSlide={this.goToSlide} />
-          {/* <Region goToSlide={this.goToSlide} /> */}
-          <div>
-            <p>Slide 3</p>
-          </div>
+          <PropertyCondition goToSlide={this.goToSlide} />
           <div>
             <p>Slide 4</p>
           </div>

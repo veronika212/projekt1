@@ -30,7 +30,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData }) => {
           handleOnClick={() =>
             onTileClick(1, 'Welcher Wohnstatus liegt vor?', 2, 8, {
               key: 'propertyType',
-              value: 'Wohnung',
+              value: 'Haus',
             })
           }
           title={'Haus'}
@@ -48,7 +48,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData }) => {
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 2, 24, {
+            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 2, 8, {
               key: 'propertyType',
               value: 'Gewerbe',
             })

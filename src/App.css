@@ -8,7 +8,7 @@ body {
   color: #6a6a6a;
   background-color: #fff;
   font-weight: 300;
-  font-family: 'Signika Negative' !important, Helvetica, Arial, sans-serif; }
+  font-family: 'Signika Negative', Helvetica, Arial, sans-serif; }
 
 .app {
   max-width: 1000px;
@@ -51,8 +51,25 @@ body {
     background-position: 0 -450px; }
   .icon.icon--gewerbe {
     background-position: 0 -540px; }
+  .icon.icon--status-selbst {
+    background-position: 0 -3330px; }
+  .icon.icon--status-frei {
+    background-position: 0 -2070px; }
+  .icon.icon--status-vermietet {
+    background-position: 0 -3240px; }
+  .icon.icon--status-teilweise {
+    background-position: 0 -3600px; }
+  .icon.icon--renovierungsbeduerftig {
+    background-position: 0 -1800px; }
+  .icon.icon--gepflegt {
+    background-position: 0 -1890px; }
+  .icon.icon--neuwertig {
+    background-position: 0 -1980px; }
 
 .tiles-wrapper {
   display: flex;
   justify-content: space-between;
   padding: 15px 40px 0px 40px; }
+
+.tile-wrapper--modifier {
+  justify-content: center; }
