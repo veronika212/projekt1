@@ -20,7 +20,7 @@ const PropertyCondition = ({ goToSlide, updateAppData, updateCustomerData }) => 
       <div className="tiles-wrapper tile-wrapper--modifier">
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'In welchem Zustand befindet sich die Immobilie?', 3, 8, {
+            onTileClick(3, 'In welchem Zustand befindet sich die Immobilie?', 3, 8, {
               key: 'propertyCondition',
               value: 'Renovierungs­bedürftig',
             })

@@ -65,6 +65,8 @@ body {
     background-position: 0 -1890px; }
   .icon.icon--neuwertig {
     background-position: 0 -1980px; }
+  .icon.icon--balkon {
+    background-position: 0 -2610px; }
 
 .tiles-wrapper {
   display: flex;

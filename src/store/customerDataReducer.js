@@ -14,6 +14,7 @@ const defaultState = {
   propertyType: '',
   propertyOccupation: '',
   propertyCondition: '',
+  propertyExtension: '',
   area: 0,
   year: 0,
 };

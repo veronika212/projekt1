@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import PropertyType from './slides/PropertyType';
 import PropertyOccupation from './slides/PropertyOccupation';
 import PropertyCondition from './slides/PropertyCondition';
+import PropertyExtension from './slides/PropertyExtension';
 
 import './App.css';
 
@@ -32,6 +33,7 @@ class App extends Component {
           <PropertyType goToSlide={this.goToSlide} />
           <PropertyOccupation goToSlide={this.goToSlide} />
           <PropertyCondition goToSlide={this.goToSlide} />
+          <PropertyExtension goToSlide={this.goToSlide} />
           <div>
             <p>Slide 4</p>
           </div>
