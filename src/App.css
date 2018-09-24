@@ -91,6 +91,14 @@ body {
     background-position: 0 -4230px; }
   .icon.icon--bebaubar-unbekannt {
     background-position: 0 -1170px; }
+  .icon.icon--buero {
+    background-position: 0 -4500px; }
+  .icon.icon--gastgewerbe {
+    background-position: 0 -4590px; }
+  .icon.icon--fabrik {
+    background-position: 0 -540px; }
+  .icon.icon--hotel {
+    background-position: 0 -4680px; }
 
 .tiles-wrapper {
   display: flex;
