@@ -15,6 +15,9 @@ const defaultState = {
   propertyOccupation: '',
   propertyCondition: '',
   propertyExtension: '',
+  houseType: '',
+  landType: '',
+  buildingType: '',
   area: 0,
   year: 0,
 };

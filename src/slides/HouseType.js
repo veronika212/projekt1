@@ -9,7 +9,7 @@ import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 
 import Tile from '../components/common/Tile/Tile';
 
-const PropertyExtension = ({ goToSlide, updateAppData, updateCustomerData }) => {
+const HouseType = ({ goToSlide, updateAppData, updateCustomerData }) => {
   const onTileClick = (nextSlideNumber, nextTitle, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
     updateAppData({ title: nextTitle, totalSteps, currentStep });
@@ -20,48 +20,48 @@ const PropertyExtension = ({ goToSlide, updateAppData, updateCustomerData }) => 
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(4, 'Angaben zu Ihrem Haus', 4, 8, {
-              key: 'propertyExtension',
-              value: 'Balkon',
+            onTileClick(5, 'Angaben zu Ihrem Grundstück', 5, 8, {
+              key: 'houseType',
+              value: 'Einfamilienhaus',
             })
           }
-          title={'Balkon'}
-          iconName="icon icon--balkon"
+          title={'Einfamilienhaus'}
+          iconName="icon icon--haus"
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(4, 'Angaben zu Ihrem Haus', 4, 8, {
-              key: 'propertyExtension',
-              value: 'Terrasse',
+            onTileClick(5, 'Angaben zu Ihrem Grundstück', 5, 8, {
+              key: 'houseType',
+              value: 'Mehrfamilien­haus',
             })
           }
-          title={'Terrasse'}
-          iconName="icon icon--Terrasse "
+          title={'Mehrfamilien­haus'}
+          iconName="icon icon--mehrfamilienhaus"
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(4, 'Angaben zu Ihrem Haus', 4, 8, {
-              key: 'propertyExtension',
-              value: 'Balkon & Terrasse',
+            onTileClick(5, 'Angaben zu Ihrem Grundstück', 5, 8, {
+              key: 'houseType',
+              value: 'Reihenhaus',
             })
           }
-          title={'Balkon & Terrasse'}
-          iconName="icon icon--balkonTerrasse"
+          title={'Reihenhaus'}
+          iconName="icon icon--reihenhaus"
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(4, 'Angaben zu Ihrem Haus', 4, 8, {
-              key: 'propertyExtension',
-              value: 'Weder noch',
+            onTileClick(5, 'Angaben zu Ihrem Grundstück', 5, 8, {
+              key: 'houseType',
+              value: 'Doppelhaushälfte',
             })
           }
-          title={'Weder noch'}
-          iconName="icon icon--keinbalkonTerrasse"
+          title={'Doppelhaushälfte'}
+          iconName="icon icon--doppelhaus"
         />
       </div>
 
       <ProgressBar />
-      <Footer handlePrevClick={() => goToSlide(2)} handleNextClick={() => goToSlide(4)} />
+      <Footer handlePrevClick={() => goToSlide(3)} handleNextClick={() => goToSlide(5)} />
     </div>
   );
 };
@@ -69,4 +69,4 @@ const PropertyExtension = ({ goToSlide, updateAppData, updateCustomerData }) => 
 export default connect(
   null,
   { updateAppData, updateCustomerData }
-)(PropertyExtension);
+)(HouseType);

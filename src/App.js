@@ -6,6 +6,9 @@ import PropertyType from './slides/PropertyType';
 import PropertyOccupation from './slides/PropertyOccupation';
 import PropertyCondition from './slides/PropertyCondition';
 import PropertyExtension from './slides/PropertyExtension';
+import HouseType from './slides/HouseType';
+import LandType from './slides/LandType';
+import BuildingType from './slides/BuildingType';
 
 import './App.css';
 
@@ -34,6 +37,9 @@ class App extends Component {
           <PropertyOccupation goToSlide={this.goToSlide} />
           <PropertyCondition goToSlide={this.goToSlide} />
           <PropertyExtension goToSlide={this.goToSlide} />
+          <HouseType goToSlide={this.goToSlide} />
+          <LandType goToSlide={this.goToSlide} />
+          <BuildingType goToSlide={this.goToSlide} />
           <div>
             <p>Slide 4</p>
           </div>

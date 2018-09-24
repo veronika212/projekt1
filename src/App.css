@@ -67,6 +67,30 @@ body {
     background-position: 0 -1980px; }
   .icon.icon--balkon {
     background-position: 0 -2610px; }
+  .icon.icon--haus {
+    background-position: 0 -90px; }
+  .icon.icon--mehrfamilienhaus {
+    background-position: 0 -360px; }
+  .icon.icon--reihenhaus {
+    background-position: 0 -270px; }
+  .icon.icon--doppelhaus {
+    background-position: 0 -180px; }
+  .icon.icon--baugrundstueck {
+    background-position: 0 -3060px; }
+  .icon.icon--bauerwartungsland {
+    background-position: 0 -1170px; }
+  .icon.icon--gewerbegrundstueck {
+    background-position: 0 -4770px; }
+  .icon.icon--agrarflaeche {
+    background-position: 0 -1080px; }
+  .icon.icon--bebaubar-kurzfristig {
+    background-position: 0 -1080px; }
+  .icon.icon--bebaubar-eingeschraenkt {
+    background-position: 0 -4140px; }
+  .icon.icon--bebaubar-nicht {
+    background-position: 0 -4230px; }
+  .icon.icon--bebaubar-unbekannt {
+    background-position: 0 -1170px; }
 
 .tiles-wrapper {
   display: flex;

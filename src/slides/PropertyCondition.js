@@ -20,7 +20,7 @@ const PropertyCondition = ({ goToSlide, updateAppData, updateCustomerData }) => 
       <div className="tiles-wrapper tile-wrapper--modifier">
         <Tile
           handleOnClick={() =>
-            onTileClick(3, 'In welchem Zustand befindet sich die Immobilie?', 3, 8, {
+            onTileClick(3, 'Gibt es einen Balkon oder eine Terrasse?', 3, 8, {
               key: 'propertyCondition',
               value: 'Renovierungs­bedürftig',
             })
@@ -31,7 +31,7 @@ const PropertyCondition = ({ goToSlide, updateAppData, updateCustomerData }) => 
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(3, 'In welchem Zustand befindet sich die Immobilie?', 3, 8, {
+            onTileClick(3, 'Gibt es einen Balkon oder eine Terrasse?', 3, 8, {
               key: 'propertyCondition',
               value: 'Gepflegt',
             })
@@ -42,7 +42,7 @@ const PropertyCondition = ({ goToSlide, updateAppData, updateCustomerData }) => 
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(3, 'In welchem Zustand befindet sich die Immobilie?', 3, 8, {
+            onTileClick(3, 'Gibt es einen Balkon oder eine Terrasse?', 3, 8, {
               key: 'propertyCondition',
               value: 'Neuwertig',
             })

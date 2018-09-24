@@ -9,7 +9,7 @@ import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 
 import Tile from '../components/common/Tile/Tile';
 
-const PropertyExtension = ({ goToSlide, updateAppData, updateCustomerData }) => {
+const BuildingType = ({ goToSlide, updateAppData, updateCustomerData }) => {
   const onTileClick = (nextSlideNumber, nextTitle, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
     updateAppData({ title: nextTitle, totalSteps, currentStep });
@@ -20,48 +20,48 @@ const PropertyExtension = ({ goToSlide, updateAppData, updateCustomerData }) => 
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(4, 'Angaben zu Ihrem Haus', 4, 8, {
-              key: 'propertyExtension',
-              value: 'Balkon',
+            onTileClick(6, 'Ist das Grundstück bebaubar?', 6, 8, {
+              key: 'buildingType',
+              value: 'Kurzfristig bebaubar',
             })
           }
-          title={'Balkon'}
-          iconName="icon icon--balkon"
+          title={'Kurzfristig bebaubar'}
+          iconName="icon icon--bebaubar-kurzfristig"
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(4, 'Angaben zu Ihrem Haus', 4, 8, {
-              key: 'propertyExtension',
-              value: 'Terrasse',
+            onTileClick(6, 'Ist das Grundstück bebaubar?', 6, 8, {
+              key: 'buildingType',
+              value: 'Eingeschränkt',
             })
           }
-          title={'Terrasse'}
-          iconName="icon icon--Terrasse "
+          title={'Eingeschränkt'}
+          iconName="icon icon--bebaubar-eingeschraenkt"
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(4, 'Angaben zu Ihrem Haus', 4, 8, {
-              key: 'propertyExtension',
-              value: 'Balkon & Terrasse',
+            onTileClick(6, 'Ist das Grundstück bebaubar?', 6, 8, {
+              key: 'buildingType',
+              value: 'Nicht bebaubar',
             })
           }
-          title={'Balkon & Terrasse'}
-          iconName="icon icon--balkonTerrasse"
+          title={'Nicht bebaubar'}
+          iconName="icon icon--bebaubar-nicht"
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(4, 'Angaben zu Ihrem Haus', 4, 8, {
-              key: 'propertyExtension',
-              value: 'Weder noch',
+            onTileClick(6, 'Ist das Grundstück bebaubar?', 6, 8, {
+              key: 'buildingType',
+              value: 'Unbekannt',
             })
           }
-          title={'Weder noch'}
-          iconName="icon icon--keinbalkonTerrasse"
+          title={'Unbekannt'}
+          iconName="icon icon--bebaubar-unbekannt"
         />
       </div>
 
       <ProgressBar />
-      <Footer handlePrevClick={() => goToSlide(2)} handleNextClick={() => goToSlide(4)} />
+      <Footer handlePrevClick={() => goToSlide(4)} handleNextClick={() => goToSlide(6)} />
     </div>
   );
 };
@@ -69,4 +69,4 @@ const PropertyExtension = ({ goToSlide, updateAppData, updateCustomerData }) => 
 export default connect(
   null,
   { updateAppData, updateCustomerData }
-)(PropertyExtension);
+)(BuildingType);

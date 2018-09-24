@@ -13,11 +13,11 @@
   transition: all 0.1s ease-in-out; }
   .tile:hover {
     border: 3px solid #33a723; }
+  .tile:hover .tile__title {
+    color: #2780ba; }
   .tile:nth-child(4) {
     margin-right: 0; }
   .tile__title {
     font-size: 14px;
     font-weight: 700;
     padding: 20px 5px 10px 5px; }
-    .tile__title:hover {
-      color: #2780ba; }
