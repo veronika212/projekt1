@@ -11,8 +11,8 @@ body {
   font-family: 'Signika Negative', Helvetica, Arial, sans-serif; }
 
 .app {
-  max-width: 1000px;
-  max-height: 500px;
+  max-width: 868px;
+  max-height: 380px;
   margin: auto;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -99,11 +99,22 @@ body {
     background-position: 0 -540px; }
   .icon.icon--hotel {
     background-position: 0 -4680px; }
+  .icon.icon--at {
+    background-position: 0 -3150px;
+    margin-left: 45px;
+    margin-right: 45px;
+    width: 142px; }
+
+.star {
+  color: #ff7171;
+  margin-left: 3px;
+  font-weight: 100; }
 
 .tiles-wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 15px 40px 0px 40px; }
+  padding: 15px 40px 0px 40px;
+  max-height: 230px; }
 
 .tile-wrapper--modifier {
   justify-content: center; }

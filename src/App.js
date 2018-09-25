@@ -11,7 +11,7 @@ import LandType from './slides/LandType';
 import BuildingType from './slides/BuildingType';
 import BusinessType from './slides/BusinessType';
 import ThankYouPage from './slides/ThankYouPage';
-import Region from './slides/Region';
+import RegionForm from './slides/RegionForm';
 
 import './App.css';
 
@@ -44,7 +44,7 @@ class App extends Component {
           <LandType goToSlide={this.goToSlide} />
           <BuildingType goToSlide={this.goToSlide} />
           <BusinessType goToSlide={this.goToSlide} />
-          <Region />
+          <RegionForm />
           <ThankYouPage />
           <div>
             <p>Slide 4</p>

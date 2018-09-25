@@ -1,9 +1,10 @@
 import React from 'react';
 import Button from '../Button/Button';
+import RequiredExplanation from '../RequiredExplanation/RequiredExplanation';
 
 import './Footer.css';
 
-const Footer = ({ handlePrevClick, handleNextClick, prevDisabled, nextDisabled }) => {
+const Footer = ({ handlePrevClick, handleNextClick, prevDisabled, nextDisabled, className }) => {
   return (
     <footer className="footer">
       <Button
@@ -13,11 +14,12 @@ const Footer = ({ handlePrevClick, handleNextClick, prevDisabled, nextDisabled }
         className="footer__btn-prev"
       />
 
-      <p className="footer__subtitle">Subtitle</p>
+      <RequiredExplanation className={className} />
 
       <Button
         disabled={nextDisabled}
         onClick={() => handleNextClick()}
+        type={'submit'}
         label={'Weiter'}
         className="footer__btn-next"
       />
