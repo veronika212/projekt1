@@ -43,6 +43,8 @@ body {
   display: inline-block;
   width: 90px;
   height: 91px; }
+  .icon.slider-image {
+    margin-left: 5%; }
   .icon.icon--wohnung {
     background-position: 0 0; }
   .icon.icon--haus {
@@ -104,6 +106,20 @@ body {
     margin-left: 45px;
     margin-right: 45px;
     width: 142px; }
+  .icon.icon--nettomiete {
+    background-position: 0 -3240px; }
+  .icon.icon--wohnflaeche {
+    background-position: 0 -2970px;
+    width: 140px; }
+  .icon.icon--grundstuecksgroesse {
+    background-position: 0 -1170px;
+    width: 130px; }
+  .icon.icon--baujahr {
+    background-position: 0 -3060px;
+    width: 140px; }
+  .icon.icon--gewerbeflaeche {
+    background-position: 0 -4770px;
+    width: 140px; }
 
 .star {
   color: #ff7171;
@@ -114,7 +130,20 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 15px 40px 0px 40px;
-  max-height: 230px; }
+  max-height: 230px;
+  min-height: 130px; }
 
 .tile-wrapper--modifier {
   justify-content: center; }
+
+.title-wrapper-height {
+  height: 155px; }
+
+.slider__flex-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start; }
+
+.visibility {
+  display: none; }

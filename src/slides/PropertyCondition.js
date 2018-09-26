@@ -20,7 +20,7 @@ const PropertyCondition = ({ goToSlide, updateAppData, updateCustomerData }) => 
       <div className="tiles-wrapper tile-wrapper--modifier">
         <Tile
           handleOnClick={() =>
-            onTileClick(3, 'Gibt es einen Balkon oder eine Terrasse?', 3, 8, {
+            onTileClick(10, 'Gibt es einen Balkon oder eine Terrasse?', 6, 20, {
               key: 'propertyCondition',
               value: 'Renovierungs­bedürftig',
             })
@@ -31,7 +31,7 @@ const PropertyCondition = ({ goToSlide, updateAppData, updateCustomerData }) => 
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(3, 'Gibt es einen Balkon oder eine Terrasse?', 3, 8, {
+            onTileClick(10, 'Gibt es einen Balkon oder eine Terrasse?', 6, 20, {
               key: 'propertyCondition',
               value: 'Gepflegt',
             })
@@ -42,7 +42,7 @@ const PropertyCondition = ({ goToSlide, updateAppData, updateCustomerData }) => 
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(3, 'Gibt es einen Balkon oder eine Terrasse?', 3, 8, {
+            onTileClick(10, 'Gibt es einen Balkon oder eine Terrasse?', 6, 20, {
               key: 'propertyCondition',
               value: 'Neuwertig',
             })
@@ -53,7 +53,11 @@ const PropertyCondition = ({ goToSlide, updateAppData, updateCustomerData }) => 
         />
       </div>
       <ProgressBar />
-      <Footer handlePrevClick={() => goToSlide(1)} handleNextClick={() => goToSlide(3)} />
+      <Footer
+        handlePrevClick={() => goToSlide(8)}
+        handleNextClick={() => goToSlide(10)}
+        nextDisabled={true}
+      />
     </div>
   );
 };

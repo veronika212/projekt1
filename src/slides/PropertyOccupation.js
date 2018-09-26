@@ -20,7 +20,7 @@ const PropertyOccupation = ({ goToSlide, updateAppData, updateCustomerData }) =>
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(2, 'In welchem Zustand befindet sich die Immobilie?', 3, 8, {
+            onTileClick(6, 'Welche Wohnfläche besitzt das Objekt?', 3, 20, {
               key: 'propertyOccupation',
               value: 'Selbst bewohnt',
             })
@@ -30,7 +30,7 @@ const PropertyOccupation = ({ goToSlide, updateAppData, updateCustomerData }) =>
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(2, 'In welchem Zustand befindet sich die Immobilie?', 3, 8, {
+            onTileClick(6, 'In welchem Zustand befindet sich die Immobilie?', 3, 20, {
               key: 'propertyOccupation',
               value: 'Frei',
             })
@@ -40,7 +40,7 @@ const PropertyOccupation = ({ goToSlide, updateAppData, updateCustomerData }) =>
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(2, 'In welchem Zustand befindet sich die Immobilie?', 3, 8, {
+            onTileClick(7, 'Wie hoch ist die Nettojahresmiete des Objekts?', 3, 20, {
               key: 'propertyOccupation',
               value: 'Vermietet',
             })
@@ -50,18 +50,22 @@ const PropertyOccupation = ({ goToSlide, updateAppData, updateCustomerData }) =>
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(2, 'In welchem Zustand befindet sich die Immobilie?', 3, 8, {
+            onTileClick(7, 'Wie hoch ist die Nettojahresmiete des Objekts?', 3, 20, {
               key: 'propertyOccupation',
-              value: 'Selbst bewohnt',
+              value: 'Teilweise vermietet',
             })
           }
-          title={'Selbst bewohnt'}
+          title={'Teilweise vermietet'}
           iconName="icon icon--status-teilweise"
         />
       </div>
 
       <ProgressBar />
-      <Footer handlePrevClick={() => goToSlide(0)} handleNextClick={() => goToSlide(2)} />
+      <Footer
+        handlePrevClick={() => goToSlide(0)}
+        handleNextClick={() => goToSlide(7)}
+        nextDisabled={true}
+      />
     </div>
   );
 };

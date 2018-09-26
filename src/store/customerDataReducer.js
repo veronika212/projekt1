@@ -27,6 +27,8 @@ const defaultState = {
   landType: '',
   buildingType: '',
   businessType: '',
+  propertyArea: 0,
+  landArea: 0,
   area: 0,
   year: 0,
   address: {

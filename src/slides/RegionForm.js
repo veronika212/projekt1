@@ -1,22 +1,17 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
 
-import { createRegionData } from '../store/customerDataReducer';
+import { createRegionData, updateCustomerData } from '../store/customerDataReducer';
 import { updateAppData } from '../store/appReducer';
 import Footer from '../components/common/Footer/Footer';
 import ProgressBar from '../components/common/ProgressBar/ProgressBar';
-
+import { required, number, zip, renderField } from '../utils/formUtils';
 import './RegionForm.css';
 
+const selector = formValueSelector('RegionForm');
+
 class RegionForm extends Component {
-  state = {
-    address: {
-      streetAndNumber: '',
-      zipCode: '',
-      place: '',
-    },
-  };
   onSubmit = (values, nextTitle, totalSteps, currentStep, nextSliderNumber) => {
     this.props.createRegionData(values);
     console.log(createRegionData, 'values');
@@ -24,63 +19,64 @@ class RegionForm extends Component {
     this.props.goToSlide(nextSliderNumber);
   };
 
+  handleNextClick = () => {
+    const { valid, updateCustomerData, streetNumber, zipCode, place, goToSlide } = this.props;
+    if (valid) {
+      updateCustomerData({
+        key: 'address',
+        value: {
+          streetAndNumber: streetNumber,
+          zipCode: zipCode,
+          place: place,
+        },
+      });
+      goToSlide(12);
+    }
+  };
+
   render() {
+    console.log(this.props);
     const { handleSubmit } = this.props;
     return (
       <div>
         <div className="region">
           <span className="icon icon--at" />
-
           <form onSubmit={handleSubmit(this.onSubmit)} className="region-form">
-            <div className="item">
-              <label className="item__name">Straße & Nr.</label>
-              <div className="item__field">
-                <Field
-                  name="address.streetAndNumber"
-                  component="input"
-                  type="text"
-                  placeholder="Straße / Nr."
-                  className="item__input"
-                />
-              </div>
-            </div>
+            <Field
+              name="address.streetAndNumber"
+              component={renderField}
+              type="text"
+              placeholder="Straße / Nr."
+              className="item__input"
+              validate={[required]}
+              label="Straße & Nr."
+            />
 
-            <div className="item">
-              <label className="item__name">
-                PLZ <span className="star">*</span>
-              </label>
-              <div className="item__field">
-                <Field
-                  name="addresss.zipCode"
-                  component="input"
-                  type="text"
-                  placeholder="Postleitzahl"
-                  className="item__input"
-                />
-              </div>
-            </div>
+            <Field
+              name="addresss.zipCode"
+              component={renderField}
+              type="text"
+              placeholder="Postleitzahl"
+              className="item__input"
+              validate={[required, number, zip]}
+              label="PLZ"
+            />
 
-            <div className="item">
-              <label className="item__name">
-                Ort
-                <span className="star">*</span>
-              </label>
-              <div className="item__field">
-                <Field
-                  name="addresss.place"
-                  component="input"
-                  type="text"
-                  placeholder="Standort"
-                  className="item__input"
-                />
-              </div>
-            </div>
+            <Field
+              name="addresss.place"
+              component={renderField}
+              type="text"
+              placeholder="Standort"
+              className="item__input"
+              validate={[required]}
+              label="Ort"
+            />
           </form>
         </div>
         <ProgressBar />
         <Footer
-          handlePrevClick={() => this.goToSlide(3)}
-          handleNextClick={() => this.goToSlide(5)}
+          handlePrevClick={() => this.props.goToSlide(10)}
+          handleNextClick={this.handleNextClick}
           type={'submit'}
           className="required-explanation"
         />
@@ -94,6 +90,10 @@ RegionForm = reduxForm({
 })(RegionForm);
 
 export default connect(
-  null,
-  { createRegionData, updateAppData }
+  state => ({
+    streetNumber: selector(state, 'address.streetAndNumber'),
+    zipCode: selector(state, 'addresss.zipCode'),
+    place: selector(state, 'addresss.place'),
+  }),
+  { createRegionData, updateAppData, updateCustomerData }
 )(RegionForm);

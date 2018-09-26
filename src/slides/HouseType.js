@@ -20,7 +20,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData }) => {
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(5, 'Angaben zu Ihrem Grundstück', 5, 8, {
+            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 3, 20, {
               key: 'houseType',
               value: 'Einfamilienhaus',
             })
@@ -30,7 +30,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData }) => {
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(5, 'Angaben zu Ihrem Grundstück', 5, 8, {
+            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 3, 20, {
               key: 'houseType',
               value: 'Mehrfamilien­haus',
             })
@@ -40,7 +40,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData }) => {
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(5, 'Angaben zu Ihrem Grundstück', 5, 8, {
+            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 3, 20, {
               key: 'houseType',
               value: 'Reihenhaus',
             })
@@ -50,7 +50,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData }) => {
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(5, 'Angaben zu Ihrem Grundstück', 5, 8, {
+            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 3, 20, {
               key: 'houseType',
               value: 'Doppelhaushälfte',
             })
@@ -61,7 +61,11 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData }) => {
       </div>
 
       <ProgressBar />
-      <Footer handlePrevClick={() => goToSlide(3)} handleNextClick={() => goToSlide(5)} />
+      <Footer
+        handlePrevClick={() => goToSlide(0)}
+        handleNextClick={() => goToSlide(2)}
+        nextDisabled={true}
+      />
     </div>
   );
 };

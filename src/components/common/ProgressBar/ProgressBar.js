@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import './ProgressBar.css';
+import "./ProgressBar.css";
 
 class ProgressBar extends Component {
   render() {
@@ -10,7 +10,9 @@ class ProgressBar extends Component {
       return null;
     }
 
-    const progressBarWidth = Math.round((app.currentStep / app.totalSteps) * 100);
+    const progressBarWidth = Math.round(
+      (app.currentStep / app.totalSteps) * 100
+    );
     return (
       <div className="progress">
         <div className="progress-bar" style={{ width: `${progressBarWidth}%` }}>
@@ -23,7 +25,7 @@ class ProgressBar extends Component {
 
 const mapStateToProps = store => {
   return {
-    app: store.app,
+    app: store.app
   };
 };
 

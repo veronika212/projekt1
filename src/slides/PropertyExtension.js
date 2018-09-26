@@ -20,7 +20,7 @@ const PropertyExtension = ({ goToSlide, updateAppData, updateCustomerData }) => 
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(4, 'Angaben zu Ihrem Haus', 4, 8, {
+            onTileClick(11, 'In welcher Region befindet sich das Objekt?', 8, 20, {
               key: 'propertyExtension',
               value: 'Balkon',
             })
@@ -30,7 +30,7 @@ const PropertyExtension = ({ goToSlide, updateAppData, updateCustomerData }) => 
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(4, 'Angaben zu Ihrem Haus', 4, 8, {
+            onTileClick(11, 'In welcher Region befindet sich das Objekt?', 8, 20, {
               key: 'propertyExtension',
               value: 'Terrasse',
             })
@@ -40,7 +40,7 @@ const PropertyExtension = ({ goToSlide, updateAppData, updateCustomerData }) => 
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(4, 'Angaben zu Ihrem Haus', 4, 8, {
+            onTileClick(11, 'In welcher Region befindet sich das Objekt?', 8, 20, {
               key: 'propertyExtension',
               value: 'Balkon & Terrasse',
             })
@@ -50,7 +50,7 @@ const PropertyExtension = ({ goToSlide, updateAppData, updateCustomerData }) => 
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(4, 'Angaben zu Ihrem Haus', 4, 8, {
+            onTileClick(11, 'In welcher Region befindet sich das Objekt?', 8, 20, {
               key: 'propertyExtension',
               value: 'Weder noch',
             })
@@ -61,7 +61,11 @@ const PropertyExtension = ({ goToSlide, updateAppData, updateCustomerData }) => 
       </div>
 
       <ProgressBar />
-      <Footer handlePrevClick={() => goToSlide(2)} handleNextClick={() => goToSlide(4)} />
+      <Footer
+        handlePrevClick={() => goToSlide(9)}
+        handleNextClick={() => goToSlide(11)}
+        nextDisabled={true}
+      />
     </div>
   );
 };

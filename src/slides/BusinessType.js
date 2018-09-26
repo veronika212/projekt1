@@ -20,7 +20,7 @@ const BusinessType = ({ goToSlide, updateAppData, updateCustomerData }) => {
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(8, 'Welcher Nutzungsstatus liegt vor?', 8, 8, {
+            onTileClick(1, 'Welcher Nutzungsstatus liegt vor?', 3, 20, {
               key: 'businessType',
               value: 'Büro',
             })
@@ -30,7 +30,7 @@ const BusinessType = ({ goToSlide, updateAppData, updateCustomerData }) => {
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(6, 'Welcher Nutzungsstatus liegt vor?', 6, 8, {
+            onTileClick(1, 'Welcher Nutzungsstatus liegt vor?', 3, 20, {
               key: 'businessType',
               value: 'Gastgewerbe',
             })
@@ -40,7 +40,7 @@ const BusinessType = ({ goToSlide, updateAppData, updateCustomerData }) => {
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(6, 'Welcher Nutzungsstatus liegt vor?', 6, 8, {
+            onTileClick(1, 'Welcher Nutzungsstatus liegt vor?', 3, 20, {
               key: 'businessType',
               value: 'Fabrik / Produktion',
             })
@@ -50,7 +50,7 @@ const BusinessType = ({ goToSlide, updateAppData, updateCustomerData }) => {
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(6, 'Welcher Nutzungsstatus liegt vor?', 6, 8, {
+            onTileClick(1, 'Welcher Nutzungsstatus liegt vor?', 3, 30, {
               key: 'businessType',
               value: 'Hotel',
             })
@@ -61,7 +61,7 @@ const BusinessType = ({ goToSlide, updateAppData, updateCustomerData }) => {
       </div>
 
       <ProgressBar />
-      <Footer handlePrevClick={() => goToSlide(4)} handleNextClick={() => goToSlide(6)} />
+      <Footer handlePrevClick={() => goToSlide(0)} handleNextClick={() => goToSlide(1)} />
     </div>
   );
 };

@@ -20,7 +20,7 @@ const LandType = ({ goToSlide, updateAppData, updateCustomerData }) => {
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(7, 'Ist das Grundstück bebaubar?', 7, 8, {
+            onTileClick(5, 'Ist das Grundstück bebaubar?', 3, 20, {
               key: 'landType',
               value: 'Baugrundstück',
             })
@@ -30,7 +30,7 @@ const LandType = ({ goToSlide, updateAppData, updateCustomerData }) => {
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(7, 'Ist das Grundstück bebaubar?', 7, 8, {
+            onTileClick(5, 'Ist das Grundstück bebaubar?', 3, 20, {
               key: 'landType',
               value: 'Bauerwartungs­land',
             })
@@ -40,7 +40,7 @@ const LandType = ({ goToSlide, updateAppData, updateCustomerData }) => {
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(7, 'Ist das Grundstück bebaubar?', 7, 8, {
+            onTileClick(5, 'Ist das Grundstück bebaubar?', 3, 20, {
               key: 'landType',
               value: 'Gewerbe­grundstück',
             })
@@ -50,7 +50,7 @@ const LandType = ({ goToSlide, updateAppData, updateCustomerData }) => {
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(7, 'Ist das Grundstück bebaubar?', 7, 8, {
+            onTileClick(5, 'Ist das Grundstück bebaubar?', 3, 20, {
               key: 'landType',
               value: 'Agrarfläche',
             })
@@ -61,7 +61,7 @@ const LandType = ({ goToSlide, updateAppData, updateCustomerData }) => {
       </div>
 
       <ProgressBar />
-      <Footer handlePrevClick={() => goToSlide(5)} handleNextClick={() => goToSlide(7)} />
+      <Footer handlePrevClick={() => goToSlide(0)} handleNextClick={() => goToSlide(5)} />
     </div>
   );
 };

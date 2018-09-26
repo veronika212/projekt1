@@ -18,7 +18,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData }) => {
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 2, 8, {
+            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 2, 20, {
               key: 'propertyType',
               value: 'Wohnung',
             })
@@ -28,7 +28,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData }) => {
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 2, 8, {
+            onTileClick(2, 'Angaben zu Ihrem Haus', 2, 20, {
               key: 'propertyType',
               value: 'Haus',
             })
@@ -38,7 +38,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData }) => {
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 2, 8, {
+            onTileClick(3, 'Angaben zu Ihrem Grundstück', 2, 20, {
               key: 'propertyType',
               value: 'Grundstück',
             })
@@ -48,7 +48,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData }) => {
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 2, 8, {
+            onTileClick(4, 'Angaben zu Ihrer Gewerbeimmobilie', 2, 20, {
               key: 'propertyType',
               value: 'Gewerbe',
             })
@@ -60,7 +60,11 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData }) => {
 
       <ProgressBar />
       {/* progressBarValue={{ width: '10%' }} */}
-      <Footer handlePrevClick={() => goToSlide(0)} handleNextClick={() => goToSlide(1)} />
+      <Footer
+        handlePrevClick={() => goToSlide(0)}
+        handleNextClick={() => goToSlide(1)}
+        className="visibility"
+      />
     </div>
   );
 };

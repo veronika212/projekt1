@@ -12,6 +12,11 @@ import BuildingType from './slides/BuildingType';
 import BusinessType from './slides/BusinessType';
 import ThankYouPage from './slides/ThankYouPage';
 import RegionForm from './slides/RegionForm';
+import PropetyPrice from './slides/PropertyPrice';
+import PropertyArea from './slides/PropertyArea';
+import LendArea from './slides/LandArea';
+import BuildYear from './slides/BuildYear';
+import ShopArea from './slides/ShopArea';
 
 import './App.css';
 
@@ -38,14 +43,20 @@ class App extends Component {
         <Slider {...settings} ref={slider => (this.mainSlider = slider)}>
           <PropertyType goToSlide={this.goToSlide} />
           <PropertyOccupation goToSlide={this.goToSlide} />
-          <PropertyCondition goToSlide={this.goToSlide} />
-          <PropertyExtension goToSlide={this.goToSlide} />
           <HouseType goToSlide={this.goToSlide} />
           <LandType goToSlide={this.goToSlide} />
-          <BuildingType goToSlide={this.goToSlide} />
           <BusinessType goToSlide={this.goToSlide} />
-          <RegionForm />
+          <BuildingType goToSlide={this.goToSlide} />
+          <PropertyArea goToSlide={this.goToSlide} />
+          <PropetyPrice goToSlide={this.goToSlide} />
+          <BuildYear goToSlide={this.goToSlide} />
+          <PropertyCondition goToSlide={this.goToSlide} />
+          <PropertyExtension goToSlide={this.goToSlide} />
+          <RegionForm goToSlide={this.goToSlide} />
+          <LendArea goToSlide={this.goToSlide} />
+          <ShopArea goToSlide={this.goToSlide} />
           <ThankYouPage />
+
           <div>
             <p>Slide 4</p>
           </div>
