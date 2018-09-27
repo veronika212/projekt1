@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { updateAppData } from '../store/appReducer';
+import { updateAppData, beforeAppData } from '../store/appReducer';
 import { updateCustomerData } from '../store/customerDataReducer';
 import ReactSlider from '../components/common/ReactSlider/ReactSlider';
 import ProgressBar from '../components/common/ProgressBar/ProgressBar';
@@ -27,8 +27,14 @@ class PropertyArea extends Component {
     } = this.props;
 
     updateCustomerData({ key: 'propertyArea', value: this.state.value });
-    updateAppData({ title: 'Wann wurde die Immobilie gebaut?', totalSteps: 10, currentStep: 8 });
+    updateAppData({ title: 'Wann wurde die Immobilie gebaut?', totalSteps: 20, currentStep: 3 });
     goToSlide(slideNumber);
+  };
+
+  handlePrevClick = slideNumber => {
+    const { beforeAppData, goToSlide } = this.props;
+    goToSlide(slideNumber);
+    beforeAppData({ title: 'Welcher Wohnstatus liegt vor?', totalSteps: 20, currentStep: 2 });
   };
 
   render() {
@@ -63,7 +69,7 @@ class PropertyArea extends Component {
 
         <ProgressBar />
         <Footer
-          handlePrevClick={() => goToSlide(4)}
+          handlePrevClick={() => this.handlePrevClick(1)}
           handleNextClick={() => this.handleNextClick(8)}
         />
       </div>
@@ -72,5 +78,5 @@ class PropertyArea extends Component {
 }
 export default connect(
   null,
-  { updateAppData, updateCustomerData }
+  { updateAppData, updateCustomerData, beforeAppData }
 )(PropertyArea);

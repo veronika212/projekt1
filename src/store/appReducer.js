@@ -1,11 +1,19 @@
 //action type
 const UPDATE_APP_DATA = 'UPDATE_APP_DATA';
 const UPDATE_APP_STATE = 'UPDATE_APP_STATE';
+const BEFORE_APP_DATA = 'BEFORE_APP_DATA';
 
 // action creator
 export const updateAppData = payload => {
   return {
     type: UPDATE_APP_DATA,
+    payload,
+  };
+};
+
+export const beforeAppData = payload => {
+  return {
+    type: BEFORE_APP_DATA,
     payload,
   };
 };
@@ -24,6 +32,11 @@ export const appReducer = (state = defaultState, action) => {
         ...state,
       };
     case UPDATE_APP_DATA:
+      return {
+        ...state,
+        ...action.payload,
+      };
+    case BEFORE_APP_DATA:
       return {
         ...state,
         ...action.payload,

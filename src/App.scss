@@ -3,19 +3,6 @@
 }
 
 body {
-  // max-width: 1000px;
-  // max-height: 500px;
-  // text-align: center;
-  // font-size: 15px;
-  // line-height: 1.46667;
-  // color: #6a6a6a;
-  // background-color: #fff;
-  // font-weight: 300;
-  // font-family: 'Signika Negative', Helvetica, Arial, sans-serif;
-  // border: 1px solid #ddd;
-  // border-radius: 4px;
-  // box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-
   font-size: 15px;
   line-height: 1.46667;
   text-align: center;
@@ -214,4 +201,8 @@ body {
 
 .visibility {
   display: none;
+}
+
+.progressBar-width {
+  width: 10%;
 }

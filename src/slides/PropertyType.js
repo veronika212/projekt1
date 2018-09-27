@@ -58,8 +58,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData }) => {
         />
       </div>
 
-      <ProgressBar />
-      {/* progressBarValue={{ width: '10%' }} */}
+      <ProgressBar className="progressBar-width " />
       <Footer
         handlePrevClick={() => goToSlide(0)}
         handleNextClick={() => goToSlide(1)}

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { updateAppData } from '../store/appReducer';
+import { updateAppData, beforeAppData } from '../store/appReducer';
 import { updateCustomerData } from '../store/customerDataReducer';
 
 import Footer from '../components/common/Footer/Footer';
@@ -9,12 +9,18 @@ import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 
 import Tile from '../components/common/Tile/Tile';
 
-const BuildingType = ({ goToSlide, updateAppData, updateCustomerData }) => {
+const BuildingType = ({ goToSlide, updateAppData, updateCustomerData, beforeAppData }) => {
   const onTileClick = (nextSlideNumber, nextTitle, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
     updateAppData({ title: nextTitle, totalSteps, currentStep });
     updateCustomerData(data);
   };
+
+  const handlePrevClick = (beforeTitle, currentStep, totalSteps) => {
+    goToSlide(4);
+    beforeAppData({ title: beforeTitle, totalSteps, currentStep });
+  };
+
   return (
     <div>
       <div className="tiles-wrapper">
@@ -61,12 +67,15 @@ const BuildingType = ({ goToSlide, updateAppData, updateCustomerData }) => {
       </div>
 
       <ProgressBar />
-      <Footer handlePrevClick={() => goToSlide(4)} handleNextClick={() => goToSlide(6)} />
+      <Footer
+        handlePrevClick={() => handlePrevClick('BlaBlaBLa', 5, 20)}
+        handleNextClick={() => goToSlide(6)}
+      />
     </div>
   );
 };
 
 export default connect(
   null,
-  { updateAppData, updateCustomerData }
+  { updateAppData, updateCustomerData, beforeAppData }
 )(BuildingType);

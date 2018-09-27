@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { updateAppData } from '../store/appReducer';
+import { updateAppData, beforeAppData } from '../store/appReducer';
 import { updateCustomerData } from '../store/customerDataReducer';
 
 import Footer from '../components/common/Footer/Footer';
@@ -9,12 +9,18 @@ import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 
 import Tile from '../components/common/Tile/Tile';
 
-const PropertyOccupation = ({ goToSlide, updateAppData, updateCustomerData }) => {
+const PropertyOccupation = ({ goToSlide, updateAppData, updateCustomerData, beforeAppData }) => {
   const onTileClick = (nextSlideNumber, nextTitle, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
     updateAppData({ title: nextTitle, totalSteps, currentStep });
     updateCustomerData(data);
   };
+
+  const handlePrevClick = (beforeTitle, currentStep, totalSteps) => {
+    goToSlide(0);
+    beforeAppData({ title: beforeTitle, totalSteps, currentStep });
+  };
+
   return (
     <div>
       <div className="tiles-wrapper">
@@ -62,7 +68,7 @@ const PropertyOccupation = ({ goToSlide, updateAppData, updateCustomerData }) =>
 
       <ProgressBar />
       <Footer
-        handlePrevClick={() => goToSlide(0)}
+        handlePrevClick={() => handlePrevClick('Angaben zur Immobilie', 2, 20)}
         handleNextClick={() => goToSlide(7)}
         nextDisabled={true}
       />
@@ -72,5 +78,5 @@ const PropertyOccupation = ({ goToSlide, updateAppData, updateCustomerData }) =>
 
 export default connect(
   null,
-  { updateAppData, updateCustomerData }
+  { updateAppData, updateCustomerData, beforeAppData }
 )(PropertyOccupation);

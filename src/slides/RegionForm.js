@@ -92,8 +92,8 @@ RegionForm = reduxForm({
 export default connect(
   state => ({
     streetNumber: selector(state, 'address.streetAndNumber'),
-    zipCode: selector(state, 'addresss.zipCode'),
-    place: selector(state, 'addresss.place'),
+    zipCode: selector(state, 'address.zipCode'),
+    place: selector(state, 'address.place'),
   }),
   { createRegionData, updateAppData, updateCustomerData }
 )(RegionForm);

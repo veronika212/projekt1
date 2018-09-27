@@ -147,3 +147,6 @@ body {
 
 .visibility {
   display: none; }
+
+.progressBar-width {
+  width: 10%; }

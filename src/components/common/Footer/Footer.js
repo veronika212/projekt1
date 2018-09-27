@@ -11,7 +11,6 @@ const Footer = ({ handlePrevClick, handleNextClick, prevDisabled, nextDisabled, 
         disabled={prevDisabled}
         onClick={() => handlePrevClick()}
         label={'Zurück'}
-        // className="footer__btn-prev"
         className={`footer__btn-prev ${className}`}
       />
 
