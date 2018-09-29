@@ -11,9 +11,11 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.1s ease-in-out; }
-  .tile:hover {
+  .tile:hover, .tile.active {
     border: 3px solid #33a723; }
   .tile:hover .tile__title {
+    color: #2780ba; }
+  .tile.active .tile_title {
     color: #2780ba; }
   .tile:nth-child(4) {
     margin-right: 0; }

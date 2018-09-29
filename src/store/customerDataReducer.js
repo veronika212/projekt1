@@ -1,6 +1,7 @@
 //action type
 const UPDATE_CUSTOMER_DATA = 'UPDATE_CUSTOMER_DATA';
 const CREATE_REGION_DATA = 'CREATE_REGION_DATA';
+const CREATE_CONTACT_DATA = 'CREATE_CONTACT_DATA';
 
 //action creator
 export const updateCustomerData = payload => {
@@ -13,6 +14,13 @@ export const updateCustomerData = payload => {
 export const createRegionData = values => {
   return {
     type: CREATE_REGION_DATA,
+    payload: values,
+  };
+};
+
+export const createContactData = values => {
+  return {
+    type: CREATE_CONTACT_DATA,
     payload: values,
   };
 };
@@ -36,6 +44,14 @@ const defaultState = {
     zipCode: '',
     place: '',
   },
+  contact: {
+    solutation: '',
+    firstName: '',
+    lastName: '',
+    mail: '',
+    preset: '',
+    phone: 0,
+  },
 };
 
 export const customerDataReducer = (state = defaultState, action) => {
@@ -50,3 +66,5 @@ export const customerDataReducer = (state = defaultState, action) => {
       return state;
   }
 };
+
+export const selectCustomerDataItem = (state, key) => state.customerData[key];

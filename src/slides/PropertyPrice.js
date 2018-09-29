@@ -49,16 +49,16 @@ class PropertyPrice extends Component {
           </div>
         </div>
 
-        <div class="input-group slider-input">
-          <span class="input-group-addon">Nettojahresmiete</span>
+        <div className="input-group slider-input">
+          <span className="input-group-addon">Nettojahresmiete</span>
           <input
             type="number"
             value={this.state.value}
-            class="form-control output range-control-output"
+            className="form-control output range-control-output"
             name="formdata[net_year_rent__c]"
             onChange={e => this.setState({ value: Number(e.target.value) })}
           />
-          <span class="input-group-addon">€</span>
+          <span className="input-group-addon">€</span>
         </div>
 
         <ProgressBar />

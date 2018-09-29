@@ -17,6 +17,7 @@ import PropertyArea from './slides/PropertyArea';
 import LendArea from './slides/LandArea';
 import BuildYear from './slides/BuildYear';
 import ShopArea from './slides/ShopArea';
+import ContactForm from './slides/ContactForm';
 
 import './App.css';
 
@@ -55,6 +56,7 @@ class App extends Component {
           <RegionForm goToSlide={this.goToSlide} />
           <LendArea goToSlide={this.goToSlide} />
           <ShopArea goToSlide={this.goToSlide} />
+          <ContactForm goToSlide={this.goToSlide} />
           <ThankYouPage />
 
           <div>

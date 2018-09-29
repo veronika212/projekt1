@@ -4,24 +4,42 @@ import RequiredExplanation from '../RequiredExplanation/RequiredExplanation';
 
 import './Footer.css';
 
-const Footer = ({ handlePrevClick, handleNextClick, prevDisabled, nextDisabled, className }) => {
+const Footer = ({
+  handlePrevClick,
+  handleNextClick,
+  prevDisabled,
+  nextDisabled,
+  className,
+  glyphPrevBefore,
+  glyphPrevAfter,
+  glyphNextBefore,
+  glyphNextAfter,
+}) => {
   return (
     <footer className="footer">
       <Button
         disabled={prevDisabled}
-        onClick={() => handlePrevClick()}
+        onClick={() => {
+          !prevDisabled && handlePrevClick();
+        }}
         label={'Zurück'}
         className={`footer__btn-prev ${className}`}
+        glyphBefore={glyphPrevBefore}
+        glyphAfter={glyphPrevAfter}
       />
 
       <RequiredExplanation className={className} />
 
       <Button
         disabled={nextDisabled}
-        onClick={() => handleNextClick()}
+        onClick={() => {
+          !nextDisabled && handleNextClick();
+        }}
         type={'submit'}
         label={'Weiter'}
-        className="footer__btn-next"
+        className={`footer__btn-next ${nextDisabled ? null : 'active'}`}
+        glyphBefore={glyphNextBefore}
+        glyphAfter={glyphNextAfter}
       />
     </footer>
   );

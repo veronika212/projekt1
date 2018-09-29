@@ -2,14 +2,20 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { updateAppData, beforeAppData } from '../store/appReducer';
-import { updateCustomerData } from '../store/customerDataReducer';
+import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
 
 import Footer from '../components/common/Footer/Footer';
 import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 
 import Tile from '../components/common/Tile/Tile';
 
-const PropertyOccupation = ({ goToSlide, updateAppData, updateCustomerData, beforeAppData }) => {
+const PropertyOccupation = ({
+  goToSlide,
+  updateAppData,
+  updateCustomerData,
+  beforeAppData,
+  selectedState,
+}) => {
   const onTileClick = (nextSlideNumber, nextTitle, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
     updateAppData({ title: nextTitle, totalSteps, currentStep });
@@ -33,6 +39,7 @@ const PropertyOccupation = ({ goToSlide, updateAppData, updateCustomerData, befo
           }
           title={'Selbst bewohnt'}
           iconName="icon icon--status-selbst"
+          selected={selectedState === 'Selbst bewohnt' ? true : false}
         />
         <Tile
           handleOnClick={() =>
@@ -43,6 +50,7 @@ const PropertyOccupation = ({ goToSlide, updateAppData, updateCustomerData, befo
           }
           title={'Frei'}
           iconName="icon icon--status-frei"
+          selected={selectedState === 'Frei' ? true : false}
         />
         <Tile
           handleOnClick={() =>
@@ -53,6 +61,7 @@ const PropertyOccupation = ({ goToSlide, updateAppData, updateCustomerData, befo
           }
           title={'Vermietet'}
           iconName="icon icon--status-vermietet"
+          selected={selectedState === 'Vermietet' ? true : false}
         />
         <Tile
           handleOnClick={() =>
@@ -63,6 +72,7 @@ const PropertyOccupation = ({ goToSlide, updateAppData, updateCustomerData, befo
           }
           title={'Teilweise vermietet'}
           iconName="icon icon--status-teilweise"
+          selected={selectedState === 'Teilweise vermietet' ? true : false}
         />
       </div>
 
@@ -71,12 +81,17 @@ const PropertyOccupation = ({ goToSlide, updateAppData, updateCustomerData, befo
         handlePrevClick={() => handlePrevClick('Angaben zur Immobilie', 2, 20)}
         handleNextClick={() => goToSlide(7)}
         nextDisabled={true}
+        glyphPrevBefore="glyphicon-arrow-left"
+        glyphNextAfter="glyphicon-arrow-right"
+        nextDisabled={!selectedState}
       />
     </div>
   );
 };
 
 export default connect(
-  null,
+  state => ({
+    selectedState: selectCustomerDataItem(state, 'propertyOccupation'),
+  }),
   { updateAppData, updateCustomerData, beforeAppData }
 )(PropertyOccupation);

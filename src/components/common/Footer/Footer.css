@@ -14,12 +14,18 @@
     color: #fff;
     border-radius: 3px;
     outline: none; }
+    .footer__btn-prev.active {
+      background: #33a723;
+      color: #fff; }
   .footer__btn-next {
-    background: #e0e0e0 !important;
-    color: #9e9e9e !important;
+    background: #e0e0e0;
+    color: #9e9e9e;
     box-shadow: 2px 2px 0 0 #848484;
     margin-left: auto;
     outline: none; }
+    .footer__btn-next.active {
+      background: #33a723;
+      color: #fff; }
   .footer__subtitle {
     margin-left: 20px;
     display: none; }

@@ -64,4 +64,6 @@
   background: #ffa6a6; }
 
 .required-explanation {
-  display: block; }
+  display: block;
+  margin-bottom: 0;
+  margin-left: 0.5rem; }

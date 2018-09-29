@@ -10,4 +10,8 @@
   border-color: transparent;
   border-width: 1px;
   border-style: solid;
+  &--active {
+    background: #33a723;
+    color: #fff;
+  }
 }

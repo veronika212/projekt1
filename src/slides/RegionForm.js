@@ -15,7 +15,11 @@ class RegionForm extends Component {
   onSubmit = (values, nextTitle, totalSteps, currentStep, nextSliderNumber) => {
     this.props.createRegionData(values);
     console.log(createRegionData, 'values');
-    this.props.updateAppData({ title: nextTitle, totalSteps, currentStep });
+    this.props.updateAppData({
+      title: 'Wer soll die Bewertung erhalten?',
+      totalSteps: 20,
+      currentStep: 8,
+    });
     this.props.goToSlide(nextSliderNumber);
   };
 
@@ -53,7 +57,7 @@ class RegionForm extends Component {
             />
 
             <Field
-              name="addresss.zipCode"
+              name="address.zipCode"
               component={renderField}
               type="text"
               placeholder="Postleitzahl"
@@ -63,7 +67,7 @@ class RegionForm extends Component {
             />
 
             <Field
-              name="addresss.place"
+              name="address.place"
               component={renderField}
               type="text"
               placeholder="Standort"
