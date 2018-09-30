@@ -43,7 +43,7 @@ const PropertyOccupation = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(6, 'In welchem Zustand befindet sich die Immobilie?', 3, 20, {
+            onTileClick(6, 'In welchem Zustand befindet sich die Immobilie?', 2, 8, {
               key: 'propertyOccupation',
               value: 'Frei',
             })
@@ -54,7 +54,7 @@ const PropertyOccupation = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(7, 'Wie hoch ist die Nettojahresmiete des Objekts?', 3, 20, {
+            onTileClick(7, 'Wie hoch ist die Nettojahresmiete des Objekts?', 2, 9, {
               key: 'propertyOccupation',
               value: 'Vermietet',
             })
@@ -65,7 +65,7 @@ const PropertyOccupation = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(7, 'Wie hoch ist die Nettojahresmiete des Objekts?', 3, 20, {
+            onTileClick(7, 'Wie hoch ist die Nettojahresmiete des Objekts?', 2, 9, {
               key: 'propertyOccupation',
               value: 'Teilweise vermietet',
             })

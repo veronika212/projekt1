@@ -27,7 +27,11 @@ class PropertyPrice extends Component {
     } = this.props;
 
     updateCustomerData({ key: 'propertyPrice', value: this.state.value });
-    updateAppData({ title: 'Update title', totalSteps: 20, currentStep: 7 });
+    updateAppData({
+      title: 'Welche Wohnfläche besitzt das Objekt?',
+      totalSteps: 9,
+      currentStep: 3,
+    });
     goToSlide(slideNumber);
   };
 
@@ -63,8 +67,8 @@ class PropertyPrice extends Component {
 
         <ProgressBar />
         <Footer
-          handlePrevClick={() => goToSlide(3)}
-          handleNextClick={() => this.handleNextClick(1)}
+          handlePrevClick={() => goToSlide(1)}
+          handleNextClick={() => this.handleNextClick(6)}
           glyphPrevBefore="glyphicon-arrow-left"
           glyphNextAfter="glyphicon-arrow-right"
         />

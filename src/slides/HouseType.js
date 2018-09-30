@@ -20,7 +20,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData, selectedState
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 3, 20, {
+            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 2, 10, {
               key: 'houseType',
               value: 'Einfamilienhaus',
             })
@@ -31,7 +31,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData, selectedState
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 3, 20, {
+            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 2, 10, {
               key: 'houseType',
               value: 'Mehrfamilien­haus',
             })
@@ -42,7 +42,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData, selectedState
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 3, 20, {
+            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 2, 10, {
               key: 'houseType',
               value: 'Reihenhaus',
             })
@@ -53,7 +53,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData, selectedState
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 3, 20, {
+            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 2, 10, {
               key: 'houseType',
               value: 'Doppelhaushälfte',
             })
@@ -67,7 +67,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData, selectedState
       <ProgressBar />
       <Footer
         handlePrevClick={() => goToSlide(0)}
-        handleNextClick={() => goToSlide(2)}
+        handleNextClick={() => goToSlide(1)}
         nextDisabled={true}
         glyphPrevBefore="glyphicon-arrow-left"
         glyphNextAfter="glyphicon-arrow-right"
