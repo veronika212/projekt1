@@ -27,14 +27,14 @@ class PropertyArea extends Component {
     } = this.props;
 
     updateCustomerData({ key: 'propertyArea', value: this.state.value });
-    updateAppData({ title: 'Wann wurde die Immobilie gebaut?', totalSteps: 20, currentStep: 3 });
+    updateAppData({ title: 'Wann wurde die Immobilie gebaut?', totalSteps: 8, currentStep: 3 });
     goToSlide(slideNumber);
   };
 
   handlePrevClick = slideNumber => {
     const { beforeAppData, goToSlide } = this.props;
     goToSlide(slideNumber);
-    beforeAppData({ title: 'Welcher Wohnstatus liegt vor?', totalSteps: 20, currentStep: 2 });
+    beforeAppData({ title: 'Welcher Wohnstatus liegt vor?', totalSteps: 8, currentStep: 2 });
   };
 
   render() {
@@ -55,6 +55,9 @@ class PropertyArea extends Component {
           </div>
         </div>
 
+        <div className="directinput-note">
+          <span class="bulb">Oder direkt eingeben:</span>
+        </div>
         <div className="input-group slider-input">
           <span className="input-group-addon">Wohnfläche</span>
           <input
@@ -71,6 +74,8 @@ class PropertyArea extends Component {
         <Footer
           handlePrevClick={() => this.handlePrevClick(1)}
           handleNextClick={() => this.handleNextClick(8)}
+          glyphPrevBefore="glyphicon-arrow-left"
+          glyphNextAfter="glyphicon-arrow-right"
         />
       </div>
     );

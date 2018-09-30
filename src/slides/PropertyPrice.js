@@ -65,6 +65,8 @@ class PropertyPrice extends Component {
         <Footer
           handlePrevClick={() => goToSlide(3)}
           handleNextClick={() => this.handleNextClick(1)}
+          glyphPrevBefore="glyphicon-arrow-left"
+          glyphNextAfter="glyphicon-arrow-right"
         />
       </div>
     );

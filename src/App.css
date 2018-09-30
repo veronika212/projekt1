@@ -150,3 +150,14 @@ body {
 
 .progressBar-width {
   width: 10%; }
+
+.directinput-note {
+  text-align: center;
+  color: #000;
+  font-weight: 400; }
+
+.bulb:before {
+  font-family: 'iv-icons';
+  content: '\66';
+  line-height: 1;
+  font-weight: 400; }

@@ -2,14 +2,14 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { updateAppData } from '../store/appReducer';
-import { updateCustomerData } from '../store/customerDataReducer';
+import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
 
 import Footer from '../components/common/Footer/Footer';
 import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 
 import Tile from '../components/common/Tile/Tile';
 
-const HouseType = ({ goToSlide, updateAppData, updateCustomerData }) => {
+const HouseType = ({ goToSlide, updateAppData, updateCustomerData, selectedState }) => {
   const onTileClick = (nextSlideNumber, nextTitle, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
     updateAppData({ title: nextTitle, totalSteps, currentStep });
@@ -27,6 +27,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData }) => {
           }
           title={'Einfamilienhaus'}
           iconName="icon icon--haus"
+          selected={selectedState === 'Einfamilienhaus' ? true : false}
         />
         <Tile
           handleOnClick={() =>
@@ -37,6 +38,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData }) => {
           }
           title={'Mehrfamilien­haus'}
           iconName="icon icon--mehrfamilienhaus"
+          selected={selectedState === 'Mehrfamilien­haus' ? true : false}
         />
         <Tile
           handleOnClick={() =>
@@ -47,6 +49,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData }) => {
           }
           title={'Reihenhaus'}
           iconName="icon icon--reihenhaus"
+          selected={selectedState === 'Reihenhaus' ? true : false}
         />
         <Tile
           handleOnClick={() =>
@@ -57,6 +60,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData }) => {
           }
           title={'Doppelhaushälfte'}
           iconName="icon icon--doppelhaus"
+          selected={selectedState === 'Doppelhaushälfte' ? true : false}
         />
       </div>
 
@@ -65,12 +69,17 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData }) => {
         handlePrevClick={() => goToSlide(0)}
         handleNextClick={() => goToSlide(2)}
         nextDisabled={true}
+        glyphPrevBefore="glyphicon-arrow-left"
+        glyphNextAfter="glyphicon-arrow-right"
+        nextDisabled={!selectedState}
       />
     </div>
   );
 };
 
 export default connect(
-  null,
+  state => ({
+    selectedState: selectCustomerDataItem(state, 'houseType'),
+  }),
   { updateAppData, updateCustomerData }
 )(HouseType);

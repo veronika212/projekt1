@@ -18,7 +18,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(14, 'Welcher Wohnstatus liegt vor?', 2, 20, {
+            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 1, 8, {
               key: 'propertyType',
               value: 'Wohnung',
             })
@@ -65,7 +65,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
       <ProgressBar className="progressBar-width " />
       <Footer
         handlePrevClick={() => goToSlide(0)}
-        handleNextClick={() => goToSlide(14)}
+        handleNextClick={() => goToSlide(1)}
         className="visibility"
         nextDisabled={!selectedState}
         glyphNextAfter="glyphicon-arrow-right"

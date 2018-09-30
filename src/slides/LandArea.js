@@ -69,6 +69,8 @@ class LendArea extends Component {
         <Footer
           handlePrevClick={() => goToSlide(4)}
           handleNextClick={() => this.handleNextClick(6)}
+          glyphPrevBefore="glyphicon-arrow-left"
+          glyphNextAfter="glyphicon-arrow-right"
         />
       </div>
     );

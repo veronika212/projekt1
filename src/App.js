@@ -58,16 +58,6 @@ class App extends Component {
           <ShopArea goToSlide={this.goToSlide} />
           <ContactForm goToSlide={this.goToSlide} />
           <ThankYouPage />
-
-          <div>
-            <p>Slide 4</p>
-          </div>
-          <div>
-            <p>Slide 5</p>
-          </div>
-          <div>
-            <p>Slide 6</p>
-          </div>
         </Slider>
       </div>
     );

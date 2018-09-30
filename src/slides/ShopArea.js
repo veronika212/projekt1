@@ -65,6 +65,8 @@ class ShopArea extends Component {
         <Footer
           handlePrevClick={() => goToSlide(13)}
           handleNextClick={() => this.handleNextClick(5)}
+          glyphPrevBefore="glyphicon-arrow-left"
+          glyphNextAfter="glyphicon-arrow-right"
         />
       </div>
     );

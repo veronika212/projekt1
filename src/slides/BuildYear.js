@@ -29,8 +29,8 @@ class BuildYear extends Component {
     updateCustomerData({ key: 'bildYear', value: this.state.value });
     updateAppData({
       title: 'In welchem Zustand befindet sich die Immobilie?',
-      totalSteps: 20,
-      currentStep: 5,
+      totalSteps: 8,
+      currentStep: 4,
     });
     goToSlide(slideNumber);
   };
@@ -68,6 +68,8 @@ class BuildYear extends Component {
         <Footer
           handlePrevClick={() => goToSlide(6)}
           handleNextClick={() => this.handleNextClick(9)}
+          glyphPrevBefore="glyphicon-arrow-left"
+          glyphNextAfter="glyphicon-arrow-right"
         />
       </div>
     );

@@ -32,7 +32,7 @@ const PropertyOccupation = ({
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(6, 'Welche Wohnfläche besitzt das Objekt?', 3, 20, {
+            onTileClick(6, 'Welche Wohnfläche besitzt das Objekt?', 2, 8, {
               key: 'propertyOccupation',
               value: 'Selbst bewohnt',
             })
@@ -78,7 +78,7 @@ const PropertyOccupation = ({
 
       <ProgressBar />
       <Footer
-        handlePrevClick={() => handlePrevClick('Angaben zur Immobilie', 2, 20)}
+        handlePrevClick={() => handlePrevClick('Angaben zur Immobilie', 1, 8)}
         handleNextClick={() => goToSlide(7)}
         nextDisabled={true}
         glyphPrevBefore="glyphicon-arrow-left"

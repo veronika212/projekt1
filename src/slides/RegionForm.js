@@ -17,8 +17,8 @@ class RegionForm extends Component {
     console.log(createRegionData, 'values');
     this.props.updateAppData({
       title: 'Wer soll die Bewertung erhalten?',
-      totalSteps: 20,
-      currentStep: 8,
+      totalSteps: 8,
+      currentStep: 7,
     });
     this.props.goToSlide(nextSliderNumber);
   };
@@ -34,7 +34,7 @@ class RegionForm extends Component {
           place: place,
         },
       });
-      goToSlide(12);
+      goToSlide(14);
     }
   };
 
@@ -83,6 +83,8 @@ class RegionForm extends Component {
           handleNextClick={this.handleNextClick}
           type={'submit'}
           className="required-explanation"
+          glyphPrevBefore="glyphicon-arrow-left"
+          glyphNextAfter="glyphicon-arrow-right"
         />
       </div>
     );
