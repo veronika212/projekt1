@@ -30,6 +30,7 @@ class App extends Component {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
+      adaptiveHeight: true,
     };
 
     this.goToSlide = slideNumber => {

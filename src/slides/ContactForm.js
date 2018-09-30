@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
-import { Field, reduxForm, formValueSelector } from 'redux-form';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { Field, reduxForm, formValueSelector } from "redux-form";
+import { connect } from "react-redux";
 
-import { createContactData, updateCustomerData } from '../store/customerDataReducer';
-import { updateAppData } from '../store/appReducer';
+import {
+  createContactData,
+  updateCustomerData
+} from "../store/customerDataReducer";
+import { updateAppData } from "../store/appReducer";
 import {
   required,
   requiredSentens1,
@@ -13,208 +16,192 @@ import {
   requiredSentens5,
   number,
   email,
-  renderField,
   renderInput,
   renderRationBtn,
-} from '../utils/formUtils';
+  renderCheckBox
+} from "../utils/formUtils";
 
-import './ContactForm.css';
+import "./ContactForm.css";
 
-const selector = formValueSelector('ContactForm');
+const selector = formValueSelector("ContactForm");
 
 const selectOptions = [
   {
-    label: '+49',
-    value: '+49',
+    label: "Afghanistan / +93",
+    value: "Afghanistan / +93"
   },
   {
-    label: '+43',
-    value: '+43',
+    label: "Ägypten / +20",
+    value: "Ägypten / +20"
   },
   {
-    label: '+41',
-    value: '+41',
+    label: "Aland / +35818",
+    value: "Aland / +35818"
   },
   {
-    label: 'Andere Länder',
-    // value: '',
+    label: "Albanien / +355",
+    value: "Albanien / +355"
   },
   {
-    label: 'Afghanistan / +93',
-    value: 'Afghanistan / +93',
+    label: "Algerien / +213",
+    value: "Algerien / +213"
   },
   {
-    label: 'Ägypten / +20',
-    value: 'Ägypten / +20',
+    label: "Amerikanisch-Samoa / +1684",
+    value: "Amerikanisch-Samoa / +1684"
   },
   {
-    label: 'Aland / +35818',
-    value: 'Aland / +35818',
+    label: "Amerikanische Jungferninseln / +1340",
+    value: "Amerikanische Jungferninseln / +1340"
   },
   {
-    label: 'Albanien / +355',
-    value: 'Albanien / +355',
+    label: "Andorra / +376",
+    value: "Andorra / +376"
   },
   {
-    label: 'Algerien / +213',
-    value: 'Algerien / +213',
+    label: "Angola / +244",
+    value: "Angola / +244"
   },
   {
-    label: 'Amerikanisch-Samoa / +1684',
-    value: 'Amerikanisch-Samoa / +1684',
+    label: "Anguilla / +1264",
+    value: "Anguilla / +1264"
   },
   {
-    label: 'Amerikanische Jungferninseln / +1340',
-    value: 'Amerikanische Jungferninseln / +1340',
+    label: "Antarktis / +672",
+    value: "Antarktis / +672"
   },
   {
-    label: 'Andorra / +376',
-    value: 'Andorra / +376',
+    label: "Antigua und Barbuda / +1268",
+    value: "Antigua und Barbuda / +1268"
   },
   {
-    label: 'Angola / +244',
-    value: 'Angola / +244',
+    label: "Äquatorialguinea / +240",
+    value: "Äquatorialguinea / +240"
   },
   {
-    label: 'Anguilla / +1264',
-    value: 'Anguilla / +1264',
+    label: "Argentinien / +54",
+    value: "Argentinien / +54"
   },
   {
-    label: 'Antarktis / +672',
-    value: 'Antarktis / +672',
+    label: "Armenien / +374",
+    value: "Armenien / +374"
   },
   {
-    label: 'Antigua und Barbuda / +1268',
-    value: 'Antigua und Barbuda / +1268',
+    label: "Aruba / +297",
+    value: "Aruba / +297"
   },
   {
-    label: 'Äquatorialguinea / +240',
-    value: 'Äquatorialguinea / +240',
+    label: "Ascension / +247",
+    value: "Ascension / +247"
   },
   {
-    label: 'Argentinien / +54',
-    value: 'Argentinien / +54',
+    label: "Aserbaidschan / +994",
+    value: "Aserbaidschan / +994"
   },
   {
-    label: 'Armenien / +374',
-    value: 'Armenien / +374',
+    label: "Äthiopien / +251",
+    value: "Äthiopien / +251"
   },
   {
-    label: 'Aruba / +297',
-    value: 'Aruba / +297',
+    label: "Australien / +61",
+    value: "Australien / +61"
   },
   {
-    label: 'Ascension / +247',
-    value: 'Ascension / +247',
+    label: "Bahamas / +1242",
+    value: "Bahamas / +1242"
   },
   {
-    label: 'Aserbaidschan / +994',
-    value: 'Aserbaidschan / +994',
+    label: "Bahrain / +973",
+    value: "Bahrain / +973"
   },
   {
-    label: 'Äthiopien / +251',
-    value: 'Äthiopien / +251',
+    label: "Bangladesch / +880",
+    value: "Bangladesch / +880"
   },
   {
-    label: 'Australien / +61',
-    value: 'Australien / +61',
+    label: "Barbados / +1246",
+    value: "Barbados / +1246"
   },
   {
-    label: 'Bahamas / +1242',
-    value: 'Bahamas / +1242',
+    label: "Belgien / +32",
+    value: "Belgien / +32"
   },
   {
-    label: 'Bahrain / +973',
-    value: 'Bahrain / +973',
+    label: "Belize / +51",
+    value: "Belize / +51"
   },
   {
-    label: 'Bangladesch / +880',
-    value: 'Bangladesch / +880',
+    label: "Benin / +229",
+    value: "Benin / +229"
   },
   {
-    label: 'Barbados / +1246',
-    value: 'Barbados / +1246',
+    label: "Bermuda / +1441",
+    value: "Bermuda / +1441"
   },
   {
-    label: 'Belgien / +32',
-    value: 'Belgien / +32',
+    label: "Bhutan / +975",
+    value: "Bhutan / +975"
   },
   {
-    label: 'Belize / +51',
-    value: 'Belize / +51',
+    label: "Bolivien / +591",
+    value: "Bolivien / +591"
   },
   {
-    label: 'Benin / +229',
-    value: 'Benin / +229',
+    label: "Bosnien und Herzegowina / +387",
+    value: "Bosnien und Herzegowina / +387"
   },
   {
-    label: 'Bermuda / +1441',
-    value: 'Bermuda / +1441',
+    label: "Botswana / +267",
+    value: "Botswana / +267"
   },
   {
-    label: 'Bhutan / +975',
-    value: 'Bhutan / +975',
+    label: "Brasilien / +55",
+    value: "Brasilien / +55"
   },
   {
-    label: 'Bolivien / +591',
-    value: 'Bolivien / +591',
+    label: "Britische Jungferninseln / +1284",
+    value: "Britische Jungferninseln / +1284"
   },
   {
-    label: 'Bosnien und Herzegowina / +387',
-    value: 'Bosnien und Herzegowina / +387',
+    label: "Brunei / +673",
+    value: "Brunei / +673"
   },
   {
-    label: 'Botswana / +267',
-    value: 'Botswana / +267',
+    label: "Bulgarien / +359",
+    value: "Bulgarien / +359"
   },
   {
-    label: 'Brasilien / +55',
-    value: 'Brasilien / +55',
+    label: "Burkina Faso / +226",
+    value: "Burkina Faso / +226"
   },
   {
-    label: 'Britische Jungferninseln / +1284',
-    value: 'Britische Jungferninseln / +1284',
+    label: "Burundi / +257",
+    value: "Burundi / +257"
   },
   {
-    label: 'Brunei / +673',
-    value: 'Brunei / +673',
+    label: "Chile / +56",
+    value: "Chile / +56"
   },
   {
-    label: 'Bulgarien / +359',
-    value: 'Bulgarien / +359',
+    label: "China, Volksrepublik / +86",
+    value: "China, Volksrepublik / +86"
   },
   {
-    label: 'Burkina Faso / +226',
-    value: 'Burkina Faso / +226',
+    label: "Cookinseln / +682",
+    value: "Cookinseln / +682"
   },
   {
-    label: 'Burundi / +257',
-    value: 'Burundi / +257',
+    label: "Costa Rica / +56",
+    value: "Costa Rica / +56"
   },
   {
-    label: 'Chile / +56',
-    value: 'Chile / +56',
+    label: "Republik Côte d’Ivoire / +225",
+    value: "Republik Côte d’Ivoire / +225"
   },
   {
-    label: 'China, Volksrepublik / +86',
-    value: 'China, Volksrepublik / +86',
-  },
-  {
-    label: 'Cookinseln / +682',
-    value: 'Cookinseln / +682',
-  },
-  {
-    label: 'Costa Rica / +56',
-    value: 'Costa Rica / +56',
-  },
-  {
-    label: 'Republik Côte d’Ivoire / +225',
-    value: 'Republik Côte d’Ivoire / +225',
-  },
-  {
-    label: 'Dänemark / +45',
-    value: 'Dänemark / +45',
-  },
+    label: "Dänemark / +45",
+    value: "Dänemark / +45"
+  }
 
   // St. Helena und Nebengebiete / +290
   // Diego Garcia / +246
@@ -411,11 +398,11 @@ const selectOptions = [
 class ContactForm extends Component {
   onSubmit = (values, nextTitle, totalSteps, currentStep, nextSliderNumber) => {
     this.props.createContactData(values);
-    console.log(createContactData, 'values');
+    console.log(createContactData, "values");
     this.props.updateAppData({
-      title: 'Wer soll die Bewertung erhalten?',
+      title: "Wer soll die Bewertung erhalten?",
       totalSteps: 20,
-      currentStep: 20,
+      currentStep: 20
     });
     this.props.goToSlide(nextSliderNumber);
   };
@@ -424,27 +411,27 @@ class ContactForm extends Component {
     const {
       valid,
       updateCustomerData,
-      solutation,
+      sex,
       firstName,
       lastName,
       mail,
       preset,
       phone,
       information,
-      goToSlide,
+      goToSlide
     } = this.props;
     if (valid) {
       updateCustomerData({
-        key: 'contact',
+        key: "contact",
         value: {
-          solutation: solutation,
+          sex: sex,
           firstName: firstName,
           lastName: lastName,
           mail: mail,
           preset: preset,
           phone: phone,
-          information: false,
-        },
+          information: false
+        }
       });
       goToSlide(16);
     }
@@ -463,93 +450,142 @@ class ContactForm extends Component {
   // };
 
   render() {
-    console.log(this.props);
-    const { handleSubmit } = this.props;
+    const { handleSubmit, pristine, submitting, valid } = this.props;
     return (
       <div>
         <div className="contact-page">
           <form className="contact-form" onSubmit={handleSubmit(this.onSubmit)}>
-            <div className="contact-items">
-              <Field
-                className="contact-items__item"
-                name="contact.solutation"
-                component={renderRationBtn}
-                label="Herr"
-                type="radio"
-                validate={[requiredSentens1]}
-              />
-              <Field
-                className="contact-items__item"
-                name="contact.solutation"
-                component={renderRationBtn}
-                label="Frau"
-                type="radio"
-                validate={[requiredSentens1]}
-              />
-            </div>
+            <div className="contact-form__form">
+              <div className="contact-items--sex">
+                <Field
+                  className="contact-items__radio"
+                  name="contact.sex"
+                  value="Herr"
+                  component={renderRationBtn}
+                  label="Herr"
+                  type="radio"
+                  validate={[requiredSentens1]}
+                  checked={false}
+                />
+                <Field
+                  className="contact-items__radio"
+                  name="contact.sex"
+                  component={renderRationBtn}
+                  label="Frau"
+                  type="radio"
+                  value="Frau"
+                  validate={[requiredSentens1]}
+                  checked={false}
+                />
+              </div>
 
-            <div className="contact-items">
-              <Field
-                className="contact-items__item"
-                name="contact.firstName"
-                component={renderInput}
-                type="text"
-                placeholder="Vorname"
-                validate={[requiredSentens2]}
-              />
+              <div className="contact-items">
+                <Field
+                  className="contact-items__item contact-items__item--first-name"
+                  name="contact.firstName"
+                  component={renderInput}
+                  type="text"
+                  placeholder="Vorname"
+                  validate={[requiredSentens2]}
+                />
 
-              <Field
-                className="contact-items__item"
-                name="contact.lastName"
-                component={renderInput}
-                type="text"
-                placeholder="Name"
-                validate={[requiredSentens3]}
-              />
-            </div>
+                <Field
+                  className="contact-items__item contact-items__item--last-name"
+                  name="contact.lastName"
+                  component={renderInput}
+                  type="text"
+                  placeholder="Name"
+                  validate={[requiredSentens3]}
+                />
+              </div>
 
-            <div className="email-item">
-              <Field
-                className="contact-items__item email-item"
-                name="contact.mail"
-                component={renderInput}
-                type="text"
-                placeholder="E-mail"
-                validate={[requiredSentens4, email]}
-              />
-            </div>
+              <div className="contact-items">
+                <Field
+                  className="contact-items__item contact-items__item--email"
+                  name="contact.mail"
+                  component={renderInput}
+                  type="email"
+                  placeholder="E-mail"
+                  validate={[requiredSentens4, email]}
+                />
+              </div>
 
-            {/* <div>{this.renderSelect('+49', selectOptions)}</div> */}
+              {/* <div>{this.renderSelect('+49', selectOptions)}</div> */}
 
-            <div className="contact-items">
-              <Field className="contact-items__item" name="contact.preset" component="select">
-                <option value="+49">+49</option>
-                <option value="+48">+48</option>
-                <option value="+47">+47</option>
-              </Field>
+              <div className="contact-items">
+                <Field
+                  className="contact-items__item contact-items__item--ext"
+                  name="contact.preset"
+                  component="select"
+                >
+                  <option value="+49">+49</option>
+                  <option value="+48">+48</option>
+                  <option value="+47">+47</option>
+                  <option disabled={true}>Andere Länder</option>
+                  {selectOptions.map(option => (
+                    <option key={option.value} value={option.value}>
+                      {option.label}
+                    </option>
+                  ))}
+                </Field>
 
-              <Field
-                className="contact-items__item"
-                name="contact.phone"
-                component={renderInput}
-                type="tel"
-                placeholder="Telefonnummer"
-                validate={[requiredSentens5, number]}
-              />
-            </div>
+                <Field
+                  className="contact-items__item contact-items__item--phone"
+                  name="contact.phone"
+                  component={renderInput}
+                  type="tel"
+                  placeholder="Telefonnummer"
+                  validate={[requiredSentens5, number]}
+                />
+              </div>
 
-            <div className="contact-items">
               <Field
                 className="contact-items__item"
                 name="contact.information"
-                component={renderInput}
-                type="checkbox"
+                id="contact"
+                component={renderCheckBox}
+                labelClass="contact-form__confirm-label"
+                label={
+                  <p>
+                    Ich stimme den{" "}
+                    <a href="/datenschutz/">Datenschutzbestimmungen </a>
+                    und einer Kontaktaufnahme durch immoverkauf24 per E-Mail
+                    oder Telefon für Rückfragen oder zu Informationszwecken zu.
+                  </p>
+                }
               />
-              <span className="contact-">
-                Ich stimme den <a href="/datenschutz/">Datenschutzbestimmungen </a>
-                und einer Kontaktaufnahme durch immoverkauf24 per E-Mail oder Telefon für Rückfragen
-                oder zu Informationszwecken zu.
-              </span>
+            </div>
+
+            <div className="contact-page__content">
+              <h3 className="form-notice__title">Ihre Immobilienbewertung</h3>
+              <ul className="form-notice">
+                <li className="form-notice__item">
+                  <i className="icon icon-shield" />
+                  100% kostenlos
+                </li>
+                <li className="form-notice__item">
+                  <i className="icon icon-shield" />
+                  100 % unverbindlich
+                </li>
+                <li className="form-notice__item">
+                  <i className="icon icon-shield" />
+                  100 % professionell
+                </li>
+              </ul>
+
+              <img
+                className="bewertungbadge"
+                src="/images/bewertung_badge2.png"
+                alt="Professionelle Immobilienbewertung mit hoher Präzision"
+              />
+              <button
+                className="contact-form__next-btn"
+                type="button"
+                disabled={pristine || submitting || !valid}
+              >
+                Jetzt kostenlose Bewertung erhalten
+                <span className="glyphicon glyphicon-send" aria-hidden="true" />
+              </button>
             </div>
           </form>
         </div>
@@ -559,18 +595,18 @@ class ContactForm extends Component {
 }
 
 ContactForm = reduxForm({
-  form: 'ContactForm',
+  form: "ContactForm"
 })(ContactForm);
 
 export default connect(
   state => ({
-    solutation: selector(state, 'contact.solutation'),
-    firstName: selector(state, 'contact.firstName'),
-    lastName: selector(state, 'contact.lastName'),
-    mail: selector(state, 'contant.mail'),
-    preset: selector(state, 'contact.preset'),
-    phone: selector(state, 'contact.phone'),
-    information: false,
+    sex: selector(state, "contact.sex"),
+    firstName: selector(state, "contact.firstName"),
+    lastName: selector(state, "contact.lastName"),
+    mail: selector(state, "contant.mail"),
+    preset: selector(state, "contact.preset"),
+    phone: selector(state, "contact.phone"),
+    information: false
   }),
   { createContactData, updateAppData, updateCustomerData }
 )(ContactForm);

@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { updateAppData, beforeAppData } from '../store/appReducer';
-import { updateCustomerData } from '../store/customerDataReducer';
-import ReactSlider from '../components/common/ReactSlider/ReactSlider';
-import ProgressBar from '../components/common/ProgressBar/ProgressBar';
-import Footer from '../components/common/Footer/Footer';
+import { updateAppData, beforeAppData } from "../store/appReducer";
+import { updateCustomerData } from "../store/customerDataReducer";
+import ReactSlider from "../components/common/ReactSlider/ReactSlider";
+import ProgressBar from "../components/common/ProgressBar/ProgressBar";
+import Footer from "../components/common/Footer/Footer";
 
 class PropertyArea extends Component {
   state = {
-    value: 120,
+    value: 120
   };
 
   handleSliderChange = value => {
@@ -23,18 +23,26 @@ class PropertyArea extends Component {
       updateAppData,
       nextTitle,
       totalSteps,
-      currentStep,
+      currentStep
     } = this.props;
 
-    updateCustomerData({ key: 'propertyArea', value: this.state.value });
-    updateAppData({ title: 'Wann wurde die Immobilie gebaut?', totalSteps: 8, currentStep: 3 });
+    updateCustomerData({ key: "propertyArea", value: this.state.value });
+    updateAppData({
+      title: "Wann wurde die Immobilie gebaut?",
+      totalSteps: 8,
+      currentStep: 3
+    });
     goToSlide(slideNumber);
   };
 
   handlePrevClick = slideNumber => {
     const { beforeAppData, goToSlide } = this.props;
     goToSlide(slideNumber);
-    beforeAppData({ title: 'Welcher Wohnstatus liegt vor?', totalSteps: 8, currentStep: 2 });
+    beforeAppData({
+      title: "Welcher Wohnstatus liegt vor?",
+      totalSteps: 8,
+      currentStep: 2
+    });
   };
 
   render() {
@@ -56,7 +64,7 @@ class PropertyArea extends Component {
         </div>
 
         <div className="directinput-note">
-          <span class="bulb">Oder direkt eingeben:</span>
+          <span className="bulb">Oder direkt eingeben:</span>
         </div>
         <div className="input-group slider-input">
           <span className="input-group-addon">Wohnfläche</span>

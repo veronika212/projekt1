@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .region {
   display: flex;
   flex-direction: row;
@@ -38,7 +39,7 @@
   border-image: none;
   border-style: solid;
   border-width: 10px;
-  content: ' ';
+  content: " ";
   height: 0;
   left: 100%;
   margin-top: -10px;
@@ -49,7 +50,8 @@
 
 .item__field {
   display: flex;
-  width: 100%; }
+  width: 100%;
+  position: relative; }
 
 .item__input {
   width: 100%;
@@ -59,9 +61,18 @@
   font-size: 15px;
   padding: 9px;
   outline: none; }
-
-.item__input--error {
-  background: #ffa6a6; }
+  .item__input--success::after {
+    content: "✓";
+    color: #01bd00;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 40px;
+    padding-right: 5px; }
+  .item__input--error {
+    background: #ffa6a6; }
 
 .required-explanation {
   display: block;

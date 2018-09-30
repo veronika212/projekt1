@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { updateAppData } from '../store/appReducer';
-import { updateCustomerData } from '../store/customerDataReducer';
-import ReactSlider from '../components/common/ReactSlider/ReactSlider';
-import ProgressBar from '../components/common/ProgressBar/ProgressBar';
-import Footer from '../components/common/Footer/Footer';
+import { updateAppData } from "../store/appReducer";
+import { updateCustomerData } from "../store/customerDataReducer";
+import ReactSlider from "../components/common/ReactSlider/ReactSlider";
+import ProgressBar from "../components/common/ProgressBar/ProgressBar";
+import Footer from "../components/common/Footer/Footer";
 
 class BuildYear extends Component {
   state = {
-    value: 1960,
+    value: 1960
   };
 
   handleSliderChange = value => {
@@ -23,14 +23,14 @@ class BuildYear extends Component {
       updateAppData,
       nextTitle,
       totalSteps,
-      currentStep,
+      currentStep
     } = this.props;
 
-    updateCustomerData({ key: 'bildYear', value: this.state.value });
+    updateCustomerData({ key: "bildYear", value: this.state.value });
     updateAppData({
-      title: 'In welchem Zustand befindet sich die Immobilie?',
+      title: "In welchem Zustand befindet sich die Immobilie?",
       totalSteps: 8,
-      currentStep: 4,
+      currentStep: 4
     });
     goToSlide(slideNumber);
   };
@@ -45,10 +45,11 @@ class BuildYear extends Component {
             <ReactSlider
               value={this.state.value}
               min={1900}
-              max={2018}
+              max={new Date().getFullYear()}
               minLabel="2018"
               maxLabel="< 1900"
               onChange={this.handleSliderChange}
+              reverse={true}
             />
           </div>
         </div>

@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { updateAppData } from '../store/appReducer';
-import { updateCustomerData } from '../store/customerDataReducer';
-import ReactSlider from '../components/common/ReactSlider/ReactSlider';
-import ProgressBar from '../components/common/ProgressBar/ProgressBar';
-import Footer from '../components/common/Footer/Footer';
+import { updateAppData } from "../store/appReducer";
+import { updateCustomerData } from "../store/customerDataReducer";
+import ReactSlider from "../components/common/ReactSlider/ReactSlider";
+import ProgressBar from "../components/common/ProgressBar/ProgressBar";
+import Footer from "../components/common/Footer/Footer";
 
 class ShopArea extends Component {
   state = {
-    value: 300,
+    value: 300
   };
 
   handleSliderChange = value => {
@@ -23,11 +23,11 @@ class ShopArea extends Component {
       updateAppData,
       nextTitle,
       totalSteps,
-      currentStep,
+      currentStep
     } = this.props;
 
-    updateCustomerData({ key: 'propertyPrice', value: this.state.value });
-    updateAppData({ title: 'Update title', totalSteps: 20, currentStep: 13 });
+    updateCustomerData({ key: "propertyPrice", value: this.state.value });
+    updateAppData({ title: "Update title", totalSteps: 20, currentStep: 13 });
     goToSlide(slideNumber);
   };
 
@@ -49,16 +49,16 @@ class ShopArea extends Component {
           </div>
         </div>
 
-        <div class="input-group slider-input">
-          <span class="input-group-addon">Gewerbefläche</span>
+        <div className="input-group slider-input">
+          <span className="input-group-addon">Gewerbefläche</span>
           <input
             type="number"
             value={this.state.value}
-            class="form-control output range-control-output"
+            className="form-control output range-control-output"
             name="formdata[net_year_rent__c]"
             onChange={e => this.setState({ value: Number(e.target.value) })}
           />
-          <span class="input-group-addon">m²</span>
+          <span className="input-group-addon">m²</span>
         </div>
 
         <ProgressBar />

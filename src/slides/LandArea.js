@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { updateAppData } from '../store/appReducer';
-import { updateCustomerData } from '../store/customerDataReducer';
-import ReactSlider from '../components/common/ReactSlider/ReactSlider';
-import ProgressBar from '../components/common/ProgressBar/ProgressBar';
-import Footer from '../components/common/Footer/Footer';
+import { updateAppData } from "../store/appReducer";
+import { updateCustomerData } from "../store/customerDataReducer";
+import ReactSlider from "../components/common/ReactSlider/ReactSlider";
+import ProgressBar from "../components/common/ProgressBar/ProgressBar";
+import Footer from "../components/common/Footer/Footer";
 
 class LendArea extends Component {
   state = {
-    value: 800,
+    value: 800
   };
 
   handleSliderChange = value => {
@@ -23,14 +23,14 @@ class LendArea extends Component {
       updateAppData,
       nextTitle,
       totalSteps,
-      currentStep,
+      currentStep
     } = this.props;
 
-    updateCustomerData({ key: 'landArea', value: this.state.value });
+    updateCustomerData({ key: "landArea", value: this.state.value });
     updateAppData({
-      title: 'In welcher Region befindet sich das Objekt?',
+      title: "In welcher Region befindet sich das Objekt?",
       totalSteps: 10,
-      currentStep: 9,
+      currentStep: 9
     });
     goToSlide(slideNumber);
   };
@@ -53,16 +53,16 @@ class LendArea extends Component {
           </div>
         </div>
 
-        <div class="input-group slider-input">
-          <span class="input-group-addon">Grundstücksgröße</span>
+        <div className="input-group slider-input">
+          <span className="input-group-addon">Grundstücksgröße</span>
           <input
             type="number"
             value={this.state.value}
-            class="form-control output range-control-output"
+            className="form-control output range-control-output"
             name="formdata[net_year_rent__c]"
             onChange={e => this.setState({ value: Number(e.target.value) })}
           />
-          <span class="input-group-addon">m²</span>
+          <span className="input-group-addon">m²</span>
         </div>
 
         <ProgressBar />

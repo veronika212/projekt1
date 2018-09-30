@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import Slider from 'react-rangeslider';
+import React, { Component } from "react";
+import Slider from "react-rangeslider";
 
-import './ReactSlider.css';
+import "./ReactSlider.css";
 
 class ReactSlider extends Component {
   render() {
@@ -15,6 +15,7 @@ class ReactSlider extends Component {
       handleLabel,
       tooltip,
       onChange,
+      reverse
     } = this.props;
     return (
       <div className="react-slider__wrapper">
@@ -27,6 +28,7 @@ class ReactSlider extends Component {
           max={max}
           handleLabel={handleLabel}
           tooltip={tooltip}
+          reverse={reverse}
         />
         <div className="react-slider__labels-wrapper">
           <span className="react-slider__labels">{minLabel}</span>
@@ -38,12 +40,12 @@ class ReactSlider extends Component {
 }
 
 ReactSlider.defaultProps = {
-  orientation: 'horizontal',
+  orientation: "horizontal",
   min: 0,
   max: 100,
   value: 50,
-  handleLabel: '',
-  tooltip: false,
+  handleLabel: "",
+  tooltip: false
 };
 
 export default ReactSlider;

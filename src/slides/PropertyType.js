@@ -29,7 +29,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(2, 'Angaben zu Ihrem Haus', 1, 10, {
+            onTileClick(3, 'Angaben zu Ihrem Haus', 1, 10, {
               key: 'propertyType',
               value: 'Haus',
             })

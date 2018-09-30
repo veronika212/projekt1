@@ -1,6 +1,80 @@
 * {
   box-sizing: border-box; }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+input[type="radio"] {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  height: 0;
+  width: 0;
+  z-index: -1;
+  visibility: hidden; }
+
+.radiobtn {
+  border-radius: 100%;
+  height: 20px;
+  width: 20px;
+  position: relative;
+  cursor: pointer;
+  background-color: #d9e8f3;
+  border: 2px solid #257db8; }
+  .radiobtn:before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    border-radius: 100%;
+    background-color: transparent;
+    height: 12px;
+    width: 12px; }
+  .radiobtn.checked:before {
+    background-color: #257db8; }
+
+@font-face {
+  font-family: "Icons";
+  src: url("./fonts//iv-icons.woff") format("woff"); }
+
+[class*=" icon-"]:before,
+[class^="icon-"]:before,
+[data-icon]:before {
+  font-family: Icons !important;
+  font-weight: 400 !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  line-height: 1;
+  font-style: normal !important;
+  speak: none; }
+
+button,
+input,
+select,
+textarea {
+  outline: none; }
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #ccc;
+  opacity: 1;
+  /* Firefox */ }
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #ccc; }
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #ccc; }
+
+.required-asterisk {
+  color: #ff7171;
+  margin-left: 3px;
+  font-weight: 100; }
+
 body {
   font-size: 15px;
   line-height: 1.46667;
@@ -8,11 +82,20 @@ body {
   color: #6a6a6a;
   background-color: #fff;
   font-weight: 300;
-  font-family: 'Signika Negative', Helvetica, Arial, sans-serif; }
+  font-family: "Signika Negative", Helvetica, Arial, sans-serif !important; }
+
+li {
+  list-style: none; }
+
+.checkbox-wrapper {
+  display: flex; }
+  .checkbox-wrapper input {
+    width: 30px;
+    height: 12px;
+    cursor: pointer; }
 
 .app {
   max-width: 868px;
-  max-height: 380px;
   margin: auto;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -120,6 +203,9 @@ body {
   .icon.icon--gewerbeflaeche {
     background-position: 0 -4770px;
     width: 140px; }
+  .icon.glyphicon-send {
+    content: "\e171";
+    font-family: "Glyphicons Halflings"; }
 
 .star {
   color: #ff7171;
@@ -157,7 +243,7 @@ body {
   font-weight: 400; }
 
 .bulb:before {
-  font-family: 'iv-icons';
-  content: '\66';
+  font-family: "iv-icons";
+  content: "\66";
   line-height: 1;
   font-weight: 400; }
