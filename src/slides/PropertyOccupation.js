@@ -27,12 +27,22 @@ const PropertyOccupation = ({
     beforeAppData({ title: beforeTitle, totalSteps, currentStep });
   };
 
+  const handleNextClick = slideNumber => {
+    updateCustomerData({ key: 'propertyArea', value: 100 });
+    updateAppData({
+      title: 'Welche Wohnfläche besitzt das Objekt?',
+      totalSteps: 10,
+      currentStep: 4,
+    });
+    goToSlide(slideNumber);
+  };
+
   return (
     <div>
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(6, 'Welche Wohnfläche besitzt das Objekt?', 2, 8, {
+            onTileClick(17, 'Welche Wohnfläche besitzt das Objekt?', 4, 10, {
               key: 'propertyOccupation',
               value: 'Selbst bewohnt',
             })
@@ -43,7 +53,7 @@ const PropertyOccupation = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(6, 'In welchem Zustand befindet sich die Immobilie?', 2, 8, {
+            onTileClick(6, 'In welchem Zustand befindet sich die Immobilie?', 4, 10, {
               key: 'propertyOccupation',
               value: 'Frei',
             })
@@ -54,7 +64,7 @@ const PropertyOccupation = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(7, 'Wie hoch ist die Nettojahresmiete des Objekts?', 2, 9, {
+            onTileClick(7, 'Wie hoch ist die Nettojahresmiete des Objekts?', 3.5, 10, {
               key: 'propertyOccupation',
               value: 'Vermietet',
             })
@@ -65,7 +75,7 @@ const PropertyOccupation = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(7, 'Wie hoch ist die Nettojahresmiete des Objekts?', 2, 9, {
+            onTileClick(7, 'Wie hoch ist die Nettojahresmiete des Objekts?', 3.5, 10, {
               key: 'propertyOccupation',
               value: 'Teilweise vermietet',
             })
@@ -78,9 +88,8 @@ const PropertyOccupation = ({
 
       <ProgressBar />
       <Footer
-        handlePrevClick={() => handlePrevClick('Angaben zur Immobilie', 1, 8)}
-        handleNextClick={() => goToSlide(7)}
-        nextDisabled={true}
+        handlePrevClick={() => handlePrevClick('Angaben zur Immobilie', 3, 10)}
+        handleNextClick={() => handleNextClick(6)}
         glyphPrevBefore="glyphicon-arrow-left"
         glyphNextAfter="glyphicon-arrow-right"
         nextDisabled={!selectedState}

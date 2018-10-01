@@ -13,12 +13,22 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
     updateCustomerData(data);
   };
 
+  const handleNextClick = slideNumber => {
+    updateCustomerData({ key: 'propertyOccupation', value: { selectedState } });
+    updateAppData({
+      title: 'Welche Wohnfläche besitzt das Objekt?',
+      totalSteps: 10,
+      currentStep: 3,
+    });
+    goToSlide(slideNumber);
+  };
+
   return (
     <div>
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 1, 8, {
+            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 3, 10, {
               key: 'propertyType',
               value: 'Wohnung',
             })
@@ -29,7 +39,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(3, 'Angaben zu Ihrem Haus', 1, 10, {
+            onTileClick(2, 'Angaben zu Ihrem Haus', 2, 10, {
               key: 'propertyType',
               value: 'Haus',
             })
@@ -40,7 +50,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(3, 'Angaben zu Ihrem Grundstück', 2, 20, {
+            onTileClick(3, 'Angaben zu Ihrem Grundstück', 2.5, 10, {
               key: 'propertyType',
               value: 'Grundstück',
             })
@@ -51,7 +61,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(4, 'Angaben zu Ihrer Gewerbeimmobilie', 2, 20, {
+            onTileClick(4, 'Angaben zu Ihrer Gewerbeimmobilie', 2, 10, {
               key: 'propertyType',
               value: 'Gewerbe',
             })
@@ -65,7 +75,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
       <ProgressBar className="progressBar-width " />
       <Footer
         handlePrevClick={() => goToSlide(0)}
-        handleNextClick={() => goToSlide(1)}
+        handleNextClick={() => handleNextClick(1)}
         className="visibility"
         nextDisabled={!selectedState}
         glyphNextAfter="glyphicon-arrow-right"

@@ -1,67 +1,48 @@
-import React from "react";
+import React from 'react';
 
-export const required = value => (value ? undefined : "Required");
-export const requiredSentens1 = value =>
-  value ? undefined : "Bitte geben Sie Ihre Anrede an.";
-export const requiredSentens2 = value =>
-  value ? undefined : "Bitte geben Sie Ihren Vornamen an.";
+export const required = value => (value ? undefined : 'Required');
+export const requiredSentens1 = value => (value ? undefined : 'Bitte geben Sie Ihre Anrede an.');
+export const requiredSentens2 = value => (value ? undefined : 'Bitte geben Sie Ihren Vornamen an.');
 export const requiredSentens3 = value =>
-  value ? undefined : "Bitte geben Sie Ihren Nachnamen an.";
+  value ? undefined : 'Bitte geben Sie Ihren Nachnamen an.';
 export const requiredSentens4 = value =>
-  value ? undefined : "Bitte geben Sie Ihren E-Mail Adresse an.";
+  value ? undefined : 'Bitte geben Sie Ihren E-Mail Adresse an.';
 export const requiredSentens5 = value =>
-  value ? undefined : "Bitte geben Sie Ihre Telefonnummer an.";
+  value ? undefined : 'Bitte geben Sie Ihre Telefonnummer an.';
 export const maxLength = max => value =>
   value && value.length > max ? `Must be ${max} characters or less` : undefined;
 export const maxLength15 = maxLength(15);
-export const number = value =>
-  value && isNaN(Number(value)) ? "Must be a number" : undefined;
+export const number = value => (value && isNaN(Number(value)) ? 'Must be a number' : undefined);
 export const minValue = min => value =>
   value && value < min ? `Must be at least ${min}` : undefined;
 export const email = value =>
   value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)
-    ? "Invalid email address"
+    ? 'Invalid email address'
     : undefined;
-export const zip = value =>
-  value > 999 && value < 10000 ? undefined : "invalid zip code";
+export const zip = value => (value > 999 && value < 10000 ? undefined : 'invalid zip code');
 
 export const renderField = ({
   input,
   label,
   type,
   meta: { touched, error, warning },
-  placeholder
+  placeholder,
 }) => (
   <div className="item">
     <label className="item__name">{label}</label>
-    <div
-      className={`item__field ${
-        touched && !error ? "item__input--success" : null
-      }`}
-    >
+    <div className={`item__field ${touched && !error ? 'item__input--success' : null}`}>
       <input
         {...input}
         placeholder={placeholder}
         type={type}
-        className={`item__input ${
-          touched && error ? "item__input--error" : null
-        }`}
+        className={`item__input ${touched && error ? 'item__input--error' : null}`}
       />
     </div>
   </div>
 );
 
-export const renderInput = ({
-  input,
-  className,
-  type,
-  placeholder,
-  meta: { touched, error }
-}) => (
-  <div
-    className={`${className} ${touched &&
-      (error && "contact-items__item--error")}`}
-  >
+export const renderInput = ({ input, className, type, placeholder, meta: { touched, error } }) => (
+  <div className={`${className} ${touched && (error && 'contact-items__item--error')}`}>
     <input {...input} placeholder={placeholder} type={type} />
 
     {touched && (error && <span className="msg">{error}</span>)}
@@ -74,15 +55,13 @@ export const renderRationBtn = ({
   label,
   type,
   placeholder,
-  meta: { touched, error }
+  meta: { touched, error },
 }) => {
-  console.log(input, "input");
+  console.log(input, 'input');
 
   return (
-    <label for={`${input.name}${input.value}`} className="radio-item">
-      <span
-        className={`radiobtn ${input.checked === true ? "checked" : null}`}
-      />
+    <label htmlFor={`${input.name}${input.value}`} className="radio-item">
+      <span className={`radiobtn ${input.checked === true ? 'checked' : null}`} />
       <input
         {...input}
         placeholder={placeholder}
@@ -101,7 +80,7 @@ export const renderCheckBox = ({
   className,
   label,
   meta: { touched, error },
-  labelClass
+  labelClass,
 }) => (
   <div className="checkbox-wrapper">
     <input

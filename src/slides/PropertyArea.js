@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { updateAppData, beforeAppData } from "../store/appReducer";
-import { updateCustomerData } from "../store/customerDataReducer";
-import ReactSlider from "../components/common/ReactSlider/ReactSlider";
-import ProgressBar from "../components/common/ProgressBar/ProgressBar";
-import Footer from "../components/common/Footer/Footer";
+import { updateAppData, beforeAppData } from '../store/appReducer';
+import { updateCustomerData } from '../store/customerDataReducer';
+import ReactSlider from '../components/common/ReactSlider/ReactSlider';
+import ProgressBar from '../components/common/ProgressBar/ProgressBar';
+import Footer from '../components/common/Footer/Footer';
 
 class PropertyArea extends Component {
   state = {
-    value: 120
+    value: 100,
   };
 
   handleSliderChange = value => {
@@ -17,20 +17,13 @@ class PropertyArea extends Component {
   };
 
   handleNextClick = slideNumber => {
-    const {
-      goToSlide,
-      updateCustomerData,
-      updateAppData,
-      nextTitle,
-      totalSteps,
-      currentStep
-    } = this.props;
+    const { goToSlide, updateCustomerData, updateAppData } = this.props;
 
-    updateCustomerData({ key: "propertyArea", value: this.state.value });
+    updateCustomerData({ key: 'propertyArea', value: this.state.value });
     updateAppData({
-      title: "Wann wurde die Immobilie gebaut?",
-      totalSteps: 8,
-      currentStep: 3
+      title: 'Wann wurde die Immobilie gebaut?',
+      totalSteps: 10,
+      currentStep: 5,
     });
     goToSlide(slideNumber);
   };
@@ -39,14 +32,13 @@ class PropertyArea extends Component {
     const { beforeAppData, goToSlide } = this.props;
     goToSlide(slideNumber);
     beforeAppData({
-      title: "Welcher Wohnstatus liegt vor?",
-      totalSteps: 8,
-      currentStep: 2
+      title: 'Welcher Wohnstatus liegt vor?',
+      totalSteps: 10,
+      currentStep: 3,
     });
   };
 
   render() {
-    const { goToSlide } = this.props;
     return (
       <div>
         <div className="tiles-wrapper title-wrapper-height">

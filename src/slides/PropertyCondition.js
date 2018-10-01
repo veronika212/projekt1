@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { updateAppData } from '../store/appReducer';
+import { updateAppData, beforeAppData } from '../store/appReducer';
 import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
 import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 import Tile from '../components/common/Tile/Tile';
@@ -9,18 +9,40 @@ import Footer from '../components/common/Footer/Footer';
 
 import './PropertyCondition.css';
 
-const PropertyCondition = ({ goToSlide, updateAppData, updateCustomerData, selectedState }) => {
+const PropertyCondition = ({
+  goToSlide,
+  updateAppData,
+  updateCustomerData,
+  beforeAppData,
+  selectedState,
+}) => {
   const onTileClick = (nextSlideNumber, nextTitle, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
     updateAppData({ title: nextTitle, totalSteps, currentStep });
     updateCustomerData(data);
   };
+
+  const handlePrevClick = (beforeTitle, currentStep, totalSteps) => {
+    goToSlide(8);
+    beforeAppData({ title: beforeTitle, totalSteps, currentStep });
+  };
+
+  const handleNextClick = slideNumber => {
+    updateCustomerData({ key: 'propertyExtension', value: { selectedState } });
+    updateAppData({
+      title: 'Gibt es einen Balkon oder eine Terrasse?',
+      totalSteps: 10,
+      currentStep: 7,
+    });
+    goToSlide(slideNumber);
+  };
+
   return (
     <div>
       <div className="tiles-wrapper tile-wrapper--modifier">
         <Tile
           handleOnClick={() =>
-            onTileClick(10, 'Gibt es einen Balkon oder eine Terrasse?', 5, 8, {
+            onTileClick(10, 'Gibt es einen Balkon oder eine Terrasse?', 7, 10, {
               key: 'propertyCondition',
               value: 'Renovierungs­bedürftig',
             })
@@ -32,7 +54,7 @@ const PropertyCondition = ({ goToSlide, updateAppData, updateCustomerData, selec
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(10, 'Gibt es einen Balkon oder eine Terrasse?', 5, 8, {
+            onTileClick(10, 'Gibt es einen Balkon oder eine Terrasse?', 7, 10, {
               key: 'propertyCondition',
               value: 'Gepflegt',
             })
@@ -44,7 +66,7 @@ const PropertyCondition = ({ goToSlide, updateAppData, updateCustomerData, selec
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(10, 'Gibt es einen Balkon oder eine Terrasse?', 5, 8, {
+            onTileClick(10, 'Gibt es einen Balkon oder eine Terrasse?', 7, 10, {
               key: 'propertyCondition',
               value: 'Neuwertig',
             })
@@ -57,9 +79,8 @@ const PropertyCondition = ({ goToSlide, updateAppData, updateCustomerData, selec
       </div>
       <ProgressBar />
       <Footer
-        handlePrevClick={() => goToSlide(8)}
-        handleNextClick={() => goToSlide(10)}
-        nextDisabled={true}
+        handlePrevClick={() => handlePrevClick('Wann wurde die Immobilie gebaut?', 5, 10)}
+        handleNextClick={() => handleNextClick(10)}
         glyphPrevBefore="glyphicon-arrow-left"
         glyphNextAfter="glyphicon-arrow-right"
         nextDisabled={!selectedState}
@@ -72,5 +93,5 @@ export default connect(
   state => ({
     selectedState: selectCustomerDataItem(state, 'propertyCondition'),
   }),
-  { updateAppData, updateCustomerData }
+  { updateAppData, updateCustomerData, beforeAppData }
 )(PropertyCondition);

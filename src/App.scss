@@ -2,13 +2,13 @@
   box-sizing: border-box;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type="radio"] {
+input[type='radio'] {
   position: absolute;
   top: 15px;
   left: 10px;
@@ -27,7 +27,7 @@ input[type="radio"] {
   background-color: #d9e8f3;
   border: 2px solid #257db8;
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     top: 2px;
     left: 2px;
@@ -42,12 +42,12 @@ input[type="radio"] {
 }
 
 @font-face {
-  font-family: "Icons";
-  src: url("./fonts//iv-icons.woff") format("woff");
+  font-family: 'Icons';
+  src: url('./fonts//iv-icons.woff') format('woff');
 }
 
-[class*=" icon-"]:before,
-[class^="icon-"]:before,
+[class*=' icon-']:before,
+[class^='icon-']:before,
 [data-icon]:before {
   font-family: Icons !important;
   font-weight: 400 !important;
@@ -94,7 +94,7 @@ body {
   color: #6a6a6a;
   background-color: #fff;
   font-weight: 300;
-  font-family: "Signika Negative", Helvetica, Arial, sans-serif !important;
+  font-family: 'Signika Negative', Helvetica, Arial, sans-serif !important;
 }
 
 li {
@@ -249,10 +249,11 @@ li {
   }
   &.icon--nettomiete {
     background-position: 0 -3240px;
+    width: 130px;
   }
   &.icon--wohnflaeche {
     background-position: 0 -2970px;
-    width: 140px;
+    width: 137px;
   }
   &.icon--grundstuecksgroesse {
     background-position: 0 -1170px;
@@ -268,8 +269,8 @@ li {
   }
 
   &.glyphicon-send {
-    content: "\e171";
-    font-family: "Glyphicons Halflings";
+    content: '\e171';
+    font-family: 'Glyphicons Halflings';
   }
 }
 
@@ -317,9 +318,10 @@ li {
 }
 
 .bulb {
+  margin-left: 39%;
   &:before {
-    font-family: "iv-icons";
-    content: "\66";
+    font-family: 'iv-icons';
+    content: '\66';
     line-height: 1;
     font-weight: 400;
   }

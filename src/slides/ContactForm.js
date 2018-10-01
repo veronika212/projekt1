@@ -1,14 +1,11 @@
-import React, { Component } from "react";
-import { Field, reduxForm, formValueSelector } from "redux-form";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
+import { connect } from 'react-redux';
 
+import { createContactData, updateCustomerData } from '../store/customerDataReducer';
+import { updateAppData } from '../store/appReducer';
 import {
-  createContactData,
-  updateCustomerData
-} from "../store/customerDataReducer";
-import { updateAppData } from "../store/appReducer";
-import {
-  required,
+  // required,
   requiredSentens1,
   requiredSentens2,
   requiredSentens3,
@@ -18,190 +15,190 @@ import {
   email,
   renderInput,
   renderRationBtn,
-  renderCheckBox
-} from "../utils/formUtils";
+  renderCheckBox,
+} from '../utils/formUtils';
 
-import "./ContactForm.css";
+import './ContactForm.css';
 
-const selector = formValueSelector("ContactForm");
+const selector = formValueSelector('ContactForm');
 
 const selectOptions = [
   {
-    label: "Afghanistan / +93",
-    value: "Afghanistan / +93"
+    label: 'Afghanistan / +93',
+    value: 'Afghanistan / +93',
   },
   {
-    label: "Ägypten / +20",
-    value: "Ägypten / +20"
+    label: 'Ägypten / +20',
+    value: 'Ägypten / +20',
   },
   {
-    label: "Aland / +35818",
-    value: "Aland / +35818"
+    label: 'Aland / +35818',
+    value: 'Aland / +35818',
   },
   {
-    label: "Albanien / +355",
-    value: "Albanien / +355"
+    label: 'Albanien / +355',
+    value: 'Albanien / +355',
   },
   {
-    label: "Algerien / +213",
-    value: "Algerien / +213"
+    label: 'Algerien / +213',
+    value: 'Algerien / +213',
   },
   {
-    label: "Amerikanisch-Samoa / +1684",
-    value: "Amerikanisch-Samoa / +1684"
+    label: 'Amerikanisch-Samoa / +1684',
+    value: 'Amerikanisch-Samoa / +1684',
   },
   {
-    label: "Amerikanische Jungferninseln / +1340",
-    value: "Amerikanische Jungferninseln / +1340"
+    label: 'Amerikanische Jungferninseln / +1340',
+    value: 'Amerikanische Jungferninseln / +1340',
   },
   {
-    label: "Andorra / +376",
-    value: "Andorra / +376"
+    label: 'Andorra / +376',
+    value: 'Andorra / +376',
   },
   {
-    label: "Angola / +244",
-    value: "Angola / +244"
+    label: 'Angola / +244',
+    value: 'Angola / +244',
   },
   {
-    label: "Anguilla / +1264",
-    value: "Anguilla / +1264"
+    label: 'Anguilla / +1264',
+    value: 'Anguilla / +1264',
   },
   {
-    label: "Antarktis / +672",
-    value: "Antarktis / +672"
+    label: 'Antarktis / +672',
+    value: 'Antarktis / +672',
   },
   {
-    label: "Antigua und Barbuda / +1268",
-    value: "Antigua und Barbuda / +1268"
+    label: 'Antigua und Barbuda / +1268',
+    value: 'Antigua und Barbuda / +1268',
   },
   {
-    label: "Äquatorialguinea / +240",
-    value: "Äquatorialguinea / +240"
+    label: 'Äquatorialguinea / +240',
+    value: 'Äquatorialguinea / +240',
   },
   {
-    label: "Argentinien / +54",
-    value: "Argentinien / +54"
+    label: 'Argentinien / +54',
+    value: 'Argentinien / +54',
   },
   {
-    label: "Armenien / +374",
-    value: "Armenien / +374"
+    label: 'Armenien / +374',
+    value: 'Armenien / +374',
   },
   {
-    label: "Aruba / +297",
-    value: "Aruba / +297"
+    label: 'Aruba / +297',
+    value: 'Aruba / +297',
   },
   {
-    label: "Ascension / +247",
-    value: "Ascension / +247"
+    label: 'Ascension / +247',
+    value: 'Ascension / +247',
   },
   {
-    label: "Aserbaidschan / +994",
-    value: "Aserbaidschan / +994"
+    label: 'Aserbaidschan / +994',
+    value: 'Aserbaidschan / +994',
   },
   {
-    label: "Äthiopien / +251",
-    value: "Äthiopien / +251"
+    label: 'Äthiopien / +251',
+    value: 'Äthiopien / +251',
   },
   {
-    label: "Australien / +61",
-    value: "Australien / +61"
+    label: 'Australien / +61',
+    value: 'Australien / +61',
   },
   {
-    label: "Bahamas / +1242",
-    value: "Bahamas / +1242"
+    label: 'Bahamas / +1242',
+    value: 'Bahamas / +1242',
   },
   {
-    label: "Bahrain / +973",
-    value: "Bahrain / +973"
+    label: 'Bahrain / +973',
+    value: 'Bahrain / +973',
   },
   {
-    label: "Bangladesch / +880",
-    value: "Bangladesch / +880"
+    label: 'Bangladesch / +880',
+    value: 'Bangladesch / +880',
   },
   {
-    label: "Barbados / +1246",
-    value: "Barbados / +1246"
+    label: 'Barbados / +1246',
+    value: 'Barbados / +1246',
   },
   {
-    label: "Belgien / +32",
-    value: "Belgien / +32"
+    label: 'Belgien / +32',
+    value: 'Belgien / +32',
   },
   {
-    label: "Belize / +51",
-    value: "Belize / +51"
+    label: 'Belize / +51',
+    value: 'Belize / +51',
   },
   {
-    label: "Benin / +229",
-    value: "Benin / +229"
+    label: 'Benin / +229',
+    value: 'Benin / +229',
   },
   {
-    label: "Bermuda / +1441",
-    value: "Bermuda / +1441"
+    label: 'Bermuda / +1441',
+    value: 'Bermuda / +1441',
   },
   {
-    label: "Bhutan / +975",
-    value: "Bhutan / +975"
+    label: 'Bhutan / +975',
+    value: 'Bhutan / +975',
   },
   {
-    label: "Bolivien / +591",
-    value: "Bolivien / +591"
+    label: 'Bolivien / +591',
+    value: 'Bolivien / +591',
   },
   {
-    label: "Bosnien und Herzegowina / +387",
-    value: "Bosnien und Herzegowina / +387"
+    label: 'Bosnien und Herzegowina / +387',
+    value: 'Bosnien und Herzegowina / +387',
   },
   {
-    label: "Botswana / +267",
-    value: "Botswana / +267"
+    label: 'Botswana / +267',
+    value: 'Botswana / +267',
   },
   {
-    label: "Brasilien / +55",
-    value: "Brasilien / +55"
+    label: 'Brasilien / +55',
+    value: 'Brasilien / +55',
   },
   {
-    label: "Britische Jungferninseln / +1284",
-    value: "Britische Jungferninseln / +1284"
+    label: 'Britische Jungferninseln / +1284',
+    value: 'Britische Jungferninseln / +1284',
   },
   {
-    label: "Brunei / +673",
-    value: "Brunei / +673"
+    label: 'Brunei / +673',
+    value: 'Brunei / +673',
   },
   {
-    label: "Bulgarien / +359",
-    value: "Bulgarien / +359"
+    label: 'Bulgarien / +359',
+    value: 'Bulgarien / +359',
   },
   {
-    label: "Burkina Faso / +226",
-    value: "Burkina Faso / +226"
+    label: 'Burkina Faso / +226',
+    value: 'Burkina Faso / +226',
   },
   {
-    label: "Burundi / +257",
-    value: "Burundi / +257"
+    label: 'Burundi / +257',
+    value: 'Burundi / +257',
   },
   {
-    label: "Chile / +56",
-    value: "Chile / +56"
+    label: 'Chile / +56',
+    value: 'Chile / +56',
   },
   {
-    label: "China, Volksrepublik / +86",
-    value: "China, Volksrepublik / +86"
+    label: 'China, Volksrepublik / +86',
+    value: 'China, Volksrepublik / +86',
   },
   {
-    label: "Cookinseln / +682",
-    value: "Cookinseln / +682"
+    label: 'Cookinseln / +682',
+    value: 'Cookinseln / +682',
   },
   {
-    label: "Costa Rica / +56",
-    value: "Costa Rica / +56"
+    label: 'Costa Rica / +56',
+    value: 'Costa Rica / +56',
   },
   {
-    label: "Republik Côte d’Ivoire / +225",
-    value: "Republik Côte d’Ivoire / +225"
+    label: 'Republik Côte d’Ivoire / +225',
+    value: 'Republik Côte d’Ivoire / +225',
   },
   {
-    label: "Dänemark / +45",
-    value: "Dänemark / +45"
-  }
+    label: 'Dänemark / +45',
+    value: 'Dänemark / +45',
+  },
 
   // St. Helena und Nebengebiete / +290
   // Diego Garcia / +246
@@ -398,11 +395,11 @@ const selectOptions = [
 class ContactForm extends Component {
   onSubmit = (values, nextTitle, totalSteps, currentStep, nextSliderNumber) => {
     this.props.createContactData(values);
-    console.log(createContactData, "values");
+    console.log(createContactData, 'values');
     this.props.updateAppData({
-      title: "Wer soll die Bewertung erhalten?",
+      title: 'Wer soll die Bewertung erhalten?',
       totalSteps: 20,
-      currentStep: 20
+      currentStep: 20,
     });
     this.props.goToSlide(nextSliderNumber);
   };
@@ -417,12 +414,12 @@ class ContactForm extends Component {
       mail,
       preset,
       phone,
-      information,
-      goToSlide
+      // information,
+      goToSlide,
     } = this.props;
     if (valid) {
       updateCustomerData({
-        key: "contact",
+        key: 'contact',
         value: {
           sex: sex,
           firstName: firstName,
@@ -430,8 +427,8 @@ class ContactForm extends Component {
           mail: mail,
           preset: preset,
           phone: phone,
-          information: false
-        }
+          information: false,
+        },
       });
       goToSlide(16);
     }
@@ -547,10 +544,9 @@ class ContactForm extends Component {
                 labelClass="contact-form__confirm-label"
                 label={
                   <p>
-                    Ich stimme den{" "}
-                    <a href="/datenschutz/">Datenschutzbestimmungen </a>
-                    und einer Kontaktaufnahme durch immoverkauf24 per E-Mail
-                    oder Telefon für Rückfragen oder zu Informationszwecken zu.
+                    Ich stimme den <a href="/datenschutz/">Datenschutzbestimmungen </a>
+                    und einer Kontaktaufnahme durch immoverkauf24 per E-Mail oder Telefon für
+                    Rückfragen oder zu Informationszwecken zu.
                   </p>
                 }
               />
@@ -595,18 +591,18 @@ class ContactForm extends Component {
 }
 
 ContactForm = reduxForm({
-  form: "ContactForm"
+  form: 'ContactForm',
 })(ContactForm);
 
 export default connect(
   state => ({
-    sex: selector(state, "contact.sex"),
-    firstName: selector(state, "contact.firstName"),
-    lastName: selector(state, "contact.lastName"),
-    mail: selector(state, "contant.mail"),
-    preset: selector(state, "contact.preset"),
-    phone: selector(state, "contact.phone"),
-    information: false
+    sex: selector(state, 'contact.sex'),
+    firstName: selector(state, 'contact.firstName'),
+    lastName: selector(state, 'contact.lastName'),
+    mail: selector(state, 'contant.mail'),
+    preset: selector(state, 'contact.preset'),
+    phone: selector(state, 'contact.phone'),
+    information: false,
   }),
   { createContactData, updateAppData, updateCustomerData }
 )(ContactForm);

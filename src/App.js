@@ -18,6 +18,8 @@ import LendArea from './slides/LandArea';
 import BuildYear from './slides/BuildYear';
 import ShopArea from './slides/ShopArea';
 import ContactForm from './slides/ContactForm';
+import PropertyAreaTwo from './slides/PropertyAreaTwo';
+import PropertyAreaThree from './slides/PropertyAreaThree';
 
 import './App.css';
 
@@ -59,6 +61,8 @@ class App extends Component {
           <ShopArea goToSlide={this.goToSlide} />
           <ContactForm goToSlide={this.goToSlide} />
           <ThankYouPage />
+          <PropertyAreaTwo goToSlide={this.goToSlide} />
+          <PropertyAreaThree goToSlide={this.goToSlide} />
         </Slider>
       </div>
     );

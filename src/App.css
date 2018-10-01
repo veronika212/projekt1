@@ -1,12 +1,12 @@
 * {
   box-sizing: border-box; }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0; }
 
-input[type="radio"] {
+input[type='radio'] {
   position: absolute;
   top: 15px;
   left: 10px;
@@ -24,7 +24,7 @@ input[type="radio"] {
   background-color: #d9e8f3;
   border: 2px solid #257db8; }
   .radiobtn:before {
-    content: "";
+    content: '';
     position: absolute;
     top: 2px;
     left: 2px;
@@ -36,11 +36,11 @@ input[type="radio"] {
     background-color: #257db8; }
 
 @font-face {
-  font-family: "Icons";
+  font-family: 'Icons';
   src: url("./fonts//iv-icons.woff") format("woff"); }
 
-[class*=" icon-"]:before,
-[class^="icon-"]:before,
+[class*=' icon-']:before,
+[class^='icon-']:before,
 [data-icon]:before {
   font-family: Icons !important;
   font-weight: 400 !important;
@@ -82,7 +82,7 @@ body {
   color: #6a6a6a;
   background-color: #fff;
   font-weight: 300;
-  font-family: "Signika Negative", Helvetica, Arial, sans-serif !important; }
+  font-family: 'Signika Negative', Helvetica, Arial, sans-serif !important; }
 
 li {
   list-style: none; }
@@ -190,10 +190,11 @@ li {
     margin-right: 45px;
     width: 142px; }
   .icon.icon--nettomiete {
-    background-position: 0 -3240px; }
+    background-position: 0 -3240px;
+    width: 130px; }
   .icon.icon--wohnflaeche {
     background-position: 0 -2970px;
-    width: 140px; }
+    width: 137px; }
   .icon.icon--grundstuecksgroesse {
     background-position: 0 -1170px;
     width: 130px; }
@@ -204,8 +205,8 @@ li {
     background-position: 0 -4770px;
     width: 140px; }
   .icon.glyphicon-send {
-    content: "\e171";
-    font-family: "Glyphicons Halflings"; }
+    content: '\e171';
+    font-family: 'Glyphicons Halflings'; }
 
 .star {
   color: #ff7171;
@@ -242,8 +243,10 @@ li {
   color: #000;
   font-weight: 400; }
 
-.bulb:before {
-  font-family: "iv-icons";
-  content: "\66";
-  line-height: 1;
-  font-weight: 400; }
+.bulb {
+  margin-left: 39%; }
+  .bulb:before {
+    font-family: 'iv-icons';
+    content: '\66';
+    line-height: 1;
+    font-weight: 400; }

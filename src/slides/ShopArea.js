@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { updateAppData } from "../store/appReducer";
-import { updateCustomerData } from "../store/customerDataReducer";
-import ReactSlider from "../components/common/ReactSlider/ReactSlider";
-import ProgressBar from "../components/common/ProgressBar/ProgressBar";
-import Footer from "../components/common/Footer/Footer";
+import { updateAppData } from '../store/appReducer';
+import { updateCustomerData } from '../store/customerDataReducer';
+import ReactSlider from '../components/common/ReactSlider/ReactSlider';
+import ProgressBar from '../components/common/ProgressBar/ProgressBar';
+import Footer from '../components/common/Footer/Footer';
 
 class ShopArea extends Component {
   state = {
-    value: 300
+    value: 300,
   };
 
   handleSliderChange = value => {
@@ -17,17 +17,10 @@ class ShopArea extends Component {
   };
 
   handleNextClick = slideNumber => {
-    const {
-      goToSlide,
-      updateCustomerData,
-      updateAppData,
-      nextTitle,
-      totalSteps,
-      currentStep
-    } = this.props;
+    const { goToSlide, updateCustomerData, updateAppData } = this.props;
 
-    updateCustomerData({ key: "propertyPrice", value: this.state.value });
-    updateAppData({ title: "Update title", totalSteps: 20, currentStep: 13 });
+    updateCustomerData({ key: 'propertyPrice', value: this.state.value });
+    updateAppData({ title: 'Update title', totalSteps: 20, currentStep: 13 });
     goToSlide(slideNumber);
   };
 
@@ -47,6 +40,10 @@ class ShopArea extends Component {
               onChange={this.handleSliderChange}
             />
           </div>
+        </div>
+
+        <div className="directinput-note">
+          <span className="bulb">Oder direkt eingeben:</span>
         </div>
 
         <div className="input-group slider-input">

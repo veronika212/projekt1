@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { updateAppData } from '../store/appReducer';
+import { updateAppData, beforeAppData } from '../store/appReducer';
 import { updateCustomerData } from '../store/customerDataReducer';
 import ReactSlider from '../components/common/ReactSlider/ReactSlider';
 import ProgressBar from '../components/common/ProgressBar/ProgressBar';
@@ -9,7 +9,7 @@ import Footer from '../components/common/Footer/Footer';
 
 class PropertyPrice extends Component {
   state = {
-    value: 1500,
+    value: 10000,
   };
 
   handleSliderChange = value => {
@@ -17,26 +17,28 @@ class PropertyPrice extends Component {
   };
 
   handleNextClick = slideNumber => {
-    const {
-      goToSlide,
-      updateCustomerData,
-      updateAppData,
-      nextTitle,
-      totalSteps,
-      currentStep,
-    } = this.props;
+    const { goToSlide, updateCustomerData, updateAppData } = this.props;
 
     updateCustomerData({ key: 'propertyPrice', value: this.state.value });
     updateAppData({
       title: 'Welche Wohnfläche besitzt das Objekt?',
-      totalSteps: 9,
-      currentStep: 3,
+      totalSteps: 10,
+      currentStep: 4,
     });
     goToSlide(slideNumber);
   };
 
+  handlePrevClick = slideNumber => {
+    const { beforeAppData, goToSlide } = this.props;
+    goToSlide(slideNumber);
+    beforeAppData({
+      title: 'Welcher Wohnstatus liegt vor?',
+      totalSteps: 10,
+      currentStep: 3,
+    });
+  };
+
   render() {
-    const { goToSlide } = this.props;
     return (
       <div>
         <div className="tiles-wrapper tile-wrapper--modifier">
@@ -45,14 +47,17 @@ class PropertyPrice extends Component {
             <ReactSlider
               value={this.state.value}
               min={1000}
-              max={3000}
-              minLabel="< 1000"
-              maxLabel=">3000"
+              max={30000}
+              minLabel="< 1000 €"
+              maxLabel="> 30000 €"
               onChange={this.handleSliderChange}
             />
           </div>
         </div>
 
+        <div className="directinput-note">
+          <span className="bulb">Oder direkt eingeben:</span>
+        </div>
         <div className="input-group slider-input">
           <span className="input-group-addon">Nettojahresmiete</span>
           <input
@@ -67,8 +72,8 @@ class PropertyPrice extends Component {
 
         <ProgressBar />
         <Footer
-          handlePrevClick={() => goToSlide(1)}
-          handleNextClick={() => this.handleNextClick(6)}
+          handlePrevClick={() => this.handlePrevClick(1)}
+          handleNextClick={() => this.handleNextClick(16)}
           glyphPrevBefore="glyphicon-arrow-left"
           glyphNextAfter="glyphicon-arrow-right"
         />
@@ -78,5 +83,5 @@ class PropertyPrice extends Component {
 }
 export default connect(
   null,
-  { updateAppData, updateCustomerData }
+  { updateAppData, updateCustomerData, beforeAppData }
 )(PropertyPrice);

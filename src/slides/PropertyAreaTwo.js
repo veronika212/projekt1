@@ -7,9 +7,9 @@ import ReactSlider from '../components/common/ReactSlider/ReactSlider';
 import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 import Footer from '../components/common/Footer/Footer';
 
-class LendArea extends Component {
+class PropertyAreaTwo extends Component {
   state = {
-    value: 800,
+    value: 100,
   };
 
   handleSliderChange = value => {
@@ -19,11 +19,11 @@ class LendArea extends Component {
   handleNextClick = slideNumber => {
     const { goToSlide, updateCustomerData, updateAppData } = this.props;
 
-    updateCustomerData({ key: 'landArea', value: this.state.value });
+    updateCustomerData({ key: 'propertyArea', value: this.state.value });
     updateAppData({
-      title: 'In welcher Region befindet sich das Objekt?',
+      title: 'Wann wurde die Immobilie gebaut?',
       totalSteps: 10,
-      currentStep: 5.5,
+      currentStep: 5,
     });
     goToSlide(slideNumber);
   };
@@ -34,7 +34,7 @@ class LendArea extends Component {
     beforeAppData({
       title: 'Wie hoch ist die Nettojahresmiete des Objekts?',
       totalSteps: 10,
-      currentStep: 4,
+      currentStep: 3.5,
     });
   };
 
@@ -43,13 +43,13 @@ class LendArea extends Component {
       <div>
         <div className="tiles-wrapper title-wrapper-height">
           <div className="slider__flex-wrapper">
-            <span className="icon icon--grundstuecksgroesse slider-image" />
+            <span className="icon icon--wohnflaeche slider-image" />
             <ReactSlider
               value={this.state.value}
-              min={100}
-              max={2500}
-              minLabel="< 100 m²"
-              maxLabel="> 2500 m²"
+              min={20}
+              max={300}
+              minLabel="< 20 m²"
+              maxLabel="> 300 m²"
               onChange={this.handleSliderChange}
             />
           </div>
@@ -58,9 +58,8 @@ class LendArea extends Component {
         <div className="directinput-note">
           <span className="bulb">Oder direkt eingeben:</span>
         </div>
-
         <div className="input-group slider-input">
-          <span className="input-group-addon">Grundstücksgröße</span>
+          <span className="input-group-addon">Wohnfläche</span>
           <input
             type="number"
             value={this.state.value}
@@ -73,7 +72,7 @@ class LendArea extends Component {
 
         <ProgressBar />
         <Footer
-          handlePrevClick={() => this.handlePrevClick(17)}
+          handlePrevClick={() => this.handlePrevClick(7)}
           handleNextClick={() => this.handleNextClick(8)}
           glyphPrevBefore="glyphicon-arrow-left"
           glyphNextAfter="glyphicon-arrow-right"
@@ -85,4 +84,4 @@ class LendArea extends Component {
 export default connect(
   null,
   { updateAppData, updateCustomerData, beforeAppData }
-)(LendArea);
+)(PropertyAreaTwo);

@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-import { updateAppData } from "../store/appReducer";
-import { updateCustomerData } from "../store/customerDataReducer";
-import ReactSlider from "../components/common/ReactSlider/ReactSlider";
-import ProgressBar from "../components/common/ProgressBar/ProgressBar";
-import Footer from "../components/common/Footer/Footer";
+import { updateAppData, beforeAppData } from '../store/appReducer';
+import { updateCustomerData } from '../store/customerDataReducer';
+import ReactSlider from '../components/common/ReactSlider/ReactSlider';
+import ProgressBar from '../components/common/ProgressBar/ProgressBar';
+import Footer from '../components/common/Footer/Footer';
 
 class BuildYear extends Component {
   state = {
-    value: 1960
+    value: 1960,
   };
 
   handleSliderChange = value => {
@@ -17,26 +17,28 @@ class BuildYear extends Component {
   };
 
   handleNextClick = slideNumber => {
-    const {
-      goToSlide,
-      updateCustomerData,
-      updateAppData,
-      nextTitle,
-      totalSteps,
-      currentStep
-    } = this.props;
+    const { goToSlide, updateCustomerData, updateAppData } = this.props;
 
-    updateCustomerData({ key: "bildYear", value: this.state.value });
+    updateCustomerData({ key: 'bildYear', value: this.state.value });
     updateAppData({
-      title: "In welchem Zustand befindet sich die Immobilie?",
-      totalSteps: 8,
-      currentStep: 4
+      title: 'In welchem Zustand befindet sich die Immobilie?',
+      totalSteps: 10,
+      currentStep: 6,
     });
     goToSlide(slideNumber);
   };
 
+  handlePrevClick = slideNumber => {
+    const { beforeAppData, goToSlide } = this.props;
+    goToSlide(slideNumber);
+    beforeAppData({
+      title: 'Welche Wohnfläche besitzt das Objekt?',
+      totalSteps: 10,
+      currentStep: 4,
+    });
+  };
+
   render() {
-    const { goToSlide } = this.props;
     return (
       <div>
         <div className="tiles-wrapper title-wrapper-height">
@@ -54,6 +56,10 @@ class BuildYear extends Component {
           </div>
         </div>
 
+        <div className="directinput-note">
+          <span className="bulb">Oder direkt eingeben:</span>
+        </div>
+
         <div className="input-group slider-input">
           <span className="input-group-addon">Baujahr</span>
           <input
@@ -67,7 +73,7 @@ class BuildYear extends Component {
 
         <ProgressBar />
         <Footer
-          handlePrevClick={() => goToSlide(6)}
+          handlePrevClick={() => this.handlePrevClick(6)}
           handleNextClick={() => this.handleNextClick(9)}
           glyphPrevBefore="glyphicon-arrow-left"
           glyphNextAfter="glyphicon-arrow-right"
@@ -78,5 +84,5 @@ class BuildYear extends Component {
 }
 export default connect(
   null,
-  { updateAppData, updateCustomerData }
+  { updateAppData, updateCustomerData, beforeAppData }
 )(BuildYear);

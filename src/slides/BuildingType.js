@@ -23,8 +23,18 @@ const BuildingType = ({
   };
 
   const handlePrevClick = (beforeTitle, currentStep, totalSteps) => {
-    goToSlide(4);
+    goToSlide(3);
     beforeAppData({ title: beforeTitle, totalSteps, currentStep });
+  };
+
+  const handleNextClick = slideNumber => {
+    updateCustomerData({ key: 'landArea', value: this.state.value });
+    updateAppData({
+      title: 'Welche Fläche besitzt das Grundstück?',
+      totalSteps: 10,
+      currentStep: 5,
+    });
+    goToSlide(slideNumber);
   };
 
   return (
@@ -32,7 +42,7 @@ const BuildingType = ({
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(6, 'Ist das Grundstück bebaubar?', 6, 8, {
+            onTileClick(12, 'Ist das Grundstück bebaubar?', 5, 10, {
               key: 'buildingType',
               value: 'Kurzfristig bebaubar',
             })
@@ -43,7 +53,7 @@ const BuildingType = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(6, 'Ist das Grundstück bebaubar?', 6, 8, {
+            onTileClick(12, 'Ist das Grundstück bebaubar?', 5, 10, {
               key: 'buildingType',
               value: 'Eingeschränkt',
             })
@@ -54,7 +64,7 @@ const BuildingType = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(6, 'Ist das Grundstück bebaubar?', 6, 8, {
+            onTileClick(12, 'Ist das Grundstück bebaubar?', 5, 10, {
               key: 'buildingType',
               value: 'Nicht bebaubar',
             })
@@ -65,7 +75,7 @@ const BuildingType = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(6, 'Ist das Grundstück bebaubar?', 6, 8, {
+            onTileClick(12, 'Ist das Grundstück bebaubar?', 5, 10, {
               key: 'buildingType',
               value: 'Unbekannt',
             })
@@ -78,9 +88,8 @@ const BuildingType = ({
 
       <ProgressBar />
       <Footer
-        handlePrevClick={() => handlePrevClick('BlaBlaBLa', 5, 20)}
-        handleNextClick={() => goToSlide(6)}
-        nextDisabled={true}
+        handlePrevClick={() => handlePrevClick('Angaben zu Ihrem Grundstück', 2.5, 10)}
+        handleNextClick={() => handleNextClick(12)}
         glyphPrevBefore="glyphicon-arrow-left"
         glyphNextAfter="glyphicon-arrow-right"
         nextDisabled={!selectedState}
