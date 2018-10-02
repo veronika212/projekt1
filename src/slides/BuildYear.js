@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { updateAppData } from '../store/appReducer';
-import { updateCustomerData } from '../store/customerDataReducer';
+import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
 import ReactSlider from '../components/common/ReactSlider/ReactSlider';
 import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 import Footer from '../components/common/Footer/Footer';
@@ -16,9 +16,12 @@ class BuildYear extends Component {
     this.setState({ value });
   };
 
-  handleNextClick = slideNumber => {
-    const { goToSlide, updateCustomerData, updateAppData } = this.props;
-
+  handleNextClick = () => {
+    const { goToSlide, updateCustomerData, updateAppData, propertyType } = this.props;
+    let slideNumber = 9;
+    if (propertyType === 'Gewerbe') {
+      slideNumber = 11;
+    }
     updateCustomerData({ key: 'buildYear', value: this.state.value });
     updateAppData({
       totalSteps: 10,
@@ -72,7 +75,7 @@ class BuildYear extends Component {
         <ProgressBar />
         <Footer
           handlePrevClick={() => this.handlePrevClick()}
-          handleNextClick={() => this.handleNextClick(9)}
+          handleNextClick={() => this.handleNextClick()}
           glyphPrevBefore="glyphicon-arrow-left"
           glyphNextAfter="glyphicon-arrow-right"
         />
@@ -81,6 +84,8 @@ class BuildYear extends Component {
   }
 }
 export default connect(
-  null,
+  store => ({
+    propertyType: selectCustomerDataItem(store, 'propertyType'),
+  }),
   { updateAppData, updateCustomerData }
 )(BuildYear);

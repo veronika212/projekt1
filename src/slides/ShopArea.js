@@ -20,7 +20,7 @@ class ShopArea extends Component {
     const { goToSlide, updateCustomerData, updateAppData } = this.props;
 
     updateCustomerData({ key: 'propertyPrice', value: this.state.value });
-    updateAppData({ title: 'Update title', totalSteps: 20, currentStep: 13 });
+    updateAppData({ totalSteps: 10, currentStep: 13 });
     goToSlide(slideNumber);
   };
 
@@ -61,7 +61,7 @@ class ShopArea extends Component {
         <ProgressBar />
         <Footer
           handlePrevClick={() => goToSlide(null, 'prev')}
-          handleNextClick={() => this.handleNextClick(5)}
+          handleNextClick={() => this.handleNextClick(8)}
           glyphPrevBefore="glyphicon-arrow-left"
           glyphNextAfter="glyphicon-arrow-right"
         />

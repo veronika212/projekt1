@@ -41,15 +41,16 @@ class App extends Component {
     };
 
     this.goToSlide = (slideNumber, direction = 'next') => {
+      let countedAppData = {};
       if (direction === 'next') {
         this.props.apendHistoryIndex(slideNumber);
         this.mainSlider.slickGoTo(slideNumber);
+        countedAppData = countAppDataFromSlideNumber(slideNumber);
       } else if (direction === 'prev') {
-        console.log(this.props.history[1], 'this.props.history[1]');
         this.mainSlider.slickGoTo(this.props.history[1]);
         this.props.removeHistoryIndex();
+        countedAppData = countAppDataFromSlideNumber(this.props.history[1]);
       }
-      const countedAppData = countAppDataFromSlideNumber(slideNumber);
       this.props.updateAppData({ ...countedAppData });
     };
 
