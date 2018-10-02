@@ -57,8 +57,6 @@ export const renderRationBtn = ({
   placeholder,
   meta: { touched, error },
 }) => {
-  console.log(input, 'input');
-
   return (
     <label htmlFor={`${input.name}${input.value}`} className="radio-item">
       <span className={`radiobtn ${input.checked === true ? 'checked' : null}`} />

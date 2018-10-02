@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { updateAppData, beforeAppData } from '../store/appReducer';
+import { updateAppData } from '../store/appReducer';
 import { updateCustomerData } from '../store/customerDataReducer';
 import ReactSlider from '../components/common/ReactSlider/ReactSlider';
 import ProgressBar from '../components/common/ProgressBar/ProgressBar';
@@ -19,20 +19,18 @@ class BuildYear extends Component {
   handleNextClick = slideNumber => {
     const { goToSlide, updateCustomerData, updateAppData } = this.props;
 
-    updateCustomerData({ key: 'bildYear', value: this.state.value });
+    updateCustomerData({ key: 'buildYear', value: this.state.value });
     updateAppData({
-      title: 'In welchem Zustand befindet sich die Immobilie?',
       totalSteps: 10,
       currentStep: 6,
     });
     goToSlide(slideNumber);
   };
 
-  handlePrevClick = slideNumber => {
-    const { beforeAppData, goToSlide } = this.props;
-    goToSlide(slideNumber);
-    beforeAppData({
-      title: 'Welche Wohnfläche besitzt das Objekt?',
+  handlePrevClick = () => {
+    const { goToSlide } = this.props;
+    goToSlide(null, 'prev');
+    updateAppData({
       totalSteps: 10,
       currentStep: 4,
     });
@@ -73,7 +71,7 @@ class BuildYear extends Component {
 
         <ProgressBar />
         <Footer
-          handlePrevClick={() => this.handlePrevClick(6)}
+          handlePrevClick={() => this.handlePrevClick()}
           handleNextClick={() => this.handleNextClick(9)}
           glyphPrevBefore="glyphicon-arrow-left"
           glyphNextAfter="glyphicon-arrow-right"
@@ -84,5 +82,5 @@ class BuildYear extends Component {
 }
 export default connect(
   null,
-  { updateAppData, updateCustomerData, beforeAppData }
+  { updateAppData, updateCustomerData }
 )(BuildYear);

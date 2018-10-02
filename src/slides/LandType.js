@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { updateAppData, beforeAppData } from '../store/appReducer';
+import { updateAppData } from '../store/appReducer';
 import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
 
 import Footer from '../components/common/Footer/Footer';
@@ -9,28 +9,20 @@ import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 
 import Tile from '../components/common/Tile/Tile';
 
-const LandType = ({
-  goToSlide,
-  updateAppData,
-  updateCustomerData,
-  beforeAppData,
-  selectedState,
-}) => {
-  const onTileClick = (nextSlideNumber, nextTitle, currentStep, totalSteps, data) => {
+const LandType = ({ goToSlide, updateAppData, updateCustomerData, selectedState }) => {
+  const onTileClick = (nextSlideNumber, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
-    updateAppData({ title: nextTitle, totalSteps, currentStep });
+    updateAppData({ totalSteps, currentStep });
     updateCustomerData(data);
   };
 
-  const handlePrevClick = (beforeTitle, currentStep, totalSteps) => {
-    goToSlide(0);
-    beforeAppData({ title: beforeTitle, totalSteps, currentStep });
+  const handlePrevClick = (currentStep, totalSteps) => {
+    goToSlide(null, 'prev');
+    updateAppData({ totalSteps, currentStep });
   };
 
   const handleNextClick = slideNumber => {
-    updateCustomerData({ key: 'buildingType', value: { selectedState } });
     updateAppData({
-      title: 'Ist das Grundstück bebaubar?',
       totalSteps: 10,
       currentStep: 3.5,
     });
@@ -42,7 +34,7 @@ const LandType = ({
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(5, 'Ist das Grundstück bebaubar?', 3.5, 10, {
+            onTileClick(5, 3.5, 10, {
               key: 'landType',
               value: 'Baugrundstück',
             })
@@ -53,7 +45,7 @@ const LandType = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(5, 'Ist das Grundstück bebaubar?', 3.5, 10, {
+            onTileClick(5, 3.5, 10, {
               key: 'landType',
               value: 'Bauerwartungs­land',
             })
@@ -64,7 +56,7 @@ const LandType = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(5, 'Ist das Grundstück bebaubar?', 3.5, 10, {
+            onTileClick(5, 3.5, 10, {
               key: 'landType',
               value: 'Gewerbe­grundstück',
             })
@@ -75,7 +67,7 @@ const LandType = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(5, 'Ist das Grundstück bebaubar?', 3.5, 10, {
+            onTileClick(5, 3.5, 10, {
               key: 'landType',
               value: 'Agrarfläche',
             })
@@ -88,7 +80,7 @@ const LandType = ({
 
       <ProgressBar />
       <Footer
-        handlePrevClick={() => handlePrevClick('Angaben zur Immobilie', 2, 10)}
+        handlePrevClick={() => handlePrevClick(2, 10)}
         handleNextClick={() => handleNextClick(5)}
         glyphPrevBefore="glyphicon-arrow-left"
         glyphNextAfter="glyphicon-arrow-right"
@@ -102,5 +94,5 @@ export default connect(
   state => ({
     selectedState: selectCustomerDataItem(state, 'landType'),
   }),
-  { updateAppData, updateCustomerData, beforeAppData }
+  { updateAppData, updateCustomerData }
 )(LandType);

@@ -38,7 +38,7 @@ const defaultState = {
   propertyArea: 0,
   landArea: 0,
   area: 0,
-  year: 0,
+  buildYear: 0,
   address: {
     streetAndNumber: '',
     zipCode: '',

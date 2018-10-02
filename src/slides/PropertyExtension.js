@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { updateAppData, beforeAppData } from '../store/appReducer';
+import { updateAppData } from '../store/appReducer';
 import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
 
 import Footer from '../components/common/Footer/Footer';
@@ -13,24 +13,22 @@ const PropertyExtension = ({
   goToSlide,
   updateAppData,
   updateCustomerData,
-  beforeAppData,
+
   selectedState,
 }) => {
-  const onTileClick = (nextSlideNumber, nextTitle, currentStep, totalSteps, data) => {
+  const onTileClick = (nextSlideNumber, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
-    updateAppData({ title: nextTitle, totalSteps, currentStep });
+    updateAppData({ totalSteps, currentStep });
     updateCustomerData(data);
   };
 
-  const handlePrevClick = (beforeTitle, currentStep, totalSteps) => {
-    goToSlide(9);
-    beforeAppData({ title: beforeTitle, totalSteps, currentStep });
+  const handlePrevClick = (currentStep, totalSteps) => {
+    goToSlide(null, 'prev');
+    updateAppData({ totalSteps, currentStep });
   };
 
   const handleNextClick = slideNumber => {
-    updateCustomerData({ key: 'propertyExtension', value: { selectedState } });
     updateAppData({
-      title: 'In welcher Region befindet sich das Objekt?',
       totalSteps: 10,
       currentStep: 9,
     });
@@ -42,7 +40,7 @@ const PropertyExtension = ({
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(11, 'In welcher Region befindet sich das Objekt?', 9, 10, {
+            onTileClick(11, 9, 10, {
               key: 'propertyExtension',
               value: 'Balkon',
             })
@@ -53,7 +51,7 @@ const PropertyExtension = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(11, 'In welcher Region befindet sich das Objekt?', 9, 10, {
+            onTileClick(11, 9, 10, {
               key: 'propertyExtension',
               value: 'Terrasse',
             })
@@ -64,7 +62,7 @@ const PropertyExtension = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(11, 'In welcher Region befindet sich das Objekt?', 9, 10, {
+            onTileClick(11, 9, 10, {
               key: 'propertyExtension',
               value: 'Balkon & Terrasse',
             })
@@ -75,7 +73,7 @@ const PropertyExtension = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(11, 'In welcher Region befindet sich das Objekt?', 9, 10, {
+            onTileClick(11, 9, 10, {
               key: 'propertyExtension',
               value: 'Weder noch',
             })
@@ -88,9 +86,7 @@ const PropertyExtension = ({
 
       <ProgressBar />
       <Footer
-        handlePrevClick={() =>
-          handlePrevClick('In welchem Zustand befindet sich die Immobilie?', 6, 10)
-        }
+        handlePrevClick={() => handlePrevClick(6, 10)}
         handleNextClick={() => handleNextClick(11)}
         glyphPrevBefore="glyphicon-arrow-left"
         glyphNextAfter="glyphicon-arrow-right"
@@ -104,5 +100,5 @@ export default connect(
   state => ({
     selectedState: selectCustomerDataItem(state, 'propertyExtension'),
   }),
-  { updateAppData, updateCustomerData, beforeAppData }
+  { updateAppData, updateCustomerData }
 )(PropertyExtension);

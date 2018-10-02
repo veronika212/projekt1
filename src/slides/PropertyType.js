@@ -7,16 +7,14 @@ import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 import Tile from '../components/common/Tile/Tile';
 
 const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedState }) => {
-  const onTileClick = (nextSlideNumber, nextTitle, currentStep, totalSteps, data) => {
+  const onTileClick = (nextSlideNumber, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
-    updateAppData({ title: nextTitle, totalSteps, currentStep });
+    updateAppData({ totalSteps, currentStep });
     updateCustomerData(data);
   };
 
   const handleNextClick = slideNumber => {
-    updateCustomerData({ key: 'propertyOccupation', value: { selectedState } });
     updateAppData({
-      title: 'Welche Wohnfläche besitzt das Objekt?',
       totalSteps: 10,
       currentStep: 3,
     });
@@ -28,7 +26,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 3, 10, {
+            onTileClick(1, 3, 10, {
               key: 'propertyType',
               value: 'Wohnung',
             })
@@ -39,7 +37,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(2, 'Angaben zu Ihrem Haus', 2, 10, {
+            onTileClick(2, 2, 10, {
               key: 'propertyType',
               value: 'Haus',
             })
@@ -50,7 +48,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(3, 'Angaben zu Ihrem Grundstück', 2.5, 10, {
+            onTileClick(3, 2.5, 10, {
               key: 'propertyType',
               value: 'Grundstück',
             })
@@ -61,7 +59,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(4, 'Angaben zu Ihrer Gewerbeimmobilie', 2, 10, {
+            onTileClick(4, 2, 10, {
               key: 'propertyType',
               value: 'Gewerbe',
             })

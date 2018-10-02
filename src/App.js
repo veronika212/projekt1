@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 import { connect } from 'react-redux';
+import { countAppDataFromSlideNumber } from './utils/slidesUtils';
+import {
+  updateAppData,
+  apendHistoryIndex,
+  removeHistoryIndex,
+  selectHistory,
+} from './store/appReducer';
 
 import PropertyType from './slides/PropertyType';
 import PropertyOccupation from './slides/PropertyOccupation';
@@ -14,12 +21,10 @@ import ThankYouPage from './slides/ThankYouPage';
 import RegionForm from './slides/RegionForm';
 import PropetyPrice from './slides/PropertyPrice';
 import PropertyArea from './slides/PropertyArea';
-import LendArea from './slides/LandArea';
+import LandArea from './slides/LandArea';
 import BuildYear from './slides/BuildYear';
 import ShopArea from './slides/ShopArea';
 import ContactForm from './slides/ContactForm';
-import PropertyAreaTwo from './slides/PropertyAreaTwo';
-import PropertyAreaThree from './slides/PropertyAreaThree';
 
 import './App.css';
 
@@ -35,10 +40,21 @@ class App extends Component {
       adaptiveHeight: true,
     };
 
-    this.goToSlide = slideNumber => {
-      this.mainSlider.slickGoTo(slideNumber);
+    this.goToSlide = (slideNumber, direction = 'next') => {
+      if (direction === 'next') {
+        this.props.apendHistoryIndex(slideNumber);
+        this.mainSlider.slickGoTo(slideNumber);
+      } else if (direction === 'prev') {
+        console.log(this.props.history[1], 'this.props.history[1]');
+        this.mainSlider.slickGoTo(this.props.history[1]);
+        this.props.removeHistoryIndex();
+      }
+      const countedAppData = countAppDataFromSlideNumber(slideNumber);
+      this.props.updateAppData({ ...countedAppData });
     };
+
     const { app } = this.props;
+
     return (
       <div className="app">
         <div className="app__header">
@@ -57,12 +73,10 @@ class App extends Component {
           <PropertyCondition goToSlide={this.goToSlide} />
           <PropertyExtension goToSlide={this.goToSlide} />
           <RegionForm goToSlide={this.goToSlide} />
-          <LendArea goToSlide={this.goToSlide} />
+          <LandArea goToSlide={this.goToSlide} />
           <ShopArea goToSlide={this.goToSlide} />
           <ContactForm goToSlide={this.goToSlide} />
           <ThankYouPage />
-          <PropertyAreaTwo goToSlide={this.goToSlide} />
-          <PropertyAreaThree goToSlide={this.goToSlide} />
         </Slider>
       </div>
     );
@@ -73,7 +87,11 @@ const mapStateToProps = store => {
   return {
     app: store.app,
     customerData: store.customerData,
+    history: selectHistory(store),
   };
 };
 
-export default connect(mapStateToProps)(App);
+export default connect(
+  mapStateToProps,
+  { updateAppData, apendHistoryIndex, removeHistoryIndex }
+)(App);

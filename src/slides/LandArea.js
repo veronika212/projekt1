@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { updateAppData, beforeAppData } from '../store/appReducer';
-import { updateCustomerData } from '../store/customerDataReducer';
+import { updateAppData } from '../store/appReducer';
+import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
 import ReactSlider from '../components/common/ReactSlider/ReactSlider';
 import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 import Footer from '../components/common/Footer/Footer';
@@ -16,23 +16,25 @@ class LendArea extends Component {
     this.setState({ value });
   };
 
-  handleNextClick = slideNumber => {
+  handleNextClick = () => {
+    let slideNumber = 8;
+    if (this.props.propertyType === 'Grundstück') {
+      slideNumber = 11;
+    }
     const { goToSlide, updateCustomerData, updateAppData } = this.props;
 
     updateCustomerData({ key: 'landArea', value: this.state.value });
     updateAppData({
-      title: 'In welcher Region befindet sich das Objekt?',
       totalSteps: 10,
       currentStep: 5.5,
     });
     goToSlide(slideNumber);
   };
 
-  handlePrevClick = slideNumber => {
-    const { beforeAppData, goToSlide } = this.props;
-    goToSlide(slideNumber);
-    beforeAppData({
-      title: 'Wie hoch ist die Nettojahresmiete des Objekts?',
+  handlePrevClick = () => {
+    const { updateAppData, goToSlide } = this.props;
+    goToSlide(null, 'prev');
+    updateAppData({
       totalSteps: 10,
       currentStep: 4,
     });
@@ -73,8 +75,8 @@ class LendArea extends Component {
 
         <ProgressBar />
         <Footer
-          handlePrevClick={() => this.handlePrevClick(17)}
-          handleNextClick={() => this.handleNextClick(8)}
+          handlePrevClick={() => this.handlePrevClick()}
+          handleNextClick={() => this.handleNextClick()}
           glyphPrevBefore="glyphicon-arrow-left"
           glyphNextAfter="glyphicon-arrow-right"
         />
@@ -83,6 +85,8 @@ class LendArea extends Component {
   }
 }
 export default connect(
-  null,
-  { updateAppData, updateCustomerData, beforeAppData }
+  store => ({
+    propertyType: selectCustomerDataItem(store, 'propertyType'),
+  }),
+  { updateAppData, updateCustomerData }
 )(LendArea);

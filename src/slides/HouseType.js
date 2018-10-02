@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { updateAppData, beforeAppData } from '../store/appReducer';
+import { updateAppData } from '../store/appReducer';
 import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
 
 import Footer from '../components/common/Footer/Footer';
@@ -9,28 +9,20 @@ import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 
 import Tile from '../components/common/Tile/Tile';
 
-const HouseType = ({
-  goToSlide,
-  updateAppData,
-  updateCustomerData,
-  beforeAppData,
-  selectedState,
-}) => {
-  const onTileClick = (nextSlideNumber, nextTitle, currentStep, totalSteps, data) => {
+const HouseType = ({ goToSlide, updateAppData, updateCustomerData, selectedState }) => {
+  const onTileClick = (nextSlideNumber, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
-    updateAppData({ title: nextTitle, totalSteps, currentStep });
+    updateAppData({ totalSteps, currentStep });
     updateCustomerData(data);
   };
 
-  const handlePrevClick = (beforeTitle, currentStep, totalSteps) => {
-    goToSlide(0);
-    beforeAppData({ title: beforeTitle, totalSteps, currentStep });
+  const handlePrevClick = (currentStep, totalSteps) => {
+    goToSlide(null, 'prev');
+    updateAppData({ totalSteps, currentStep });
   };
 
   const handleNextClick = slideNumber => {
-    updateCustomerData({ key: 'propertyOccupation', value: { selectedState } });
     updateAppData({
-      title: 'Welcher Wohnstatus liegt vor?',
       totalSteps: 10,
       currentStep: 3,
     });
@@ -42,7 +34,7 @@ const HouseType = ({
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 3, 10, {
+            onTileClick(1, 3, 10, {
               key: 'houseType',
               value: 'Einfamilienhaus',
             })
@@ -53,7 +45,7 @@ const HouseType = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 3, 10, {
+            onTileClick(1, 3, 10, {
               key: 'houseType',
               value: 'Mehrfamilien­haus',
             })
@@ -64,7 +56,7 @@ const HouseType = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 3, 10, {
+            onTileClick(1, 3, 10, {
               key: 'houseType',
               value: 'Reihenhaus',
             })
@@ -75,7 +67,7 @@ const HouseType = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Wohnstatus liegt vor?', 3, 10, {
+            onTileClick(1, 3, 10, {
               key: 'houseType',
               value: 'Doppelhaushälfte',
             })
@@ -88,7 +80,7 @@ const HouseType = ({
 
       <ProgressBar />
       <Footer
-        handlePrevClick={() => handlePrevClick('Angaben zur Immobilie', 2, 10)}
+        handlePrevClick={() => handlePrevClick(2, 10)}
         handleNextClick={() => handleNextClick(1)}
         glyphPrevBefore="glyphicon-arrow-left"
         glyphNextAfter="glyphicon-arrow-right"
@@ -102,5 +94,5 @@ export default connect(
   state => ({
     selectedState: selectCustomerDataItem(state, 'houseType'),
   }),
-  { updateAppData, updateCustomerData, beforeAppData }
+  { updateAppData, updateCustomerData }
 )(HouseType);

@@ -1,9 +1,8 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { updateAppData, beforeAppData } from '../store/appReducer';
+import { updateAppData } from '../store/appReducer';
 import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
-
 import Footer from '../components/common/Footer/Footer';
 import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 
@@ -13,24 +12,34 @@ const PropertyOccupation = ({
   goToSlide,
   updateAppData,
   updateCustomerData,
-  beforeAppData,
   selectedState,
+  propertyType,
 }) => {
-  const onTileClick = (nextSlideNumber, nextTitle, currentStep, totalSteps, data) => {
+  const onTileClick = (slideNumber, currentStep, totalSteps, data) => {
+    let nextSlideNumber = slideNumber;
+    if (propertyType === 'Gewerbe' && slideNumber === 6) {
+      nextSlideNumber = 13;
+    }
+
     goToSlide(nextSlideNumber);
-    updateAppData({ title: nextTitle, totalSteps, currentStep });
+    updateAppData({ totalSteps, currentStep });
     updateCustomerData(data);
   };
 
-  const handlePrevClick = (beforeTitle, currentStep, totalSteps) => {
-    goToSlide(0);
-    beforeAppData({ title: beforeTitle, totalSteps, currentStep });
+  const handlePrevClick = (currentStep, totalSteps) => {
+    goToSlide(null, 'prev');
+    updateAppData({ totalSteps, currentStep });
   };
 
-  const handleNextClick = slideNumber => {
-    updateCustomerData({ key: 'propertyArea', value: 100 });
+  const handleNextClick = () => {
+    let slideNumber = 7;
+    if (selectedState === 'Selbst bewohnt' || selectedState === 'Frei') {
+      slideNumber = 6;
+      if (propertyType === 'Gewerbe') {
+        slideNumber = 13;
+      }
+    }
     updateAppData({
-      title: 'Welche Wohnfläche besitzt das Objekt?',
       totalSteps: 10,
       currentStep: 4,
     });
@@ -42,7 +51,7 @@ const PropertyOccupation = ({
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(17, 'Welche Wohnfläche besitzt das Objekt?', 4, 10, {
+            onTileClick(6, 4, 10, {
               key: 'propertyOccupation',
               value: 'Selbst bewohnt',
             })
@@ -53,7 +62,7 @@ const PropertyOccupation = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(6, 'In welchem Zustand befindet sich die Immobilie?', 4, 10, {
+            onTileClick(6, 4, 10, {
               key: 'propertyOccupation',
               value: 'Frei',
             })
@@ -64,7 +73,7 @@ const PropertyOccupation = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(7, 'Wie hoch ist die Nettojahresmiete des Objekts?', 3.5, 10, {
+            onTileClick(7, 3.5, 10, {
               key: 'propertyOccupation',
               value: 'Vermietet',
             })
@@ -75,7 +84,7 @@ const PropertyOccupation = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(7, 'Wie hoch ist die Nettojahresmiete des Objekts?', 3.5, 10, {
+            onTileClick(7, 3.5, 10, {
               key: 'propertyOccupation',
               value: 'Teilweise vermietet',
             })
@@ -88,8 +97,8 @@ const PropertyOccupation = ({
 
       <ProgressBar />
       <Footer
-        handlePrevClick={() => handlePrevClick('Angaben zur Immobilie', 3, 10)}
-        handleNextClick={() => handleNextClick(6)}
+        handlePrevClick={() => handlePrevClick(3, 10)}
+        handleNextClick={() => handleNextClick()}
         glyphPrevBefore="glyphicon-arrow-left"
         glyphNextAfter="glyphicon-arrow-right"
         nextDisabled={!selectedState}
@@ -101,6 +110,7 @@ const PropertyOccupation = ({
 export default connect(
   state => ({
     selectedState: selectCustomerDataItem(state, 'propertyOccupation'),
+    propertyType: selectCustomerDataItem(state, 'propertyType'),
   }),
-  { updateAppData, updateCustomerData, beforeAppData }
+  { updateAppData, updateCustomerData }
 )(PropertyOccupation);

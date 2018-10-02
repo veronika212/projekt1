@@ -1,7 +1,7 @@
 //action type
 const UPDATE_APP_DATA = 'UPDATE_APP_DATA';
-const UPDATE_APP_STATE = 'UPDATE_APP_STATE';
-const BEFORE_APP_DATA = 'BEFORE_APP_DATA';
+const APPEND_HISTORY_INDEX = 'APPEND_HISTORY_INDEX';
+const REMOVE_HISTORY_INDEX = 'REMOVE_HISTORY_INDEX';
 
 // action creator
 export const updateAppData = payload => {
@@ -11,10 +11,16 @@ export const updateAppData = payload => {
   };
 };
 
-export const beforeAppData = payload => {
+export const apendHistoryIndex = payload => {
   return {
-    type: BEFORE_APP_DATA,
+    type: APPEND_HISTORY_INDEX,
     payload,
+  };
+};
+
+export const removeHistoryIndex = payload => {
+  return {
+    type: REMOVE_HISTORY_INDEX,
   };
 };
 
@@ -23,26 +29,34 @@ const defaultState = {
   currentStep: 1,
   totalSteps: 1,
   title: 'Angaben zur Immobilie',
+  currentSlideId: 'propertyType',
+  history: [0],
 };
 
 export const appReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case UPDATE_APP_STATE:
-      return {
-        ...state,
-      };
     case UPDATE_APP_DATA:
       return {
         ...state,
         ...action.payload,
       };
-    case BEFORE_APP_DATA:
+
+    case APPEND_HISTORY_INDEX:
       return {
         ...state,
-        ...action.payload,
+        history: [action.payload, ...state.history],
+      };
+
+    case REMOVE_HISTORY_INDEX:
+      return {
+        ...state,
+        history: [...state.history.slice(1)],
       };
 
     default:
       return state;
   }
 };
+
+export const selectCurrentSlideId = state => state.app.currentSlideId;
+export const selectHistory = state => state.app.history;

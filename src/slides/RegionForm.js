@@ -3,7 +3,7 @@ import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
 
 import { createRegionData, updateCustomerData } from '../store/customerDataReducer';
-import { updateAppData, beforeAppData } from '../store/appReducer';
+import { updateAppData } from '../store/appReducer';
 import Footer from '../components/common/Footer/Footer';
 import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 import { required, number, zip, renderField } from '../utils/formUtils';
@@ -38,18 +38,16 @@ class RegionForm extends Component {
     }
   };
 
-  handlePrevClick = slideNumber => {
-    const { beforeAppData, goToSlide } = this.props;
-    goToSlide(slideNumber);
-    beforeAppData({
-      title: 'Gibt es einen Balkon oder eine Terrasse?',
+  handlePrevClick = () => {
+    const { updateAppData, goToSlide } = this.props;
+    goToSlide(null, 'prev');
+    updateAppData({
       totalSteps: 10,
       currentStep: 8,
     });
   };
 
   render() {
-    console.log(this.props);
     const { handleSubmit } = this.props;
     return (
       <div>
@@ -99,7 +97,7 @@ class RegionForm extends Component {
         </div>
         <ProgressBar />
         <Footer
-          handlePrevClick={() => this.handlePrevClick(10)}
+          handlePrevClick={() => this.handlePrevClick()}
           handleNextClick={this.handleNextClick}
           type={'submit'}
           className="required-explanation"
@@ -121,5 +119,5 @@ export default connect(
     zipCode: selector(state, 'address.zipCode'),
     place: selector(state, 'address.place'),
   }),
-  { createRegionData, updateAppData, updateCustomerData, beforeAppData }
+  { createRegionData, updateAppData, updateCustomerData }
 )(RegionForm);

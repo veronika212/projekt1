@@ -60,7 +60,7 @@ class ShopArea extends Component {
 
         <ProgressBar />
         <Footer
-          handlePrevClick={() => goToSlide(13)}
+          handlePrevClick={() => goToSlide(null, 'prev')}
           handleNextClick={() => this.handleNextClick(5)}
           glyphPrevBefore="glyphicon-arrow-left"
           glyphNextAfter="glyphicon-arrow-right"
