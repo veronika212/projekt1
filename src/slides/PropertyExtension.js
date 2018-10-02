@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { updateAppData } from '../store/appReducer';
+import { updateAppData, selectAppDataItem } from '../store/appReducer';
 import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
 
 import Footer from '../components/common/Footer/Footer';
@@ -13,8 +13,8 @@ const PropertyExtension = ({
   goToSlide,
   updateAppData,
   updateCustomerData,
-
   selectedState,
+  error,
 }) => {
   const onTileClick = (nextSlideNumber, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
@@ -28,6 +28,11 @@ const PropertyExtension = ({
   };
 
   const handleNextClick = slideNumber => {
+    if (!selectedState) {
+      updateAppData({ error: true });
+      return;
+    }
+
     updateAppData({
       totalSteps: 10,
       currentStep: 9,
@@ -48,6 +53,7 @@ const PropertyExtension = ({
           title={'Balkon'}
           iconName="icon icon--balkon"
           selected={selectedState === 'Balkon' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
@@ -59,6 +65,7 @@ const PropertyExtension = ({
           title={'Terrasse'}
           iconName="icon icon--Terrasse"
           selected={selectedState === 'Terrasse' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
@@ -70,6 +77,7 @@ const PropertyExtension = ({
           title={'Balkon & Terrasse'}
           iconName="icon icon--balkonTerrasse"
           selected={selectedState === 'Balkon & Terrasse' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
@@ -81,6 +89,7 @@ const PropertyExtension = ({
           title={'Weder noch'}
           iconName="icon icon--keinbalkonTerrasse"
           selected={selectedState === 'Weder noch' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
       </div>
 
@@ -99,6 +108,7 @@ const PropertyExtension = ({
 export default connect(
   state => ({
     selectedState: selectCustomerDataItem(state, 'propertyExtension'),
+    error: selectAppDataItem(state, 'error'),
   }),
   { updateAppData, updateCustomerData }
 )(PropertyExtension);

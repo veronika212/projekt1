@@ -13,3 +13,5 @@
   .button--active {
     background: #33a723;
     color: #fff; }
+  .button:disabled {
+    cursor: pointer; }

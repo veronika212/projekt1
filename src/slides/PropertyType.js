@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateAppData } from '../store/appReducer';
+import { updateAppData, selectAppDataItem } from '../store/appReducer';
 import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
 import Footer from '../components/common/Footer/Footer';
 import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 import Tile from '../components/common/Tile/Tile';
 
-const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedState }) => {
+const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedState, error }) => {
   const onTileClick = (nextSlideNumber, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
     updateAppData({ totalSteps, currentStep });
@@ -14,6 +14,11 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
   };
 
   const handleNextClick = slideNumber => {
+    if (!selectedState) {
+      updateAppData({ error: true });
+      return;
+    }
+
     updateAppData({
       totalSteps: 10,
       currentStep: 3,
@@ -34,6 +39,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
           title={'Wohnung'}
           iconName="icon icon--wohnung"
           selected={selectedState === 'Wohnung' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
@@ -45,6 +51,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
           title={'Haus'}
           iconName="icon icon--haus"
           selected={selectedState === 'Haus' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
@@ -56,6 +63,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
           title={'Grundstück'}
           iconName="icon icon--grundstueck"
           selected={selectedState === 'Grundstück' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
@@ -67,6 +75,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
           title={'Gewerbe'}
           iconName="icon icon--gewerbe"
           selected={selectedState === 'Gewerbe' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
       </div>
 
@@ -85,6 +94,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
 export default connect(
   state => ({
     selectedState: selectCustomerDataItem(state, 'propertyType'),
+    error: selectAppDataItem(state, 'error'),
   }),
   { updateAppData, updateCustomerData }
 )(PropertyType);

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { updateAppData } from '../store/appReducer';
+import { updateAppData, selectAppDataItem } from '../store/appReducer';
 import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
 
 import Footer from '../components/common/Footer/Footer';
@@ -9,7 +9,7 @@ import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 
 import Tile from '../components/common/Tile/Tile';
 
-const BusinessType = ({ goToSlide, updateAppData, updateCustomerData, selectedState }) => {
+const BusinessType = ({ goToSlide, updateAppData, updateCustomerData, selectedState, error }) => {
   const onTileClick = (nextSlideNumber, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
     updateAppData({ totalSteps, currentStep });
@@ -22,6 +22,10 @@ const BusinessType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
   };
 
   const handleNextClick = slideNumber => {
+    if (!selectedState) {
+      updateAppData({ error: true });
+      return;
+    }
     updateAppData({
       totalSteps: 10,
       currentStep: 3,
@@ -42,6 +46,7 @@ const BusinessType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
           title={'Büro'}
           iconName="icon icon--buero"
           selected={selectedState === 'Büro' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
@@ -53,6 +58,7 @@ const BusinessType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
           title={'Gastgewerbe'}
           iconName="icon icon--gastgewerbe"
           selected={selectedState === 'Gastgewerbe' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
@@ -64,6 +70,7 @@ const BusinessType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
           title={'Fabrik / Produktion'}
           iconName="icon icon--fabrik"
           selected={selectedState === 'Fabrik / Produktion' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
@@ -75,6 +82,7 @@ const BusinessType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
           title={'Hotel'}
           iconName="icon icon--hotel"
           selected={selectedState === 'Hotel' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
       </div>
 
@@ -93,6 +101,7 @@ const BusinessType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
 export default connect(
   state => ({
     selectedState: selectCustomerDataItem(state, 'businessType'),
+    error: selectAppDataItem(state, 'error'),
   }),
   { updateAppData, updateCustomerData }
 )(BusinessType);

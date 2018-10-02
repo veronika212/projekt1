@@ -14,4 +14,7 @@
     background: #33a723;
     color: #fff;
   }
+  &:disabled {
+    cursor: pointer;
+  }
 }

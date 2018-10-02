@@ -31,9 +31,8 @@ const Footer = ({
       <RequiredExplanation className={className} />
 
       <Button
-        disabled={nextDisabled}
         onClick={() => {
-          !nextDisabled && handleNextClick();
+          handleNextClick();
         }}
         type={'submit'}
         label={'Weiter'}

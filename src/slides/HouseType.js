@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { updateAppData } from '../store/appReducer';
+import { updateAppData, selectAppDataItem } from '../store/appReducer';
 import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
 
 import Footer from '../components/common/Footer/Footer';
@@ -9,7 +9,7 @@ import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 
 import Tile from '../components/common/Tile/Tile';
 
-const HouseType = ({ goToSlide, updateAppData, updateCustomerData, selectedState }) => {
+const HouseType = ({ goToSlide, updateAppData, updateCustomerData, selectedState, error }) => {
   const onTileClick = (nextSlideNumber, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
     updateAppData({ totalSteps, currentStep });
@@ -22,6 +22,11 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData, selectedState
   };
 
   const handleNextClick = slideNumber => {
+    if (!selectedState) {
+      updateAppData({ error: true });
+      return;
+    }
+
     updateAppData({
       totalSteps: 10,
       currentStep: 3,
@@ -42,6 +47,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData, selectedState
           title={'Einfamilienhaus'}
           iconName="icon icon--haus"
           selected={selectedState === 'Einfamilienhaus' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
@@ -53,6 +59,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData, selectedState
           title={'Mehrfamilien­haus'}
           iconName="icon icon--mehrfamilienhaus"
           selected={selectedState === 'Mehrfamilien­haus' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
@@ -64,6 +71,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData, selectedState
           title={'Reihenhaus'}
           iconName="icon icon--reihenhaus"
           selected={selectedState === 'Reihenhaus' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
@@ -75,6 +83,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData, selectedState
           title={'Doppelhaushälfte'}
           iconName="icon icon--doppelhaus"
           selected={selectedState === 'Doppelhaushälfte' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
       </div>
 
@@ -93,6 +102,7 @@ const HouseType = ({ goToSlide, updateAppData, updateCustomerData, selectedState
 export default connect(
   state => ({
     selectedState: selectCustomerDataItem(state, 'houseType'),
+    error: selectAppDataItem(state, 'error'),
   }),
   { updateAppData, updateCustomerData }
 )(HouseType);

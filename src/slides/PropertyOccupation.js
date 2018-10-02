@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
-import { updateAppData } from '../store/appReducer';
+import { updateAppData, selectAppDataItem } from '../store/appReducer';
 import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
 import Footer from '../components/common/Footer/Footer';
 import ProgressBar from '../components/common/ProgressBar/ProgressBar';
@@ -14,6 +14,7 @@ const PropertyOccupation = ({
   updateCustomerData,
   selectedState,
   propertyType,
+  error,
 }) => {
   const onTileClick = (slideNumber, currentStep, totalSteps, data) => {
     let nextSlideNumber = slideNumber;
@@ -39,13 +40,19 @@ const PropertyOccupation = ({
         slideNumber = 13;
       }
     }
+
+    if (!selectedState) {
+      updateAppData({ error: true });
+      return;
+    }
+
     updateAppData({
       totalSteps: 10,
       currentStep: 4,
     });
     goToSlide(slideNumber);
   };
-
+  console.log(error, 'error');
   return (
     <div>
       <div className="tiles-wrapper">
@@ -59,6 +66,7 @@ const PropertyOccupation = ({
           title={'Selbst bewohnt'}
           iconName="icon icon--status-selbst"
           selected={selectedState === 'Selbst bewohnt' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
@@ -70,6 +78,7 @@ const PropertyOccupation = ({
           title={'Frei'}
           iconName="icon icon--status-frei"
           selected={selectedState === 'Frei' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
@@ -81,6 +90,7 @@ const PropertyOccupation = ({
           title={'Vermietet'}
           iconName="icon icon--status-vermietet"
           selected={selectedState === 'Vermietet' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
@@ -92,6 +102,7 @@ const PropertyOccupation = ({
           title={'Teilweise vermietet'}
           iconName="icon icon--status-teilweise"
           selected={selectedState === 'Teilweise vermietet' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
       </div>
 
@@ -111,6 +122,7 @@ export default connect(
   state => ({
     selectedState: selectCustomerDataItem(state, 'propertyOccupation'),
     propertyType: selectCustomerDataItem(state, 'propertyType'),
+    error: selectAppDataItem(state, 'error'),
   }),
   { updateAppData, updateCustomerData }
 )(PropertyOccupation);

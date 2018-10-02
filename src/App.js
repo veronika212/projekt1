@@ -51,7 +51,7 @@ class App extends Component {
         this.props.removeHistoryIndex();
         countedAppData = countAppDataFromSlideNumber(this.props.history[1]);
       }
-      this.props.updateAppData({ ...countedAppData });
+      this.props.updateAppData({ ...countedAppData, error: false });
     };
 
     const { app } = this.props;

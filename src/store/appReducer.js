@@ -31,6 +31,7 @@ const defaultState = {
   title: 'Angaben zur Immobilie',
   currentSlideId: 'propertyType',
   history: [0],
+  error: false,
 };
 
 export const appReducer = (state = defaultState, action) => {
@@ -60,3 +61,4 @@ export const appReducer = (state = defaultState, action) => {
 
 export const selectCurrentSlideId = state => state.app.currentSlideId;
 export const selectHistory = state => state.app.history;
+export const selectAppDataItem = (state, key) => state.app[key];
