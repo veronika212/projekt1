@@ -43,7 +43,7 @@ class RegionForm extends Component {
     goToSlide(null, 'prev');
     updateAppData({
       totalSteps: 10,
-      currentStep: 8,
+      currentStep: 7,
     });
   };
 

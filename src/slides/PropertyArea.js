@@ -26,7 +26,7 @@ class PropertyArea extends Component {
     updateCustomerData({ key: 'propertyArea', value: this.state.value });
     updateAppData({
       totalSteps: 10,
-      currentStep: 5,
+      currentStep: 5.5,
     });
     goToSlide(slideNumber);
   };

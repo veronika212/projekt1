@@ -18,15 +18,17 @@ class LendArea extends Component {
 
   handleNextClick = () => {
     let slideNumber = 8;
+    let currentStep = 5.5;
     if (this.props.propertyType === 'Grundstück') {
       slideNumber = 11;
+      currentStep = 9;
     }
     const { goToSlide, updateCustomerData, updateAppData } = this.props;
 
     updateCustomerData({ key: 'landArea', value: this.state.value });
     updateAppData({
       totalSteps: 10,
-      currentStep: 5.5,
+      currentStep,
     });
     goToSlide(slideNumber);
   };

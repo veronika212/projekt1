@@ -64,7 +64,6 @@ const PropertyCondition = ({
           title={'Renovierungs­bedürftig'}
           iconName="icon icon--renovierungsbeduerftig"
           selected={selectedState === 'Renovierungs­bedürftig' ? true : false}
-          // className="tile-width"
           className={`tile-width ${error === true ? 'tile-error' : null}`}
         />
         <Tile
@@ -77,7 +76,6 @@ const PropertyCondition = ({
           title={'Gepflegt'}
           iconName="icon icon--gepflegt"
           selected={selectedState === 'Gepflegt' ? true : false}
-          // className="tile-width"
           className={`tile-width ${error === true ? 'tile-error' : null}`}
         />
         <Tile
@@ -90,13 +88,12 @@ const PropertyCondition = ({
           title={'Neuwertig'}
           iconName="icon icon--neuwertig"
           selected={selectedState === 'Neuwertig' ? true : false}
-          // className="tile-width"
           className={`tile-width ${error === true ? 'tile-error' : null}`}
         />
       </div>
       <ProgressBar />
       <Footer
-        handlePrevClick={() => handlePrevClick(5, 10)}
+        handlePrevClick={() => handlePrevClick(5.5, 10)}
         handleNextClick={() => handleNextClick()}
         glyphPrevBefore="glyphicon-arrow-left"
         glyphNextAfter="glyphicon-arrow-right"

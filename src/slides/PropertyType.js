@@ -6,14 +6,37 @@ import Footer from '../components/common/Footer/Footer';
 import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 import Tile from '../components/common/Tile/Tile';
 
-const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedState, error }) => {
+const PropertyType = ({
+  goToSlide,
+  updateAppData,
+  updateCustomerData,
+  selectedState,
+  propertyType,
+  error,
+}) => {
   const onTileClick = (nextSlideNumber, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
     updateAppData({ totalSteps, currentStep });
     updateCustomerData(data);
   };
 
-  const handleNextClick = slideNumber => {
+  const handleNextClick = () => {
+    let slideNumber = 1;
+    let currentStep = 3;
+    if (propertyType === 'Haus') {
+      slideNumber = 2;
+      currentStep = 2;
+    }
+    if (propertyType === 'Grundstück') {
+      slideNumber = 3;
+      currentStep = 2.5;
+    }
+
+    if (propertyType === 'Gewerbe') {
+      slideNumber = 4;
+      currentStep = 2;
+    }
+
     if (!selectedState) {
       updateAppData({ error: true });
       return;
@@ -21,7 +44,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
 
     updateAppData({
       totalSteps: 10,
-      currentStep: 3,
+      currentStep,
     });
     goToSlide(slideNumber);
   };
@@ -82,7 +105,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
       <ProgressBar className="progressBar-width " />
       <Footer
         handlePrevClick={() => goToSlide(0)}
-        handleNextClick={() => handleNextClick(1)}
+        handleNextClick={() => handleNextClick()}
         className="visibility"
         nextDisabled={!selectedState}
         glyphNextAfter="glyphicon-arrow-right"
@@ -94,6 +117,7 @@ const PropertyType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
 export default connect(
   state => ({
     selectedState: selectCustomerDataItem(state, 'propertyType'),
+    propertyType: selectCustomerDataItem(state, 'propertyType'),
     error: selectAppDataItem(state, 'error'),
   }),
   { updateAppData, updateCustomerData }

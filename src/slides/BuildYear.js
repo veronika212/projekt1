@@ -31,7 +31,7 @@ class BuildYear extends Component {
   };
 
   handlePrevClick = () => {
-    const { goToSlide } = this.props;
+    const { updateAppData, goToSlide } = this.props;
     goToSlide(null, 'prev');
     updateAppData({
       totalSteps: 10,

@@ -38,7 +38,7 @@ const BusinessType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
       <div className="tiles-wrapper">
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Nutzungsstatus liegt vor?', 3, 10, {
+            onTileClick(1, 3, 10, {
               key: 'businessType',
               value: 'Büro',
             })
@@ -50,7 +50,7 @@ const BusinessType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Nutzungsstatus liegt vor?', 3, 10, {
+            onTileClick(1, 3, 10, {
               key: 'businessType',
               value: 'Gastgewerbe',
             })
@@ -62,7 +62,7 @@ const BusinessType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Nutzungsstatus liegt vor?', 3, 10, {
+            onTileClick(1, 3, 10, {
               key: 'businessType',
               value: 'Fabrik / Produktion',
             })
@@ -74,7 +74,7 @@ const BusinessType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(1, 'Welcher Nutzungsstatus liegt vor?', 3, 10, {
+            onTileClick(1, 3, 10, {
               key: 'businessType',
               value: 'Hotel',
             })
