@@ -17,10 +17,12 @@ const PropertyCondition = ({
   propertyType,
   error,
 }) => {
-  const onTileClick = (currentStep, totalSteps, data) => {
+  const onTileClick = (totalSteps, data) => {
     let nextSlideNumber = 11;
+    let currentStep = 9;
     if (propertyType === 'Wohnung') {
       nextSlideNumber = 10;
+      currentStep = 7;
     }
 
     goToSlide(nextSlideNumber);
@@ -34,29 +36,30 @@ const PropertyCondition = ({
   };
 
   const handleNextClick = () => {
-    let slideNumber = 11;
+    let nextSlideNumber = 11;
+    let currentStep = 9;
+    if (propertyType === 'Wohnung') {
+      nextSlideNumber = 10;
+      currentStep = 7;
+    }
 
     if (!selectedState) {
       updateAppData({ error: true });
       return;
     }
 
-    if (propertyType === 'Wohnung') {
-      slideNumber = 10;
-    }
-
     updateAppData({
       totalSteps: 10,
-      currentStep: 7,
+      currentStep,
     });
-    goToSlide(slideNumber);
+    goToSlide(nextSlideNumber);
   };
   return (
     <div>
       <div className="tiles-wrapper tile-wrapper--modifier">
         <Tile
           handleOnClick={() =>
-            onTileClick(7, 10, {
+            onTileClick(10, {
               key: 'propertyCondition',
               value: 'Renovierungs­bedürftig',
             })
@@ -68,7 +71,7 @@ const PropertyCondition = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(7, 10, {
+            onTileClick(10, {
               key: 'propertyCondition',
               value: 'Gepflegt',
             })
@@ -80,7 +83,7 @@ const PropertyCondition = ({
         />
         <Tile
           handleOnClick={() =>
-            onTileClick(7, 10, {
+            onTileClick(10, {
               key: 'propertyCondition',
               value: 'Neuwertig',
             })

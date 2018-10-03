@@ -10,6 +10,7 @@ import Footer from '../components/common/Footer/Footer';
 class PropertyArea extends Component {
   state = {
     value: 100,
+    selectedState: '',
   };
 
   handleSliderChange = value => {
@@ -17,26 +18,36 @@ class PropertyArea extends Component {
   };
 
   handleNextClick = () => {
-    const { goToSlide, updateCustomerData, updateAppData } = this.props;
     let slideNumber = 8;
+    let currentStep = 5.5;
     if (this.props.propertyType === 'Haus') {
       slideNumber = 12;
+      currentStep = 5;
     }
+
+    const { goToSlide, updateCustomerData, updateAppData } = this.props;
 
     updateCustomerData({ key: 'propertyArea', value: this.state.value });
     updateAppData({
       totalSteps: 10,
-      currentStep: 5.5,
+      currentStep,
     });
     goToSlide(slideNumber);
   };
 
   handlePrevClick = () => {
-    const { updateAppData, goToSlide } = this.props;
+    let currentStep = 3;
+    if (
+      (this.props.propertyType === 'Haus' && this.props.selectedState === 'Vermietet') ||
+      (this.props.propertyType === 'Haus' && this.props.selectedState === 'Teilweise vermietet')
+    ) {
+      currentStep = 3.5;
+    }
+    const { updateAppData, goToSlide, selectedState } = this.props;
     goToSlide(null, 'prev');
     updateAppData({
       totalSteps: 10,
-      currentStep: 3,
+      currentStep,
     });
   };
 
@@ -86,6 +97,7 @@ class PropertyArea extends Component {
 export default connect(
   store => ({
     propertyType: selectCustomerDataItem(store, 'propertyType'),
+    selectedState: selectCustomerDataItem(store, 'propertyOccupation'),
   }),
   { updateAppData, updateCustomerData }
 )(PropertyArea);

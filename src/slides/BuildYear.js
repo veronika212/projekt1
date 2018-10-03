@@ -17,25 +17,34 @@ class BuildYear extends Component {
   };
 
   handleNextClick = () => {
-    const { goToSlide, updateCustomerData, updateAppData, propertyType } = this.props;
     let slideNumber = 9;
-    if (propertyType === 'Gewerbe') {
+    let currentStep = 6;
+    if (this.props.propertyType === 'Gewerbe') {
       slideNumber = 11;
+      currentStep = 9;
     }
+
+    const { goToSlide, updateCustomerData, updateAppData } = this.props;
+
     updateCustomerData({ key: 'buildYear', value: this.state.value });
     updateAppData({
       totalSteps: 10,
-      currentStep: 6,
+      currentStep,
     });
     goToSlide(slideNumber);
   };
 
   handlePrevClick = () => {
+    let currentStep = 4;
+    if (this.props.propertyType === 'Haus') {
+      currentStep = 5;
+    }
     const { updateAppData, goToSlide } = this.props;
+
     goToSlide(null, 'prev');
     updateAppData({
       totalSteps: 10,
-      currentStep: 4,
+      currentStep,
     });
   };
 

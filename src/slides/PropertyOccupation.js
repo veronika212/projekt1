@@ -27,18 +27,36 @@ const PropertyOccupation = ({
     updateCustomerData(data);
   };
 
-  const handlePrevClick = (currentStep, totalSteps) => {
+  const handlePrevClick = () => {
+    let currentStep = 3;
+    if (propertyType === 'Haus') {
+      currentStep = 2;
+    }
+    if (propertyType === 'Gewerbe') {
+      currentStep = 2;
+    }
     goToSlide(null, 'prev');
-    updateAppData({ totalSteps, currentStep });
+    updateAppData({ totalSteps: 10, currentStep });
   };
 
   const handleNextClick = () => {
     let slideNumber = 7;
+    let currentStep = 3;
     if (selectedState === 'Selbst bewohnt' || selectedState === 'Frei') {
       slideNumber = 6;
+      currentStep = 4;
       if (propertyType === 'Gewerbe') {
         slideNumber = 13;
+        currentStep = 4;
       }
+    }
+
+    if (
+      (propertyType === 'Gewerbe' && selectedState === 'Vermietet') ||
+      (propertyType === 'Gewerbe' && selectedState === 'Teilweise vermietet')
+    ) {
+      slideNumber = 13;
+      currentStep = 3.5;
     }
 
     if (!selectedState) {
@@ -48,7 +66,7 @@ const PropertyOccupation = ({
 
     updateAppData({
       totalSteps: 10,
-      currentStep: 4,
+      currentStep,
     });
     goToSlide(slideNumber);
   };
@@ -108,7 +126,7 @@ const PropertyOccupation = ({
 
       <ProgressBar />
       <Footer
-        handlePrevClick={() => handlePrevClick(3, 10)}
+        handlePrevClick={() => handlePrevClick()}
         handleNextClick={() => handleNextClick()}
         glyphPrevBefore="glyphicon-arrow-left"
         glyphNextAfter="glyphicon-arrow-right"

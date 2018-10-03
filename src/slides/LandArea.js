@@ -34,11 +34,15 @@ class LendArea extends Component {
   };
 
   handlePrevClick = () => {
+    let currentStep = 4;
+    if (this.props.propertyType === 'Grundstück') {
+      currentStep = 3.5;
+    }
     const { updateAppData, goToSlide } = this.props;
     goToSlide(null, 'prev');
     updateAppData({
       totalSteps: 10,
-      currentStep: 4,
+      currentStep,
     });
   };
 

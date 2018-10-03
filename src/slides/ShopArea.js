@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { updateAppData } from '../store/appReducer';
-import { updateCustomerData } from '../store/customerDataReducer';
+import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
 import ReactSlider from '../components/common/ReactSlider/ReactSlider';
 import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 import Footer from '../components/common/Footer/Footer';
@@ -10,6 +10,7 @@ import Footer from '../components/common/Footer/Footer';
 class ShopArea extends Component {
   state = {
     value: 300,
+    selectedState: '',
   };
 
   handleSliderChange = value => {
@@ -20,8 +21,24 @@ class ShopArea extends Component {
     const { goToSlide, updateCustomerData, updateAppData } = this.props;
 
     updateCustomerData({ key: 'propertyPrice', value: this.state.value });
-    updateAppData({ totalSteps: 10, currentStep: 13 });
+    updateAppData({ totalSteps: 10, currentStep: 5.5 });
     goToSlide(slideNumber);
+  };
+
+  handlePrevClick = () => {
+    let currentStep = 3;
+    if (
+      (this.props.propertyType === 'Gewerbe' && this.props.selectedState === 'Vermietet') ||
+      (this.props.propertyType === 'Gewerbe' && this.props.selectedState === 'Teilweise vermietet')
+    ) {
+      currentStep = 3.5;
+    }
+    const { updateAppData, goToSlide } = this.props;
+    goToSlide(null, 'prev');
+    updateAppData({
+      totalSteps: 10,
+      currentStep,
+    });
   };
 
   render() {
@@ -60,7 +77,7 @@ class ShopArea extends Component {
 
         <ProgressBar />
         <Footer
-          handlePrevClick={() => goToSlide(null, 'prev')}
+          handlePrevClick={() => this.handlePrevClick()}
           handleNextClick={() => this.handleNextClick(8)}
           glyphPrevBefore="glyphicon-arrow-left"
           glyphNextAfter="glyphicon-arrow-right"
@@ -70,6 +87,9 @@ class ShopArea extends Component {
   }
 }
 export default connect(
-  null,
+  store => ({
+    propertyType: selectCustomerDataItem(store, 'propertyType'),
+    selectedState: selectCustomerDataItem(store, 'propertyOccupation'),
+  }),
   { updateAppData, updateCustomerData }
 )(ShopArea);

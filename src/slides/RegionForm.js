@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
 
-import { createRegionData, updateCustomerData } from '../store/customerDataReducer';
+import {
+  createRegionData,
+  updateCustomerData,
+  selectCustomerDataItem,
+} from '../store/customerDataReducer';
 import { updateAppData } from '../store/appReducer';
 import Footer from '../components/common/Footer/Footer';
 import ProgressBar from '../components/common/ProgressBar/ProgressBar';
@@ -39,11 +43,25 @@ class RegionForm extends Component {
   };
 
   handlePrevClick = () => {
+    let currentStep = 7;
+    if (this.props.propertyType === 'Haus') {
+      currentStep = 6;
+    }
+
+    if (this.props.propertyType === 'Grundstück') {
+      currentStep = 5;
+    }
+
+    if (this.props.propertyType === 'Gewerbe') {
+      currentStep = 5.5;
+    }
+
     const { updateAppData, goToSlide } = this.props;
+
     goToSlide(null, 'prev');
     updateAppData({
       totalSteps: 10,
-      currentStep: 7,
+      currentStep,
     });
   };
 
@@ -118,6 +136,7 @@ export default connect(
     streetNumber: selector(state, 'address.streetAndNumber'),
     zipCode: selector(state, 'address.zipCode'),
     place: selector(state, 'address.place'),
+    propertyType: selectCustomerDataItem(state, 'propertyType'),
   }),
   { createRegionData, updateAppData, updateCustomerData }
 )(RegionForm);
