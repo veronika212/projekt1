@@ -118,6 +118,46 @@ li {
     font-family: inherit;
     font-weight: 500;
     line-height: 1.1; }
+  @media screen and (max-width: 1187px) {
+    .app {
+      max-width: 856px; } }
+  @media screen and (max-width: 1084px) {
+    .app {
+      max-width: 781px; } }
+  @media screen and (max-width: 1060px) {
+    .app {
+      max-width: 764px; } }
+  @media screen and (max-width: 1028px) {
+    .app {
+      max-width: 739px; } }
+  @media screen and (max-width: 991px) {
+    .app {
+      max-width: 960px;
+      min-width: 879px; } }
+  @media screen and (max-width: 900px) {
+    .app {
+      max-width: 868px; } }
+  @media screen and (max-width: 800px) {
+    .app {
+      max-width: 768px; } }
+  @media screen and (max-width: 700px) {
+    .app {
+      max-width: 668px; } }
+  @media screen and (max-width: 600px) {
+    .app {
+      max-width: 568px; } }
+  @media screen and (max-width: 500px) {
+    .app {
+      max-width: 468px; } }
+  @media screen and (max-width: 368px) {
+    .app {
+      max-width: 336px; } }
+  @media screen and (max-width: 300px) {
+    .app {
+      max-width: 268px; } }
+  @media screen and (max-width: 250px) {
+    .app {
+      max-width: 218px; } }
 
 .icon {
   background: url(/images/icons4.png) no-repeat;
@@ -219,6 +259,16 @@ li {
   padding: 15px 40px 0px 40px;
   max-height: 230px;
   min-height: 130px; }
+  @media screen and (max-width: 991px) {
+    .tiles-wrapper {
+      padding: 15px 40px 0px 40px;
+      flex-wrap: wrap;
+      min-height: 390px; } }
+  @media screen and (max-width: 767px) {
+    .tiles-wrapper {
+      padding: 15px 10px 0px 10px;
+      flex-wrap: wrap;
+      min-height: 390px; } }
 
 .tile-wrapper--modifier {
   justify-content: center; }

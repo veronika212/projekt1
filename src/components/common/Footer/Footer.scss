@@ -1,3 +1,5 @@
+$break-footer-medium: 767px;
+
 .footer {
   display: flex;
   align-items: center;
@@ -6,8 +8,10 @@
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   min-height: 50px;
-  min-width: 868px;
   padding: 0 40px;
+  @media screen and (max-width: $break-footer-medium) {
+    padding: 0 10px;
+  }
 
   &__btn-prev {
     background: #e0e0e0;

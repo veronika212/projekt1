@@ -110,6 +110,20 @@ li {
   }
 }
 
+$break-app-xxxl-large: 1187px;
+$break-app-xxl-large: 1084px;
+$break-app-xl-large: 1060px;
+$break-app-large: 1028px;
+$break-app-xxxl-medium: 991px;
+$break-app-xxl-medium: 900px;
+$break-app-xl-medium: 800px;
+$break-app-medium: 700px;
+$break-app-xxxl-small: 600px;
+$break-app-xxl-small: 500px;
+$break-app-xl-small: 368px;
+$break-app-l-small: 300px;
+$break-app-m-small: 250px;
+
 .app {
   max-width: 868px;
   margin: auto;
@@ -135,6 +149,46 @@ li {
     font-family: inherit;
     font-weight: 500;
     line-height: 1.1;
+  }
+  @media screen and (max-width: $break-app-xxxl-large) {
+    max-width: 856px;
+  }
+  @media screen and (max-width: $break-app-xxl-large) {
+    max-width: 781px;
+  }
+  @media screen and (max-width: $break-app-xl-large) {
+    max-width: 764px;
+  }
+  @media screen and (max-width: $break-app-large) {
+    max-width: 739px;
+  }
+  @media screen and (max-width: $break-app-xxxl-medium) {
+    max-width: 960px;
+    min-width: 879px;
+  }
+  @media screen and (max-width: $break-app-xxl-medium) {
+    max-width: 868px;
+  }
+  @media screen and (max-width: $break-app-xl-medium) {
+    max-width: 768px;
+  }
+  @media screen and (max-width: $break-app-medium) {
+    max-width: 668px;
+  }
+  @media screen and (max-width: $break-app-xxxl-small) {
+    max-width: 568px;
+  }
+  @media screen and (max-width: $break-app-xxl-small) {
+    max-width: 468px;
+  }
+  @media screen and (max-width: $break-app-xl-small) {
+    max-width: 336px;
+  }
+  @media screen and (max-width: $break-app-l-small) {
+    max-width: 268px;
+  }
+  @media screen and (max-width: $break-app-m-small) {
+    max-width: 218px;
   }
 }
 
@@ -280,12 +334,25 @@ li {
   font-weight: 100;
 }
 
+$break-tiles-wrapper-large: 991px;
+$break-tiles-wrapper-medium: 767px;
+
 .tiles-wrapper {
   display: flex;
   justify-content: space-between;
   padding: 15px 40px 0px 40px;
   max-height: 230px;
   min-height: 130px;
+  @media screen and (max-width: $break-tiles-wrapper-large) {
+    padding: 15px 40px 0px 40px;
+    flex-wrap: wrap;
+    min-height: 390px;
+  }
+  @media screen and (max-width: $break-tiles-wrapper-medium) {
+    padding: 15px 10px 0px 10px;
+    flex-wrap: wrap;
+    min-height: 390px;
+  }
 }
 
 .tile-wrapper--modifier {
