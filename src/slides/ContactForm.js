@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { createContactData, updateCustomerData } from '../store/customerDataReducer';
 import { updateAppData } from '../store/appReducer';
 import {
-  // required,
   requiredSentens1,
   requiredSentens2,
   requiredSentens3,
