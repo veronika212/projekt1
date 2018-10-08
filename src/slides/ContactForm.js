@@ -514,9 +514,9 @@ class ContactForm extends Component {
                   name="contact.preset"
                   component="select"
                 >
-                  <option value="+49">+49</option>
-                  <option value="+48">+48</option>
-                  <option value="+47">+47</option>
+                  <option value="Deutschland / +49">Deutschland / +49</option>
+                  <option value="Polen / +48">Polen / +48</option>
+                  <option value="Norwegen / +47">Norwegen / +47</option>
                   <option disabled={true}>Andere Länder</option>
                   {selectOptions.map(option => (
                     <option key={option.value} value={option.value}>

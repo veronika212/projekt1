@@ -1,4 +1,6 @@
+$break-progress-large: 991px;
 $break-progress-medium: 767px;
+$break-progress-small: 450px;
 
 .progress {
   background: 0 0;
@@ -10,8 +12,15 @@ $break-progress-medium: 767px;
   position: relative;
   height: 28px;
   overflow: hidden;
+  @media screen and (max-width: $break-progress-large) {
+    margin: 1% 5% 4% 5%;
+  }
   @media screen and (max-width: $break-progress-medium) {
-    margin: 7px 10px 20px 10px;
+    // margin: 7px 10px 20px 10px;
+    margin: 1% 2% 4% 2%;
+  }
+  @media screen and (max-width: $break-progress-small) {
+    margin: 2% 4% 4% 4%;
   }
 }
 

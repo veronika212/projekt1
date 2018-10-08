@@ -7,9 +7,15 @@
   border-bottom-left-radius: 3px;
   min-height: 50px;
   padding: 0 40px; }
+  @media screen and (max-width: 991px) {
+    .footer {
+      padding: 0 5%; } }
   @media screen and (max-width: 767px) {
     .footer {
-      padding: 0 10px; } }
+      padding: 0 2%; } }
+  @media screen and (max-width: 450px) {
+    .footer {
+      padding: 0 4%; } }
   .footer__btn-prev {
     background: #e0e0e0;
     border: none;

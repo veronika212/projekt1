@@ -1,3 +1,127 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
 * {
   box-sizing: border-box; }
 
@@ -180,9 +304,6 @@ li {
     background-position: 0 -4500px; }
   .icon.icon--gastgewerbe {
     background-position: 0 -4590px; }
-    @media screen and (max-width: 991px) {
-      .icon.icon--gastgewerbe {
-        display: none; } }
   .icon.icon--fabrik {
     background-position: 0 -540px; }
   .icon.icon--hotel {
@@ -192,9 +313,15 @@ li {
     margin-left: 45px;
     margin-right: 45px;
     width: 142px; }
+    @media screen and (max-width: 767px) {
+      .icon.icon--at {
+        margin-bottom: 2%; } }
   .icon.icon--nettomiete {
     background-position: 0 -3240px;
     width: 130px; }
+    @media screen and (max-width: 991px) {
+      .icon.icon--nettomiete {
+        display: none; } }
   .icon.icon--wohnflaeche {
     background-position: 0 -2970px;
     width: 137px; }
@@ -204,6 +331,9 @@ li {
   .icon.icon--grundstuecksgroesse {
     background-position: 0 -1170px;
     width: 130px; }
+    @media screen and (max-width: 991px) {
+      .icon.icon--grundstuecksgroesse {
+        display: none; } }
   .icon.icon--baujahr {
     background-position: 0 -3060px;
     width: 140px; }
@@ -213,9 +343,15 @@ li {
   .icon.icon--gewerbeflaeche {
     background-position: 0 -4770px;
     width: 140px; }
+    @media screen and (max-width: 991px) {
+      .icon.icon--gewerbeflaeche {
+        display: none; } }
   .icon.glyphicon-send {
     content: '\e171';
     font-family: 'Glyphicons Halflings'; }
+    @media screen and (max-width: 450px) {
+      .icon.glyphicon-send {
+        display: none; } }
 
 .star {
   color: #ff7171;
@@ -228,15 +364,28 @@ li {
   padding: 15px 40px 0px 40px; }
   @media screen and (max-width: 991px) {
     .tiles-wrapper {
-      padding: 15px 40px 0px 40px;
+      padding: 2% 5% 0 5%;
       flex-wrap: wrap; } }
   @media screen and (max-width: 767px) {
     .tiles-wrapper {
-      padding: 15px 10px 0px 10px;
+      padding: 2% 2% 0 2%;
       flex-wrap: wrap; } }
+  @media screen and (max-width: 450px) {
+    .tiles-wrapper {
+      padding: 4% 4% 0% 4%; } }
+  @media screen and (max-width: 400px) {
+    .tiles-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 5%;
+      padding-bottom: 5%; } }
 
 .tile-wrapper--modifier {
   justify-content: center; }
+  @media screen and (max-width: 450px) {
+    .tile-wrapper--modifier {
+      display: block; } }
 
 .slider__flex-wrapper {
   display: flex;

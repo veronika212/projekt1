@@ -1,14 +1,26 @@
 $break-tile-large: 991px;
+$break-tile-small: 450px;
+
 .tile-width {
   padding: 15px 10px 0px 10px;
   width: 25%;
   margin-right: 3%;
   @media screen and (max-width: $break-tile-large) {
-    width: 48%;
-    margin-right: 1%;
-    margin-bottom: 1%;
+    width: 46%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+  }
+  @media screen and (max-width: $break-tile-small) {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 3%;
     &:nth-child(2) {
-      margin-right: 0;
+      margin: auto;
+      margin-bottom: 3%;
+    }
+    &:nth-child(3) {
+      margin: auto;
+      margin-bottom: 4%;
     }
   }
 }

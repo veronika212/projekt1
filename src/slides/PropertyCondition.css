@@ -4,8 +4,17 @@
   margin-right: 3%; }
   @media screen and (max-width: 991px) {
     .tile-width {
-      width: 48%;
-      margin-right: 1%;
-      margin-bottom: 1%; }
+      width: 46%;
+      margin-right: 2%;
+      margin-bottom: 2%; } }
+  @media screen and (max-width: 450px) {
+    .tile-width {
+      width: 50%;
+      margin: auto;
+      margin-bottom: 3%; }
       .tile-width:nth-child(2) {
-        margin-right: 0; } }
+        margin: auto;
+        margin-bottom: 3%; }
+      .tile-width:nth-child(3) {
+        margin: auto;
+        margin-bottom: 4%; } }

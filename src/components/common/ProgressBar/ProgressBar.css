@@ -8,9 +8,15 @@
   position: relative;
   height: 28px;
   overflow: hidden; }
+  @media screen and (max-width: 991px) {
+    .progress {
+      margin: 1% 5% 4% 5%; } }
   @media screen and (max-width: 767px) {
     .progress {
-      margin: 7px 10px 20px 10px; } }
+      margin: 1% 2% 4% 2%; } }
+  @media screen and (max-width: 450px) {
+    .progress {
+      margin: 2% 4% 4% 4%; } }
 
 .progress-bar {
   margin-bottom: 0;

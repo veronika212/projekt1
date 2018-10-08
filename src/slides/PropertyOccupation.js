@@ -28,7 +28,7 @@ const PropertyOccupation = ({
   };
 
   const handlePrevClick = () => {
-    let currentStep = 3;
+    let currentStep = 1;
     if (propertyType === 'Haus') {
       currentStep = 2;
     }

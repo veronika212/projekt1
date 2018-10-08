@@ -1,4 +1,6 @@
 $break-slider-wrapper-large: 991px;
+$break-slider-wrapper-medium: 767px;
+$break-slider-wrapper-small: 450px;
 
 .react-slider__wrapper {
   width: 100%;
@@ -73,11 +75,23 @@ $break-slider-wrapper-large: 991px;
     overflow: visible;
   }
   @media screen and (max-width: $break-slider-wrapper-large) {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  @media screen and (max-width: $break-slider-wrapper-medium) {
+    display: flex;
+    flex-direction: column;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  @media screen and (max-width: $break-slider-wrapper-small) {
     width: 92%;
     margin-left: 4%;
     margin-right: 4%;
-
   }
+
   .input-group-addon {
     font-size: 14px;
     font-weight: 400;
@@ -93,6 +107,30 @@ $break-slider-wrapper-large: 991px;
     color: #fff;
     position: relative;
     padding: 12px 20px;
+    @media screen and (max-width: $break-slider-wrapper-medium) {
+      width: 100%;
+      display: block;
+      font-size: 13px;
+      line-height: 15px;
+      padding: 5px;
+      &:last-child {
+        display: block;
+        position: absolute;
+        top: 27px;
+        height: 40px;
+        right: 0;
+        width: auto;
+        padding: 9px;
+        box-sizing: border-box;
+        line-height: 22px;
+        vertical-align: bottom;
+        font-size: 15px;
+        background-color: transparent;
+        border: none;
+        color: #676767;
+        z-index: 10;
+      }
+    }
     &::after {
       border-color: rgba(41, 73, 123, 0) rgba(41, 73, 123, 0) rgba(41, 73, 123, 0) #257db8;
       border-image: none;
@@ -107,6 +145,14 @@ $break-slider-wrapper-large: 991px;
       top: 50%;
       width: 0;
       z-index: 10;
+      @media screen and (max-width: $break-slider-wrapper-medium) {
+        margin-top: auto;
+        margin-left: -10px;
+        top: auto;
+        left: 50%;
+        bottom: -20px;
+        border-color: #257db8 rgba(41, 73, 123, 0) rgba(41, 73, 123, 0);
+      }
     }
   }
   .range-control-output {

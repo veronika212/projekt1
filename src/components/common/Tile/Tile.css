@@ -12,30 +12,47 @@
   cursor: pointer;
   transition: all 0.1s ease-in-out; }
   .tile:hover, .tile.active {
-    border: 3px solid #33a723; }
+    border: 3px solid #33a723;
+    transform: scale(1.05); }
   .tile:hover .tile__title {
     color: #2780ba; }
   .tile.active .tile_title {
     color: #2780ba; }
   .tile.tile-error {
     border-color: #c53925; }
+  .tile:nth-child(2) {
+    margin-right: 0; }
   .tile:nth-child(4) {
     margin-right: 0; }
   .tile__title {
     font-size: 14px;
     font-weight: 700;
     padding: 20px 5px 10px 5px; }
+  @media screen and (max-width: 991px) {
+    .tile {
+      width: 49%;
+      margin-right: 2%;
+      margin-bottom: 2%; } }
   @media screen and (max-width: 767px) {
     .tile {
       width: 49%;
       margin-right: 1%;
-      margin-bottom: 1%; }
-      .tile:nth-child(2) {
-        margin-right: 0; } }
-  @media screen and (max-width: 991px) {
+      margin-bottom: 2%; }
+      .tile:nth-child(3) {
+        margin-bottom: 0; }
+      .tile:nth-child(4) {
+        margin-bottom: 0; } }
+  @media screen and (max-width: 450px) {
     .tile {
-      width: 48%;
+      width: 47%;
       margin-right: 3%;
-      margin-bottom: 1%; }
-      .tile:nth-child(2) {
-        margin-right: 0; } }
+      margin-bottom: 3%; } }
+  @media screen and (max-width: 400px) {
+    .tile {
+      width: 50%;
+      margin-bottom: 3%;
+      margin-right: 0; }
+      .tile:nth-child(3) {
+        margin-bottom: 3%; }
+      .tile:nth-child(4) {
+        margin-bottom: 0; } }

@@ -1,10 +1,25 @@
+$break-regionForm-medium: 767px;
+$break-regionForm-small: 450px;
+
 .region {
   display: flex;
   flex-direction: row;
   padding-top: 15px;
   padding-left: 40px;
   padding-right: 40px;
-  height: 190px;
+  height: 100%;
+  @media screen and (max-width: $break-regionForm-medium) {
+    display: block;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding: 0;
+    width: 96%;
+  }
+  @media screen and (max-width: $break-regionForm-small) {
+    margin-left: 4%;
+    margin-right: 4%;
+    width: 92%;
+  }
 }
 
 .region-form {
@@ -12,12 +27,18 @@
   flex-direction: column;
   padding-left: 15px;
   width: 100%;
+  @media screen and (max-width: $break-regionForm-medium) {
+    padding: 0;
+  }
 }
 
 .item {
   display: flex;
   width: 100%;
   margin-bottom: 15px;
+  @media screen and (max-width: $break-regionForm-medium) {
+    flex-direction: column;
+  }
 }
 .item__name {
   font-size: 14px;
@@ -36,12 +57,11 @@
   margin-bottom: 0;
 }
 .item__name::after {
-  border-color: rgba(41, 73, 123, 0) rgba(41, 73, 123, 0) rgba(41, 73, 123, 0)
-    #257db8;
+  border-color: rgba(41, 73, 123, 0) rgba(41, 73, 123, 0) rgba(41, 73, 123, 0) #257db8;
   border-image: none;
   border-style: solid;
   border-width: 10px;
-  content: " ";
+  content: ' ';
   height: 0;
   left: 100%;
   margin-top: -10px;
@@ -49,6 +69,15 @@
   position: absolute;
   top: 50%;
   width: 0;
+  @media screen and (max-width: $break-regionForm-medium) {
+    margin-top: auto;
+    margin-left: -10px;
+    top: auto;
+    left: 50%;
+    bottom: -20px;
+    border-color: #257db8 rgba(41, 73, 123, 0) rgba(41, 73, 123, 0);
+    z-index: 1;
+  }
 }
 .item__field {
   display: flex;
@@ -66,7 +95,7 @@
 
   &--success {
     &::after {
-      content: "✓";
+      content: '✓';
       color: rgb(1, 189, 0);
       position: absolute;
       right: 0px;
@@ -85,5 +114,5 @@
 .required-explanation {
   display: block;
   margin-bottom: 0;
-  margin-left: 0.5rem;
+  // margin-left: 0.5rem;
 }

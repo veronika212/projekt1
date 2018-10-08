@@ -1,5 +1,134 @@
+//start css reset
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+//end css reset
+
 $break-tiles-wrapper-large: 991px;
 $break-tiles-wrapper-medium: 767px;
+$break-tiles-wrapper-small: 450px;
+$break-tiles-wrapper-sx: 400px;
 
 * {
   box-sizing: border-box;
@@ -112,7 +241,6 @@ li {
     cursor: pointer;
   }
 }
-
 
 .app {
   max-width: 100%;
@@ -238,9 +366,6 @@ li {
   }
   &.icon--gastgewerbe {
     background-position: 0 -4590px;
-    @media screen and (max-width: $break-tiles-wrapper-large) {
-      display: none;
-    }
   }
   &.icon--fabrik {
     background-position: 0 -540px;
@@ -253,10 +378,17 @@ li {
     margin-left: 45px;
     margin-right: 45px;
     width: 142px;
+    @media screen and (max-width: $break-tiles-wrapper-medium) {
+      margin-bottom: 2%;
+    }
   }
+
   &.icon--nettomiete {
     background-position: 0 -3240px;
     width: 130px;
+    @media screen and (max-width: $break-tiles-wrapper-large) {
+      display: none;
+    }
   }
   &.icon--wohnflaeche {
     background-position: 0 -2970px;
@@ -268,6 +400,9 @@ li {
   &.icon--grundstuecksgroesse {
     background-position: 0 -1170px;
     width: 130px;
+    @media screen and (max-width: $break-tiles-wrapper-large) {
+      display: none;
+    }
   }
   &.icon--baujahr {
     background-position: 0 -3060px;
@@ -279,11 +414,17 @@ li {
   &.icon--gewerbeflaeche {
     background-position: 0 -4770px;
     width: 140px;
+    @media screen and (max-width: $break-tiles-wrapper-large) {
+      display: none;
+    }
   }
 
   &.glyphicon-send {
     content: '\e171';
     font-family: 'Glyphicons Halflings';
+    @media screen and (max-width: $break-tiles-wrapper-small) {
+      display: none;
+    }
   }
 }
 
@@ -293,24 +434,37 @@ li {
   font-weight: 100;
 }
 
-
-
 .tiles-wrapper {
   display: flex;
   justify-content: space-between;
   padding: 15px 40px 0px 40px;
   @media screen and (max-width: $break-tiles-wrapper-large) {
-    padding: 15px 40px 0px 40px;
+    // padding: 15px 40px 0px 40px;
+    padding: 2% 5% 0 5%;
     flex-wrap: wrap;
   }
   @media screen and (max-width: $break-tiles-wrapper-medium) {
-    padding: 15px 10px 0px 10px;
+    // padding: 15px 10px 0px 10px;
+    padding: 2% 2% 0 2%;
     flex-wrap: wrap;
+  }
+  @media screen and (max-width: $break-tiles-wrapper-small) {
+    padding: 4% 4% 0% 4%;
+  }
+  @media screen and (max-width: $break-tiles-wrapper-sx) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
   }
 }
 
 .tile-wrapper--modifier {
   justify-content: center;
+  @media screen and (max-width: $break-tiles-wrapper-small) {
+    display: block;
+  }
 }
 
 .slider__flex-wrapper {
@@ -343,6 +497,6 @@ li {
     font-weight: 400;
   }
   @media screen and (max-width: $break-tiles-wrapper-large) {
-   margin-left: 0;
+    margin-left: 0;
   }
 }

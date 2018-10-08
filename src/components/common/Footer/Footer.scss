@@ -1,4 +1,6 @@
+$break-footer-large: 991px;
 $break-footer-medium: 767px;
+$break-footer-small: 450px;
 
 .footer {
   display: flex;
@@ -9,8 +11,16 @@ $break-footer-medium: 767px;
   border-bottom-left-radius: 3px;
   min-height: 50px;
   padding: 0 40px;
+  @media screen and (max-width: $break-footer-large) {
+    padding: 0 5%;
+  }
   @media screen and (max-width: $break-footer-medium) {
-    padding: 0 10px;
+    // padding: 0 10px;
+    padding: 0 2%;
+  }
+  @media screen and (max-width: $break-footer-small) {
+    // padding: 0 10px;
+    padding: 0 4%;
   }
 
   &__btn-prev {

@@ -14,7 +14,9 @@
   color: #6a6a6a; }
   .form-notice__title {
     font-size: 16px;
-    color: #333333; }
+    color: #333333;
+    margin-bottom: 15px;
+    margin-top: 15px; }
   .form-notice__item {
     display: flex;
     align-items: center;
@@ -28,7 +30,7 @@
     width: 15px;
     height: 18px; }
     .form-notice .icon.icon-shield:before {
-      content: "\57"; }
+      content: '\57'; }
 
 .contact-form {
   padding: 0px 15px 0 15px;
@@ -65,7 +67,9 @@
   position: relative; }
   @media screen and (max-width: 991px) {
     .contact-items {
-      display: block; } }
+      display: block; }
+      .contact-items:nth-child(4) {
+        display: flex; } }
   .contact-items--sex {
     text-align: left;
     margin-bottom: 15px; }
@@ -102,7 +106,8 @@
           display: block;
           width: 100%; } }
     .contact-items__item--email {
-      width: 100%; }
+      width: 100%;
+      border-bottom: 1px solid #257db8 !important; }
       @media screen and (max-width: 991px) {
         .contact-items__item--email .msg {
           position: absolute; } }
