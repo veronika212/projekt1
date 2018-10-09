@@ -1,3 +1,5 @@
+@import '../../../_variables.scss';
+
 .button {
   border-radius: 3px;
   font-weight: 600;
@@ -11,8 +13,8 @@
   border-width: 1px;
   border-style: solid;
   &--active {
-    background: #33a723;
-    color: #fff;
+    background: $green;
+    color: $white;
   }
   &:disabled {
     cursor: pointer;

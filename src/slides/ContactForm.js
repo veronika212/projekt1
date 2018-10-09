@@ -198,133 +198,511 @@ const selectOptions = [
     label: 'Dänemark / +45',
     value: 'Dänemark / +45',
   },
+  {
+    label: 'St. Helena und Nebengebiete / +290',
+    value: 'St. Helena und Nebengebiete / +290',
+  },
+  {
+    label: 'Diego Garcia / +246',
+    value: 'Diego Garcia / +246',
+  },
+  {
+    label: 'Dominica / +1767',
+    value: 'Dominica / +1767',
+  },
+  {
+    label: 'Dominikanische Republik / +1809',
+    value: 'Dominikanische Republik / +1809',
+  },
+  {
+    label: 'Dschibuti / +253',
+    value: 'Dschibuti / +253',
+  },
+  {
+    label: 'Ecuador / +593',
+    value: 'Ecuador / +593',
+  },
+  {
+    label: 'El Salvador / +53',
+    value: 'El Salvador / +53',
+  },
+  {
+    label: 'Eritrea / +291',
+    value: 'Eritrea / +291',
+  },
+  {
+    label: 'Estland / +372',
+    value: 'Estland / +372',
+  },
+  {
+    label: 'Falklandinseln / +500',
+    value: 'Falklandinseln / +500',
+  },
+  {
+    label: 'Färöer / +298',
+    value: 'Färöer / +298',
+  },
+  {
+    label: 'Fidschi / +679',
+    value: 'Fidschi / +679',
+  },
+  {
+    label: 'Finnland / +358',
+    value: 'Finnland / +358',
+  },
+  {
+    label: 'Frankreich / +33',
+    value: 'Frankreich / +33',
+  },
+  {
+    label: 'Französisch-Guayana / +594',
+    value: 'Französisch-Guayana / +594',
+  },
+  {
+    label: 'Französisch-Polynesien / +689',
+    value: 'Französisch-Polynesien / +689',
+  },
+  {
+    label: 'Gabun / +241',
+    value: 'Gabun / +241',
+  },
+  {
+    label: 'Gambia / +220',
+    value: 'Gambia / +220',
+  },
+  {
+    label: 'Georgien / +995',
+    value: 'Georgien / +995',
+  },
+  {
+    label: 'Ghana / +233',
+    value: 'Ghana / +233',
+  },
+  {
+    label: 'Gibraltar / +350',
+    value: 'Gibraltar / +350',
+  },
+  {
+    label: 'Grenada / +1473',
+    value: 'Grenada / +1473',
+  },
+  {
+    label: 'Griechenland / +30',
+    value: 'Griechenland / +30',
+  },
+  {
+    label: 'Grönland / +299',
+    value: 'Grönland / +299',
+  },
+  {
+    label: 'Guadeloupe / +590',
+    value: 'Guadeloupe / +590',
+  },
+  {
+    label: 'Guam / +1671',
+    value: 'Guam / +1671',
+  },
+  {
+    label: 'Guatemala / +52',
+    value: 'Guatemala / +52',
+  },
+  {
+    label: 'Guernsey / +44148',
+    value: 'Guernsey / +44148',
+  },
+  {
+    label: 'Guinea / +224',
+    value: 'Guinea / +224',
+  },
+  {
+    label: 'Guinea-Bissau / +245',
+    value: 'Guinea-Bissau / +245',
+  },
+  {
+    label: 'Guyana / +592',
+    value: 'Guyana / +592',
+  },
+  {
+    label: 'Haiti / +59',
+    value: 'Haiti / +59',
+  },
+  {
+    label: 'Honduras / +54',
+    value: 'Honduras / +54',
+  },
+  {
+    label: 'Hongkong / +852',
+    value: 'Hongkong / +852',
+  },
+  {
+    label: 'Indien / +91',
+    value: 'Indien / +91',
+  },
+  {
+    label: 'Indonesien / +62',
+    value: 'Indonesien / +62',
+  },
+  {
+    label: 'Isle of Man / +44',
+    value: 'Isle of Man / +44',
+  },
+  {
+    label: 'Irak / +964',
+    value: 'Irak / +964',
+  },
+  {
+    label: 'Iran / +98',
+    value: 'Iran / +98',
+  },
+  {
+    label: 'Irland / +353',
+    value: 'Irland / +353',
+  },
+  {
+    label: 'Island / +354',
+    value: 'Island / +354',
+  },
+  {
+    label: 'Israel / +972',
+    value: 'Israel / +972',
+  },
+  {
+    label: 'Italien / +39',
+    value: 'Italien / +39',
+  },
+  {
+    label: 'Jamaika / +1876',
+    value: 'Jamaika / +1876',
+  },
+  {
+    label: 'Japan / +81',
+    value: 'Japan / +81',
+  },
+  {
+    label: 'Jemen / +967',
+    value: 'Jemen / +967',
+  },
+  {
+    label: 'Jersey / +44',
+    value: 'Jersey / +44',
+  },
+  {
+    label: 'Jordanien / +962',
+    value: 'Jordanien / +962',
+  },
+  {
+    label: 'Kaimaninseln / +1345',
+    value: 'Kaimaninseln / +1345',
+  },
+  {
+    label: 'Kambodscha / +855',
+    value: 'Kambodscha / +855',
+  },
+  {
+    label: 'Kamerun / +237',
+    value: 'Kamerun / +237',
+  },
+  {
+    label: 'Kanada / +1NXX',
+    value: 'Kanada / +1NXX',
+  },
+  {
+    label: 'Kap Verde / +238',
+    value: 'Kap Verde / +238',
+  },
+  {
+    label: 'Kasachstan / +7',
+    value: 'Kasachstan / +7',
+  },
+  {
+    label: 'Katar / +974',
+    value: 'Katar / +974',
+  },
+  {
+    label: 'Kenia / +254',
+    value: 'Kenia / +254',
+  },
+  {
+    label: 'Kirgisistan / +996',
+    value: 'Kirgisistan / +996',
+  },
+  {
+    label: 'Kiribati / +686',
+    value: 'Kiribati / +686',
+  },
+  {
+    label: 'Kolumbien / +57',
+    value: 'Kolumbien / +57',
+  },
+  {
+    label: 'Komoren / +269',
+    value: 'Komoren / +269',
+  },
+  {
+    label: 'Kongo, Demokratische Republik / +243',
+    value: 'Kongo, Demokratische Republik / +243',
+  },
+  {
+    label: 'Republik Kongo / +242',
+    value: 'Republik Kongo / +242',
+  },
+  {
+    label: 'Nordkorea / +850',
+    value: 'Nordkorea / +850',
+  },
+  {
+    label: 'Südkorea / +82',
+    value: 'Südkorea / +82',
+  },
+  {
+    label: 'Kroatien / +385',
+    value: 'Kroatien / +385',
+  },
+  {
+    label: 'Kuwait / +965',
+    value: 'Kuwait / +965',
+  },
+  {
+    label: 'Laos / +856',
+    value: 'Laos / +856',
+  },
+  {
+    label: 'Lesotho / +266',
+    value: 'Lesotho / +266',
+  },
+  {
+    label: 'Lettland / +371',
+    value: 'Lettland / +371',
+  },
+  {
+    label: 'Libanon / +961',
+    value: 'Libanon / +961',
+  },
+  {
+    label: 'Liberia, Republik / +231',
+    value: 'Liberia, Republik / +231',
+  },
+  {
+    label: 'Libyen / +218',
+    value: 'Libyen / +218',
+  },
+  {
+    label: 'Liechtenstein / +423',
+    value: 'Liechtenstein / +423',
+  },
+  {
+    label: 'Litauen / +370',
+    value: 'Litauen / +370',
+  },
+  {
+    label: 'Luxemburg / +352',
+    value: 'Luxemburg / +352',
+  },
+  {
+    label: 'Macao / +853',
+    value: 'Macao / +853',
+  },
+  {
+    label: 'Madagaskar / +261',
+    value: 'Madagaskar / +261',
+  },
+  {
+    label: 'Malawi / +265',
+    value: 'Malawi / +265',
+  },
+  {
+    label: 'Malaysia / +60',
+    value: 'Malaysia / +60',
+  },
+  {
+    label: 'Malediven / +960',
+    value: 'Malediven / +960',
+  },
+  {
+    label: 'Mali, Republik / +223',
+    value: 'Mali, Republik / +223',
+  },
+  {
+    label: 'Malta / +356',
+    value: 'Malta / +356',
+  },
+  {
+    label: 'Marokko / +211',
+    value: 'Marokko / +211',
+  },
+  {
+    label: 'Marshallinseln / +692',
+    value: 'Marshallinseln / +692',
+  },
+  {
+    label: 'Martinique / +596',
+    value: 'Martinique / +596',
+  },
+  {
+    label: 'Mauretanien / +222',
+    value: 'Mauretanien / +222',
+  },
+  {
+    label: 'Mauritius / +230',
+    value: 'Mauritius / +230',
+  },
+  {
+    label: 'Mayotte / +269',
+    value: 'Mayotte / +269',
+  },
+  {
+    label: 'Mazedonien / +389',
+    value: 'Mazedonien / +389',
+  },
+  {
+    label: 'Mexiko / +52',
+    value: 'Mexiko / +52',
+  },
+  {
+    label: 'Mikronesien / +691',
+    value: 'Mikronesien / +691',
+  },
+  {
+    label: 'Moldawien / +373',
+    value: 'Moldawien / +373',
+  },
+  {
+    label: 'Monaco / +377',
+    value: 'Monaco / +377',
+  },
+  {
+    label: 'Mongolei / +976',
+    value: 'Mongolei / +976',
+  },
+  {
+    label: 'Montserrat / +1664',
+    value: 'Montserrat / +1664',
+  },
+  {
+    label: 'Mosambik / +258',
+    value: 'Mosambik / +258',
+  },
+  {
+    label: 'Myanmar / +95',
+    value: 'Myanmar / +95',
+  },
+  {
+    label: 'Namibia / +264',
+    value: 'Namibia / +264',
+  },
+  {
+    label: 'Nauru / +674',
+    value: 'Nauru / +674',
+  },
+  {
+    label: 'Nepal / +977',
+    value: 'Nepal / +977',
+  },
+  {
+    label: 'Neukaledonien / +687',
+    value: 'Neukaledonien / +687',
+  },
+  {
+    label: 'Neuseeland / +64',
+    value: 'Neuseeland / +64',
+  },
+  {
+    label: 'Nicaragua / +55',
+    value: 'Nicaragua / +55',
+  },
+  {
+    label: 'Niederlande / +31',
+    value: 'Niederlande / +31',
+  },
+  {
+    label: 'Niederländische Antillen / +599',
+    value: 'Niederländische Antillen / +599',
+  },
+  {
+    label: 'Niger / +227',
+    value: 'Niger / +227',
+  },
+  {
+    label: 'Nigeria / +234',
+    value: 'Nigeria / +234',
+  },
+  {
+    label: 'Niue / +683',
+    value: 'Niue / +683',
+  },
+  {
+    label: 'Nördliche Marianen / +1670',
+    value: 'Nördliche Marianen / +1670',
+  },
+  {
+    label: 'Norfolkinsel / +6723',
+    value: 'Norfolkinsel / +6723',
+  },
+  {
+    label: 'Norwegen / +47',
+    value: 'Norwegen / +47',
+  },
+  {
+    label: 'Oman / +968',
+    value: 'Oman / +968',
+  },
+  {
+    label: 'Pakistan / +92',
+    value: 'Pakistan / +92',
+  },
+  {
+    label: 'Palästinensische Autonomiegebiete / +970',
+    value: 'Palästinensische Autonomiegebiete / +970',
+  },
+  {
+    label: 'Palau / +680',
+    value: 'Palau / +680',
+  },
+  {
+    label: 'Panama / +57',
+    value: 'Panama / +57',
+  },
+  {
+    label: 'Papua-Neuguinea / +675',
+    value: 'Papua-Neuguinea / +675',
+  },
+  {
+    label: 'Paraguay / +595',
+    value: 'Paraguay / +595',
+  },
+  {
+    label: 'Peru / +51',
+    value: 'Peru / +51',
+  },
+  {
+    label: 'Philippinen / +63',
+    value: 'Philippinen / +63',
+  },
+  {
+    label: 'Pitcairninseln / +649',
+    value: 'Pitcairninseln / +649',
+  },
+  {
+    label: 'Polen / +48',
+    value: 'Polen / +48',
+  },
+  {
+    label: 'Portugal / +351',
+    value: 'Portugal / +351',
+  },
+  {
+    label: 'Puerto Rico / +1939',
+    value: 'Puerto Rico / +1939',
+  },
+  {
+    label: 'Réunion / +262',
+    value: 'Réunion / +262',
+  },
+  {
+    label: '',
+    value: '',
+  },
 
-  // St. Helena und Nebengebiete / +290
-  // Diego Garcia / +246
-  // Dominica / +1767
-  // Dominikanische Republik / +1809
-  // Dschibuti / +253
-  // Ecuador / +593
-  // El Salvador / +53
-  // Eritrea / +291
-  // Estland / +372
-  // Falklandinseln / +500
-  // Färöer / +298
-  // Fidschi / +679
-  // Finnland / +358
-  // Frankreich / +33
-  // Französisch-Guayana / +594
-  // Französisch-Polynesien / +689
-  // Gabun / +241
-  // Gambia / +220
-  // Georgien / +995
-  // Ghana / +233
-  // Gibraltar / +350
-  // Grenada / +1473
-  // Griechenland / +30
-  // Grönland / +299
-  // Guadeloupe / +590
-  // Guam / +1671
-  // Guatemala / +52
-  // Guernsey / +44148
-  // Guinea / +224
-  // Guinea-Bissau / +245
-  // Guyana / +592
-  // Haiti / +59
-  // Honduras / +54
-  // Hongkong / +852
-  // Indien / +91
-  // Indonesien / +62
-  // Isle of Man / +44
-  // Irak / +964
-  // Iran / +98
-  // Irland / +353
-  // Island / +354
-  // Israel / +972
-  // Italien / +39
-  // Jamaika / +1876
-  // Japan / +81
-  // Jemen / +967
-  // Jersey / +44
-  // Jordanien / +962
-  // Kaimaninseln / +1345
-  // Kambodscha / +855
-  // Kamerun / +237
-  // Kanada / +1NXX
-  // Kap Verde / +238
-  // Kasachstan / +7
-  // Katar / +974
-  // Kenia / +254
-  // Kirgisistan / +996
-  // Kiribati / +686
-  // Kolumbien / +57
-  // Komoren / +269
-  // Kongo, Demokratische Republik / +243
-  // Republik Kongo / +242
-  // Nordkorea / +850
-  // Südkorea / +82
-  // Kroatien / +385
-  // Kuba / +53
-  // Kuwait / +965
-  // Laos / +856
-  // Lesotho / +266
-  // Lettland / +371
-  // Libanon / +961
-  // Liberia, Republik / +231
-  // Libyen / +218
-  // Liechtenstein / +423
-  // Litauen / +370
-  // Luxemburg / +352
-  // Macao / +853
-  // Madagaskar / +261
-  // Malawi / +265
-  // Malaysia / +60
-  // Malediven / +960
-  // Mali, Republik / +223
-  // Malta / +356
-  // Marokko / +211
-  // Marshallinseln / +692
-  // Martinique / +596
-  // Mauretanien / +222
-  // Mauritius / +230
-  // Mayotte / +269
-  // Mazedonien / +389
-  // Mexiko / +52
-  // Mikronesien / +691
-  // Moldawien / +373
-  // Monaco / +377
-  // Mongolei / +976
-  // Montserrat / +1664
-  // Mosambik / +258
-  // Myanmar / +95
-  // Namibia / +264
-  // Nauru / +674
-  // Nepal / +977
-  // Neukaledonien / +687
-  // Neuseeland / +64
-  // Nicaragua / +55
-  // Niederlande / +31
-  // Niederländische Antillen / +599
-  // Niger / +227
-  // Nigeria / +234
-  // Niue / +683
-  // Nördliche Marianen / +1670
-  // Norfolkinsel / +6723
-  // Norwegen / +47
-  // Oman / +968
-  // Pakistan / +92
-  // Palästinensische Autonomiegebiete / +970
-  // Palau / +680
-  // Panama / +57
-  // Papua-Neuguinea / +675
-  // Paraguay / +595
-  // Peru / +51
-  // Philippinen / +63
-  // Pitcairninseln / +649
-  // Polen / +48
-  // Portugal / +351
-  // Puerto Rico / +1939
-  // Réunion / +262
   // Ruanda / +250
   // Rumänien / +40
   // Russische Föderation / +7

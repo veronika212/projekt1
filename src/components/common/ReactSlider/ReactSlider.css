@@ -10,9 +10,9 @@
       margin: auto; } }
   .react-slider__wrapper .react-slider {
     box-shadow: none;
-    background: white;
+    background: #fff;
     height: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #c5c5c5;
     border-radius: 3px; }
     .react-slider__wrapper .react-slider .rangeslider-horizontal {
       height: 10px; }
@@ -36,7 +36,7 @@
       .react-slider__wrapper .react-slider .rangeslider__handle:active {
         border: 1px solid #003eff; }
     .react-slider__wrapper .react-slider .rangeslider__fill {
-      background: white;
+      background: #fff;
       border-radius: 0;
       height: 8px;
       box-shadow: none; }
@@ -63,9 +63,9 @@
     .slider-input {
       display: flex;
       flex-direction: column;
-      width: 96%;
-      margin-left: 2%;
-      margin-right: 2%; } }
+      width: 92%;
+      margin-left: 4%;
+      margin-right: 4%; } }
   @media screen and (max-width: 450px) {
     .slider-input {
       width: 92%;
@@ -103,7 +103,6 @@
           padding: 9px;
           box-sizing: border-box;
           line-height: 22px;
-          vertical-align: bottom;
           font-size: 15px;
           background-color: transparent;
           border: none;

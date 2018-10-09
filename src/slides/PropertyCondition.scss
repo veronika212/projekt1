@@ -1,16 +1,15 @@
-$break-tile-large: 991px;
-$break-tile-small: 450px;
+@import '../variables.scss';
 
 .tile-width {
   padding: 15px 10px 0px 10px;
   width: 25%;
   margin-right: 3%;
-  @media screen and (max-width: $break-tile-large) {
+  @media screen and (max-width: $breakpoint-large) {
     width: 46%;
     margin-right: 2%;
     margin-bottom: 2%;
   }
-  @media screen and (max-width: $break-tile-small) {
+  @media screen and (max-width: $breakpoint-small) {
     width: 50%;
     margin: auto;
     margin-bottom: 3%;

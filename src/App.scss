@@ -1,4 +1,4 @@
-//start css reset
+/* Start css reset*/
 html,
 body,
 div,
@@ -123,12 +123,9 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-//end css reset
+/* End css reset */
 
-$break-tiles-wrapper-large: 991px;
-$break-tiles-wrapper-medium: 767px;
-$break-tiles-wrapper-small: 450px;
-$break-tiles-wrapper-sx: 400px;
+@import './variables.scss';
 
 * {
   box-sizing: border-box;
@@ -156,8 +153,8 @@ input[type='radio'] {
   width: 20px;
   position: relative;
   cursor: pointer;
-  background-color: #d9e8f3;
-  border: 2px solid #257db8;
+  background-color: $medium-white-gray;
+  border: 2px solid $medium-blue;
   &:before {
     content: '';
     position: absolute;
@@ -169,7 +166,7 @@ input[type='radio'] {
     width: 12px;
   }
   &.checked:before {
-    background-color: #257db8;
+    background-color: $medium-blue;
   }
 }
 
@@ -187,7 +184,6 @@ input[type='radio'] {
   text-transform: none !important;
   line-height: 1;
   font-style: normal !important;
-  speak: none;
 }
 
 button,
@@ -199,22 +195,22 @@ textarea {
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #ccc;
+  color: $light-gray;
   opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #ccc;
+  color: $light-gray;
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #ccc;
+  color: $light-gray;
 }
 
 .required-asterisk {
-  color: #ff7171;
+  color: $light-red;
   margin-left: 3px;
   font-weight: 100;
 }
@@ -223,8 +219,8 @@ body {
   font-size: 15px;
   line-height: 1.46667;
   text-align: center;
-  color: #6a6a6a;
-  background-color: #fff;
+  color: $medium-gray;
+  background-color: $white;
   font-weight: 300;
   font-family: 'Signika Negative', Helvetica, Arial, sans-serif !important;
 }
@@ -245,17 +241,17 @@ li {
 .app {
   max-width: 100%;
   margin: auto;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: $white;
+  border: 1px solid $dark-white-gray;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   &__header {
-    color: #333;
-    background-color: #f5f5f5;
+    color: $dark-gray;
+    background-color: $light-white-gray;
     padding: 10px 15px;
-    border-bottom: 1px solid #ddd;
-    border-left: 1px solid #ddd;
+    border-bottom: 1px solid $dark-white-gray;
+    border-left: 1px solid $dark-white-gray;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
@@ -378,7 +374,7 @@ li {
     margin-left: 45px;
     margin-right: 45px;
     width: 142px;
-    @media screen and (max-width: $break-tiles-wrapper-medium) {
+    @media screen and (max-width: $breakpoint-medium) {
       margin-bottom: 2%;
     }
   }
@@ -386,35 +382,35 @@ li {
   &.icon--nettomiete {
     background-position: 0 -3240px;
     width: 130px;
-    @media screen and (max-width: $break-tiles-wrapper-large) {
+    @media screen and (max-width: $breakpoint-large) {
       display: none;
     }
   }
   &.icon--wohnflaeche {
     background-position: 0 -2970px;
     width: 137px;
-    @media screen and (max-width: $break-tiles-wrapper-large) {
+    @media screen and (max-width: $breakpoint-large) {
       display: none;
     }
   }
   &.icon--grundstuecksgroesse {
     background-position: 0 -1170px;
     width: 130px;
-    @media screen and (max-width: $break-tiles-wrapper-large) {
+    @media screen and (max-width: $breakpoint-large) {
       display: none;
     }
   }
   &.icon--baujahr {
     background-position: 0 -3060px;
     width: 140px;
-    @media screen and (max-width: $break-tiles-wrapper-large) {
+    @media screen and (max-width: $breakpoint-large) {
       display: none;
     }
   }
   &.icon--gewerbeflaeche {
     background-position: 0 -4770px;
     width: 140px;
-    @media screen and (max-width: $break-tiles-wrapper-large) {
+    @media screen and (max-width: $breakpoint-large) {
       display: none;
     }
   }
@@ -422,14 +418,14 @@ li {
   &.glyphicon-send {
     content: '\e171';
     font-family: 'Glyphicons Halflings';
-    @media screen and (max-width: $break-tiles-wrapper-small) {
+    @media screen and (max-width: $breakpoint-small) {
       display: none;
     }
   }
 }
 
 .star {
-  color: #ff7171;
+  color: $light-red;
   margin-left: 3px;
   font-weight: 100;
 }
@@ -438,20 +434,18 @@ li {
   display: flex;
   justify-content: space-between;
   padding: 15px 40px 0px 40px;
-  @media screen and (max-width: $break-tiles-wrapper-large) {
-    // padding: 15px 40px 0px 40px;
+  @media screen and (max-width: $breakpoint-large) {
     padding: 2% 5% 0 5%;
     flex-wrap: wrap;
   }
-  @media screen and (max-width: $break-tiles-wrapper-medium) {
-    // padding: 15px 10px 0px 10px;
-    padding: 2% 2% 0 2%;
+  @media screen and (max-width: $breakpoint-medium) {
+    padding: 2% 4% 0 4%;
     flex-wrap: wrap;
   }
-  @media screen and (max-width: $break-tiles-wrapper-small) {
+  @media screen and (max-width: $breakpoint-small) {
     padding: 4% 4% 0% 4%;
   }
-  @media screen and (max-width: $break-tiles-wrapper-sx) {
+  @media screen and (max-width: $breakpoint-sx) {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -462,7 +456,7 @@ li {
 
 .tile-wrapper--modifier {
   justify-content: center;
-  @media screen and (max-width: $break-tiles-wrapper-small) {
+  @media screen and (max-width: $breakpoint-small) {
     display: block;
   }
 }
@@ -484,7 +478,7 @@ li {
 
 .directinput-note {
   text-align: center;
-  color: #000;
+  color: $black;
   font-weight: 400;
 }
 
@@ -496,7 +490,7 @@ li {
     line-height: 1;
     font-weight: 400;
   }
-  @media screen and (max-width: $break-tiles-wrapper-large) {
+  @media screen and (max-width: $breakpoint-large) {
     margin-left: 0;
   }
 }

@@ -1,12 +1,10 @@
-$break-slider-wrapper-large: 991px;
-$break-slider-wrapper-medium: 767px;
-$break-slider-wrapper-small: 450px;
+@import '../../../variables.scss';
 
 .react-slider__wrapper {
   width: 100%;
   margin-top: 2rem;
   margin-left: 10%;
-  @media screen and (max-width: $break-slider-wrapper-large) {
+  @media screen and (max-width: $breakpoint-large) {
     width: 90%;
     padding-top: 40px;
     padding-bottom: 30px;
@@ -15,16 +13,16 @@ $break-slider-wrapper-small: 450px;
 
   .react-slider {
     box-shadow: none;
-    background: white;
+    background: $white;
     height: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid $lighter-gray;
     border-radius: 3px;
     .rangeslider-horizontal {
       height: 10px;
     }
 
     .rangeslider__handle {
-      background: #2780ba;
+      background: $light-blue;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
       outline: none;
       width: 35px;
@@ -36,7 +34,7 @@ $break-slider-wrapper-small: 450px;
         font-family: 'Glyphicons Halflings';
         content: '\e178';
         line-height: 35px;
-        color: #fff;
+        color: $white;
       }
       &:hover {
         outline: 0px;
@@ -49,7 +47,7 @@ $break-slider-wrapper-small: 450px;
     }
 
     .rangeslider__fill {
-      background: white;
+      background: $white;
       border-radius: 0;
       height: 8px;
       box-shadow: none;
@@ -60,7 +58,7 @@ $break-slider-wrapper-small: 450px;
       justify-content: space-between;
     }
     &__labels {
-      color: #000;
+      color: $black;
       font-size: 12px;
     }
   }
@@ -74,19 +72,19 @@ $break-slider-wrapper-small: 450px;
   &:focus {
     overflow: visible;
   }
-  @media screen and (max-width: $break-slider-wrapper-large) {
+  @media screen and (max-width: $breakpoint-large) {
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
   }
-  @media screen and (max-width: $break-slider-wrapper-medium) {
+  @media screen and (max-width: $breakpoint-medium) {
     display: flex;
     flex-direction: column;
-    width: 96%;
-    margin-left: 2%;
-    margin-right: 2%;
+    width: 92%;
+    margin-left: 4%;
+    margin-right: 4%;
   }
-  @media screen and (max-width: $break-slider-wrapper-small) {
+  @media screen and (max-width: $breakpoint-small) {
     width: 92%;
     margin-left: 4%;
     margin-right: 4%;
@@ -102,12 +100,12 @@ $break-slider-wrapper-small: 450px;
     white-space: nowrap;
     vertical-align: middle;
     display: table-cell;
-    background-color: #257db8;
-    border: 1px solid #257db8;
-    color: #fff;
+    background-color: $medium-blue;
+    border: 1px solid $medium-blue;
+    color: $white;
     position: relative;
     padding: 12px 20px;
-    @media screen and (max-width: $break-slider-wrapper-medium) {
+    @media screen and (max-width: $breakpoint-medium) {
       width: 100%;
       display: block;
       font-size: 13px;
@@ -123,16 +121,15 @@ $break-slider-wrapper-small: 450px;
         padding: 9px;
         box-sizing: border-box;
         line-height: 22px;
-        vertical-align: bottom;
         font-size: 15px;
         background-color: transparent;
         border: none;
-        color: #676767;
+        color: $darkest-gray;
         z-index: 10;
       }
     }
     &::after {
-      border-color: rgba(41, 73, 123, 0) rgba(41, 73, 123, 0) rgba(41, 73, 123, 0) #257db8;
+      border-color: rgba(41, 73, 123, 0) rgba(41, 73, 123, 0) rgba(41, 73, 123, 0) $medium-blue;
       border-image: none;
       border-style: solid;
       border-width: 10px;
@@ -145,18 +142,18 @@ $break-slider-wrapper-small: 450px;
       top: 50%;
       width: 0;
       z-index: 10;
-      @media screen and (max-width: $break-slider-wrapper-medium) {
+      @media screen and (max-width: $breakpoint-medium) {
         margin-top: auto;
         margin-left: -10px;
         top: auto;
         left: 50%;
         bottom: -20px;
-        border-color: #257db8 rgba(41, 73, 123, 0) rgba(41, 73, 123, 0);
+        border-color: $medium-blue rgba(41, 73, 123, 0) rgba(41, 73, 123, 0);
       }
     }
   }
   .range-control-output {
-    border: 1px solid #257db8 !important;
+    border: 1px solid $medium-blue !important;
     padding: 9px;
     min-width: 100px;
     height: 40px;

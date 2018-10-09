@@ -1,5 +1,4 @@
-$break-regionForm-medium: 767px;
-$break-regionForm-small: 450px;
+@import '../variables.scss';
 
 .region {
   display: flex;
@@ -8,16 +7,11 @@ $break-regionForm-small: 450px;
   padding-left: 40px;
   padding-right: 40px;
   height: 100%;
-  @media screen and (max-width: $break-regionForm-medium) {
+  @media screen and (max-width: $breakpoint-medium) {
     display: block;
-    margin-left: 2%;
-    margin-right: 2%;
-    padding: 0;
-    width: 96%;
-  }
-  @media screen and (max-width: $break-regionForm-small) {
     margin-left: 4%;
     margin-right: 4%;
+    padding: 0;
     width: 92%;
   }
 }
@@ -27,7 +21,7 @@ $break-regionForm-small: 450px;
   flex-direction: column;
   padding-left: 15px;
   width: 100%;
-  @media screen and (max-width: $break-regionForm-medium) {
+  @media screen and (max-width: $breakpoint-medium) {
     padding: 0;
   }
 }
@@ -36,7 +30,7 @@ $break-regionForm-small: 450px;
   display: flex;
   width: 100%;
   margin-bottom: 15px;
-  @media screen and (max-width: $break-regionForm-medium) {
+  @media screen and (max-width: $breakpoint-medium) {
     flex-direction: column;
   }
 }
@@ -49,15 +43,15 @@ $break-regionForm-small: 450px;
   white-space: nowrap;
   vertical-align: middle;
   display: table-cell;
-  background-color: #257db8;
-  border: 1px solid #257db8;
-  color: #fff;
+  background-color: $medium-blue;
+  border: 1px solid $medium-blue;
+  color: $white;
   position: relative;
   padding: 12px 20px;
   margin-bottom: 0;
 }
 .item__name::after {
-  border-color: rgba(41, 73, 123, 0) rgba(41, 73, 123, 0) rgba(41, 73, 123, 0) #257db8;
+  border-color: rgba(41, 73, 123, 0) rgba(41, 73, 123, 0) rgba(41, 73, 123, 0) $medium-blue;
   border-image: none;
   border-style: solid;
   border-width: 10px;
@@ -69,13 +63,13 @@ $break-regionForm-small: 450px;
   position: absolute;
   top: 50%;
   width: 0;
-  @media screen and (max-width: $break-regionForm-medium) {
+  @media screen and (max-width: $breakpoint-medium) {
     margin-top: auto;
     margin-left: -10px;
     top: auto;
     left: 50%;
     bottom: -20px;
-    border-color: #257db8 rgba(41, 73, 123, 0) rgba(41, 73, 123, 0);
+    border-color: $medium-blue rgba(41, 73, 123, 0) rgba(41, 73, 123, 0);
     z-index: 1;
   }
 }
@@ -88,7 +82,7 @@ $break-regionForm-small: 450px;
   width: 100%;
   height: 40px;
   text-align: center;
-  border: 1px solid #257db8;
+  border: 1px solid $medium-blue;
   font-size: 15px;
   padding: 9px;
   outline: none;
@@ -107,12 +101,11 @@ $break-regionForm-small: 450px;
     }
   }
   &--error {
-    background: #ffa6a6;
+    background: $lighter-red;
   }
 }
 
 .required-explanation {
   display: block;
   margin-bottom: 0;
-  // margin-left: 0.5rem;
 }

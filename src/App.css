@@ -1,3 +1,4 @@
+/* Start css reset*/
 html,
 body,
 div,
@@ -122,6 +123,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+/* End css reset */
 * {
   box-sizing: border-box; }
 
@@ -171,8 +173,7 @@ input[type='radio'] {
   font-variant: normal !important;
   text-transform: none !important;
   line-height: 1;
-  font-style: normal !important;
-  speak: none; }
+  font-style: normal !important; }
 
 button,
 input,
@@ -182,17 +183,17 @@ textarea {
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #ccc;
+  color: #9d9c9c;
   opacity: 1;
   /* Firefox */ }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #ccc; }
+  color: #9d9c9c; }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #ccc; }
+  color: #9d9c9c; }
 
 .required-asterisk {
   color: #ff7171;
@@ -368,7 +369,7 @@ li {
       flex-wrap: wrap; } }
   @media screen and (max-width: 767px) {
     .tiles-wrapper {
-      padding: 2% 2% 0 2%;
+      padding: 2% 4% 0 4%;
       flex-wrap: wrap; } }
   @media screen and (max-width: 450px) {
     .tiles-wrapper {
