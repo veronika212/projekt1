@@ -83,16 +83,19 @@
   font-size: 15px;
   padding: 9px;
   outline: none; }
-  .item__input--success::after {
-    content: '✓';
-    color: #01bd00;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    font-weight: 700;
-    font-size: 26px;
-    line-height: 40px;
-    padding-right: 5px; }
+  .item__input--success {
+    color: #000;
+    background: #faffbd; }
+    .item__input--success::after {
+      content: '✓';
+      color: #01bd00;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 40px;
+      padding-right: 5px; }
   .item__input--error {
     background: #ffa6a6; }
 

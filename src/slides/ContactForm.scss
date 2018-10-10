@@ -18,7 +18,7 @@
   color: $medium-gray;
   &__title {
     font-size: 16px;
-    color: $dark-gray333;
+    color: $dark-gray;
     margin-bottom: 15px;
     margin-top: 15px;
   }
@@ -191,5 +191,5 @@
 }
 
 .msg {
-  color: red;
+  color: $red;
 }

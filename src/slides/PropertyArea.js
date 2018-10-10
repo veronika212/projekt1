@@ -43,7 +43,7 @@ class PropertyArea extends Component {
     ) {
       currentStep = 3.5;
     }
-    const { updateAppData, goToSlide, selectedState } = this.props;
+    const { updateAppData, goToSlide } = this.props;
     goToSlide(null, 'prev');
     updateAppData({
       totalSteps: 10,
@@ -69,7 +69,7 @@ class PropertyArea extends Component {
         </div>
 
         <div className="directinput-note">
-          <span className="bulb">Oder direkt eingeben:</span>
+          <span className="icon-bulb bulb">Oder direkt eingeben:</span>
         </div>
         <div className="input-group slider-input">
           <span className="input-group-addon">Wohnfläche</span>

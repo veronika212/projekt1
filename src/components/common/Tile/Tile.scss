@@ -16,6 +16,8 @@
   &:hover,
   &.active {
     border: 3px solid $green;
+  }
+  &.active {
     transform: scale(1.05);
   }
   &:hover .tile__title {

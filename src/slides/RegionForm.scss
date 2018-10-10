@@ -88,9 +88,11 @@
   outline: none;
 
   &--success {
+    color: $black;
+    background: $light-yellow;
     &::after {
       content: '✓';
-      color: rgb(1, 189, 0);
+      color: $light-green;
       position: absolute;
       right: 0px;
       top: 0px;

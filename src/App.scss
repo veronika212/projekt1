@@ -480,10 +480,14 @@ li {
   text-align: center;
   color: $black;
   font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 3px;
 }
 
 .bulb {
-  margin-left: 39%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20%;
   &:before {
     font-family: 'iv-icons';
     content: '\66';

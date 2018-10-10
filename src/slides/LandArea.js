@@ -64,7 +64,7 @@ class LendArea extends Component {
         </div>
 
         <div className="directinput-note">
-          <span className="bulb">Oder direkt eingeben:</span>
+          <span className="icon-bulb bulb">Oder direkt eingeben:</span>
         </div>
 
         <div className="input-group slider-input">
