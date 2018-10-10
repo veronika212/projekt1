@@ -418,4 +418,6 @@ li {
     font-weight: 400; }
   @media screen and (max-width: 991px) {
     .bulb {
-      margin-left: 0; } }
+      margin-left: 0;
+      margin-right: 0;
+      justify-content: center; } }

@@ -496,5 +496,7 @@ li {
   }
   @media screen and (max-width: $breakpoint-large) {
     margin-left: 0;
+    margin-right: 0;
+    justify-content: center;
   }
 }
