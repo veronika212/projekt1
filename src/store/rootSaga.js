@@ -1,9 +1,7 @@
-import { all } from 'redux-saga/effects';
+import { all } from "redux-saga/effects";
 
-//import eventsSaga from '../ducks/events';
+import formSaga from "./formSaga";
 
 export default function* rootSaga() {
-  yield all([
-    //eventsSaga(),
-  ]);
+  yield all([formSaga()]);
 }

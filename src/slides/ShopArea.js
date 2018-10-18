@@ -1,16 +1,19 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { updateAppData } from '../store/appReducer';
-import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
-import ReactSlider from '../components/common/ReactSlider/ReactSlider';
-import ProgressBar from '../components/common/ProgressBar/ProgressBar';
-import Footer from '../components/common/Footer/Footer';
+import { updateAppData } from "../store/appReducer";
+import {
+  updateCustomerData,
+  selectCustomerDataItem
+} from "../store/customerDataReducer";
+import ReactSlider from "../components/common/ReactSlider/ReactSlider";
+import ProgressBar from "../components/common/ProgressBar/ProgressBar";
+import Footer from "../components/common/Footer/Footer";
 
 class ShopArea extends Component {
   state = {
     value: 300,
-    selectedState: '',
+    selectedState: ""
   };
 
   handleSliderChange = value => {
@@ -20,7 +23,7 @@ class ShopArea extends Component {
   handleNextClick = slideNumber => {
     const { goToSlide, updateCustomerData, updateAppData } = this.props;
 
-    updateCustomerData({ key: 'propertyPrice', value: this.state.value });
+    updateCustomerData({ key: "shopArea", value: this.state.value });
     updateAppData({ totalSteps: 10, currentStep: 5.5 });
     goToSlide(slideNumber);
   };
@@ -28,16 +31,18 @@ class ShopArea extends Component {
   handlePrevClick = () => {
     let currentStep = 3;
     if (
-      (this.props.propertyType === 'Gewerbe' && this.props.selectedState === 'Vermietet') ||
-      (this.props.propertyType === 'Gewerbe' && this.props.selectedState === 'Teilweise vermietet')
+      (this.props.propertyType === "Gewerbe" &&
+        this.props.selectedState === "Vermietet") ||
+      (this.props.propertyType === "Gewerbe" &&
+        this.props.selectedState === "Teilweise vermietet")
     ) {
       currentStep = 3.5;
     }
     const { updateAppData, goToSlide } = this.props;
-    goToSlide(null, 'prev');
+    goToSlide(null, "prev");
     updateAppData({
       totalSteps: 10,
-      currentStep,
+      currentStep
     });
   };
 
@@ -87,8 +92,8 @@ class ShopArea extends Component {
 }
 export default connect(
   store => ({
-    propertyType: selectCustomerDataItem(store, 'propertyType'),
-    selectedState: selectCustomerDataItem(store, 'propertyOccupation'),
+    propertyType: selectCustomerDataItem(store, "propertyType"),
+    selectedState: selectCustomerDataItem(store, "propertyOccupation")
   }),
   { updateAppData, updateCustomerData }
 )(ShopArea);
