@@ -25,7 +25,8 @@
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "format": "prettier --single-quote --trailing-comma es5 --print-width 100 --write --list-different '{src,__{tests,mocks}__}/**/*.{js,jsx,scss}'"
   },
   "devDependencies": {
     "concurrently": "^4.0.1",

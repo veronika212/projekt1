@@ -1,15 +1,12 @@
-import React from "react";
+import React from 'react';
 
-import { connect } from "react-redux";
-import { updateAppData, selectAppDataItem } from "../store/appReducer";
-import {
-  updateCustomerData,
-  selectCustomerDataItem
-} from "../store/customerDataReducer";
-import Footer from "../components/common/Footer/Footer";
-import ProgressBar from "../components/common/ProgressBar/ProgressBar";
+import { connect } from 'react-redux';
+import { updateAppData, selectAppDataItem } from '../store/appReducer';
+import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
+import Footer from '../components/common/Footer/Footer';
+import ProgressBar from '../components/common/ProgressBar/ProgressBar';
 
-import Tile from "../components/common/Tile/Tile";
+import Tile from '../components/common/Tile/Tile';
 
 const PropertyOccupation = ({
   goToSlide,
@@ -17,11 +14,11 @@ const PropertyOccupation = ({
   updateCustomerData,
   selectedState,
   propertyType,
-  error
+  error,
 }) => {
   const onTileClick = (slideNumber, currentStep, totalSteps, data) => {
     let nextSlideNumber = slideNumber;
-    if (propertyType === "Gewerbe" && slideNumber === 6) {
+    if (propertyType === 'Gewerbe' && slideNumber === 6) {
       nextSlideNumber = 13;
     }
 
@@ -32,31 +29,31 @@ const PropertyOccupation = ({
 
   const handlePrevClick = () => {
     let currentStep = 1;
-    if (propertyType === "Haus") {
+    if (propertyType === 'Haus') {
       currentStep = 2;
     }
-    if (propertyType === "Gewerbe") {
+    if (propertyType === 'Gewerbe') {
       currentStep = 2;
     }
-    goToSlide(null, "prev");
+    goToSlide(null, 'prev');
     updateAppData({ totalSteps: 10, currentStep });
   };
 
   const handleNextClick = () => {
     let slideNumber = 7;
     let currentStep = 3;
-    if (selectedState === "Selbst bewohnt" || selectedState === "Frei") {
+    if (selectedState === 'Selbst bewohnt' || selectedState === 'Frei') {
       slideNumber = 6;
       currentStep = 4;
-      if (propertyType === "Gewerbe") {
+      if (propertyType === 'Gewerbe') {
         slideNumber = 13;
         currentStep = 4;
       }
     }
 
     if (
-      (propertyType === "Gewerbe" && selectedState === "Vermietet") ||
-      (propertyType === "Gewerbe" && selectedState === "Teilweise vermietet")
+      (propertyType === 'Gewerbe' && selectedState === 'Vermietet') ||
+      (propertyType === 'Gewerbe' && selectedState === 'Teilweise vermietet')
     ) {
       slideNumber = 13;
       currentStep = 3.5;
@@ -69,7 +66,7 @@ const PropertyOccupation = ({
 
     updateAppData({
       totalSteps: 10,
-      currentStep
+      currentStep,
     });
     goToSlide(slideNumber);
   };
@@ -80,50 +77,50 @@ const PropertyOccupation = ({
         <Tile
           handleOnClick={() =>
             onTileClick(6, 4, 10, {
-              key: "propertyOccupation",
-              value: "Selbst bewohnt"
+              key: 'propertyOccupation',
+              value: 'Selbst bewohnt',
             })
           }
-          title={"Selbst bewohnt"}
+          title={'Selbst bewohnt'}
           iconName="icon icon--status-selbst"
-          selected={selectedState === "Selbst bewohnt" ? true : false}
-          className={error === true ? "tile-error" : null}
+          selected={selectedState === 'Selbst bewohnt' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
             onTileClick(6, 4, 10, {
-              key: "propertyOccupation",
-              value: "Frei"
+              key: 'propertyOccupation',
+              value: 'Frei',
             })
           }
-          title={"Frei"}
+          title={'Frei'}
           iconName="icon icon--status-frei"
-          selected={selectedState === "Frei" ? true : false}
-          className={error === true ? "tile-error" : null}
+          selected={selectedState === 'Frei' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
             onTileClick(7, 3.5, 10, {
-              key: "propertyOccupation",
-              value: "Vermietet"
+              key: 'propertyOccupation',
+              value: 'Vermietet',
             })
           }
-          title={"Vermietet"}
+          title={'Vermietet'}
           iconName="icon icon--status-vermietet"
-          selected={selectedState === "Vermietet" ? true : false}
-          className={error === true ? "tile-error" : null}
+          selected={selectedState === 'Vermietet' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
         <Tile
           handleOnClick={() =>
             onTileClick(7, 3.5, 10, {
-              key: "propertyOccupation",
-              value: "Teilweise vermietet"
+              key: 'propertyOccupation',
+              value: 'Teilweise vermietet',
             })
           }
-          title={"Teilweise vermietet"}
+          title={'Teilweise vermietet'}
           iconName="icon icon--status-teilweise"
-          selected={selectedState === "Teilweise vermietet" ? true : false}
-          className={error === true ? "tile-error" : null}
+          selected={selectedState === 'Teilweise vermietet' ? true : false}
+          className={error === true ? 'tile-error' : null}
         />
       </div>
 
@@ -141,9 +138,9 @@ const PropertyOccupation = ({
 
 export default connect(
   state => ({
-    selectedState: selectCustomerDataItem(state, "propertyOccupation"),
-    propertyType: selectCustomerDataItem(state, "propertyType"),
-    error: selectAppDataItem(state, "error")
+    selectedState: selectCustomerDataItem(state, 'propertyOccupation'),
+    propertyType: selectCustomerDataItem(state, 'propertyType'),
+    error: selectAppDataItem(state, 'error'),
   }),
   { updateAppData, updateCustomerData }
 )(PropertyOccupation);

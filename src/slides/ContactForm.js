@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { Field, reduxForm, formValueSelector } from "redux-form";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
+import { connect } from 'react-redux';
 
 import {
   updateCustomerData,
   submitCustomerData,
-  selectCustomerData
-} from "../store/customerDataReducer";
-import { updateAppData } from "../store/appReducer";
+  selectCustomerData,
+} from '../store/customerDataReducer';
+import { updateAppData } from '../store/appReducer';
 import {
   requiredSentens1,
   requiredSentens2,
@@ -18,13 +18,13 @@ import {
   email,
   renderInput,
   renderRationBtn,
-  renderCheckBox
-} from "../utils/formUtils";
-import { selectOptions } from "../utils/extNumbers";
+  renderCheckBox,
+} from '../utils/formUtils';
+import { selectOptions } from '../utils/extNumbers';
 
-import "./ContactForm.css";
+import './ContactForm.css';
 
-const selector = formValueSelector("ContactForm");
+const selector = formValueSelector('ContactForm');
 
 class ContactForm extends Component {
   onSubmit = values => {
@@ -37,9 +37,9 @@ class ContactForm extends Component {
 
     submitCustomerData(customerData);
     this.props.updateAppData({
-      title: "Wer soll die Bewertung erhalten?",
+      title: 'Wer soll die Bewertung erhalten?',
       totalSteps: 20,
-      currentStep: 20
+      currentStep: 20,
     });
     //this.props.goToSlide(nextSliderNumber);
   };
@@ -54,11 +54,11 @@ class ContactForm extends Component {
       mail,
       preset,
       phone,
-      goToSlide
+      goToSlide,
     } = this.props;
     if (valid) {
       updateCustomerData({
-        key: "contact",
+        key: 'contact',
         value: {
           sex: sex,
           firstName: firstName,
@@ -66,8 +66,8 @@ class ContactForm extends Component {
           mail: mail,
           preset: preset,
           phone: phone,
-          information: false
-        }
+          information: false,
+        },
       });
       goToSlide(16);
     }
@@ -169,10 +169,9 @@ class ContactForm extends Component {
                 labelClass="contact-form__confirm-label"
                 label={
                   <p>
-                    Ich stimme den{" "}
-                    <a href="/datenschutz/">Datenschutzbestimmungen </a>
-                    und einer Kontaktaufnahme durch immoverkauf24 per E-Mail
-                    oder Telefon für Rückfragen oder zu Informationszwecken zu.
+                    Ich stimme den <a href="/datenschutz/">Datenschutzbestimmungen </a>
+                    und einer Kontaktaufnahme durch immoverkauf24 per E-Mail oder Telefon für
+                    Rückfragen oder zu Informationszwecken zu.
                   </p>
                 }
               />
@@ -217,19 +216,19 @@ class ContactForm extends Component {
 }
 
 ContactForm = reduxForm({
-  form: "ContactForm"
+  form: 'ContactForm',
 })(ContactForm);
 
 export default connect(
   state => ({
-    sex: selector(state, "contact.sex"),
-    firstName: selector(state, "contact.firstName"),
-    lastName: selector(state, "contact.lastName"),
-    mail: selector(state, "contant.mail"),
-    preset: selector(state, "contact.preset"),
-    phone: selector(state, "contact.phone"),
+    sex: selector(state, 'contact.sex'),
+    firstName: selector(state, 'contact.firstName'),
+    lastName: selector(state, 'contact.lastName'),
+    mail: selector(state, 'contant.mail'),
+    preset: selector(state, 'contact.preset'),
+    phone: selector(state, 'contact.phone'),
     information: false,
-    appData: selectCustomerData(state)
+    appData: selectCustomerData(state),
   }),
   { submitCustomerData, updateAppData, updateCustomerData }
 )(ContactForm);

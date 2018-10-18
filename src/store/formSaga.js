@@ -1,11 +1,11 @@
-import axios from "axios";
-import { call, put, takeLatest } from "redux-saga/effects";
+import axios from 'axios';
+import { call, put, takeLatest } from 'redux-saga/effects';
 
 import {
   SUBMIT_CUSTOMER_DATA,
   SUBMIT_CUSTOMER_DATA_SUCCESS,
-  SUBMIT_CUSTOMER_DATA_FAIL
-} from "./customerDataReducer";
+  SUBMIT_CUSTOMER_DATA_FAIL,
+} from './customerDataReducer';
 
 //Sagas
 function* doSubmitCustomerDataSaga({ payload }) {
@@ -20,19 +20,19 @@ function* doSubmitCustomerDataSaga({ payload }) {
 
   const resp = yield call(
     axios.post,
-    "https://project-1-mailer.herokuapp.com/send",
+    'https://project-1-mailer.herokuapp.com/send',
     pureCustomerData
   );
 
   if (resp.ok === false) {
     return yield put({
       type: SUBMIT_CUSTOMER_DATA_FAIL,
-      payload: resp
+      payload: resp,
     });
   }
 
   yield put({
-    type: SUBMIT_CUSTOMER_DATA_SUCCESS
+    type: SUBMIT_CUSTOMER_DATA_SUCCESS,
   });
 }
 
