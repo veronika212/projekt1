@@ -48,30 +48,11 @@ const PropertyType = ({
     });
     goToSlide(slideNumber);
   };
-  
-  // const handleNextClick = slideNumber => {
-  //       if (!selectedState) {
-  //         updateAppData({ error: true });
-  //         return;
-  //       }
-    
-  //       updateAppData({
-  //         totalSteps: 10,
-  //         currentStep: 1.5,
-  //       });
-  //       goToSlide(slideNumber);
-  //     };
 
   return (
     <div>
       <div className="tiles-wrapper">
         <Tile
-          // handleOnClick={() =>
-          //   onTileClick(1, 3, 10, {
-          //     key: 'propertyType',
-          //     value: 'Wohnung',
-          //   })
-          // }
           handleOnClick={() => onTileClick(16, 1.5, 10, {
             key: 'propertyType',
             value: 'Wohnung',
@@ -82,12 +63,6 @@ const PropertyType = ({
           className={error === true ? 'tile-error' : null}
         />
         <Tile
-          // handleOnClick={() =>
-          //   onTileClick(2, 2, 10, {
-          //     key: 'propertyType',
-          //     value: 'Haus',
-          //   })
-          // }
           handleOnClick={() => onTileClick(16, 1.5, 10, {
             key: 'propertyType',
             value: 'Haus',
@@ -98,12 +73,6 @@ const PropertyType = ({
           className={error === true ? 'tile-error' : null}
         />
         <Tile
-          // handleOnClick={() =>
-          //   onTileClick(3, 2.5, 10, {
-          //     key: 'propertyType',
-          //     value: 'Grundstück',
-          //   })
-          // }
           handleOnClick={() => onTileClick(16, 1.5, 10, {
             key: 'propertyType',
             value: 'Grundstück',
@@ -114,12 +83,6 @@ const PropertyType = ({
           className={error === true ? 'tile-error' : null}
         />
         <Tile
-          // handleOnClick={() =>
-          //   onTileClick(4, 2, 10, {
-          //     key: 'propertyType',
-          //     value: 'Gewerbe',
-          //   })
-          // }
           handleOnClick={() => onTileClick(16, 1.5, 10, {
             key: 'propertyType',
             value: 'Gewerbe',

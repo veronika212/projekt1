@@ -28,20 +28,17 @@ const selector = formValueSelector('ContactForm');
 
 class ContactForm extends Component {
   onSubmit = values => {
-    // , nextTitle, totalSteps, currentStep, nextSliderNumber
-    // this.props.createContactData(values);
-    // console.log(createContactData, "values");
-
     const { submitCustomerData, appData } = this.props;
     const customerData = { ...appData, ...values };
 
     submitCustomerData(customerData);
     this.props.updateAppData({
       title: 'Wer soll die Bewertung erhalten?',
-      totalSteps: 20,
-      currentStep: 20,
+      totalSteps: 10,
+      currentStep: 10,
     });
-    //this.props.goToSlide(nextSliderNumber);
+    this.props.goToSlide(15);
+    // this.props.nextTitle({key: 'thankYouPage'})
   };
 
   handleNextClick = () => {
@@ -69,7 +66,7 @@ class ContactForm extends Component {
           information: false,
         },
       });
-      goToSlide(16);
+      goToSlide(15);
     }
   };
 

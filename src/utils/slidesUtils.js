@@ -77,7 +77,7 @@ export const countAppDataFromSlideNumber = slideNumber => {
       };
     case 15:
       return {
-        title: '',
+        title: 'Vielen Dank. Wir haben Ihre Anfrage erhalten!',
         currentSlideId: 'thankYouPage',
       };
     case 16:

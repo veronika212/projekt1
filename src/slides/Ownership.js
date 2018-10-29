@@ -33,20 +33,7 @@ const Ownership = ({ goToSlide, updateAppData, updateCustomerData, selectedState
     goToSlide(null, 'prev');
     updateAppData({ totalSteps, currentStep });
   };
-
-//   const handleNextClick = slideNumber => {
-//     if (!selectedState) {
-//       updateAppData({ error: true });
-//       return;
-//     }
-
-//     updateAppData({
-//       totalSteps: 10,
-//       currentStep: 2,
-//     });
-//     goToSlide(slideNumber);
-//   };
-
+  
   const handleNextClick = () => {
     let slideNumber = 1;
     let currentStep = 3;
@@ -87,13 +74,6 @@ const Ownership = ({ goToSlide, updateAppData, updateCustomerData, selectedState
               value: 'Eigentum/Eigengrundanteil',
             })
           }
-          
-           // handleOnClick={() =>
-          //   onTileClick(1, 3, 10, {
-          //     key: 'propertyType',
-          //     value: 'Wohnung',
-          //   })
-          // }
           title={'Eigentum/Eigengrundanteil'}
           iconName="icon icon--bebaubar-kurzfristig"
           selected={selectedState === 'Eigentum/Eigengrundanteil' ? true : false}
