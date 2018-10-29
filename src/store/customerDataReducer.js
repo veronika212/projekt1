@@ -29,6 +29,7 @@ export const submitCustomerData = data => {
 //reducer
 const defaultState = {
   propertyType: '',
+  ownership: '',
   propertyOccupation: '',
   propertyCondition: '',
   propertyExtension: '',

@@ -25,6 +25,7 @@ import LandArea from './slides/LandArea';
 import BuildYear from './slides/BuildYear';
 import ShopArea from './slides/ShopArea';
 import ContactForm from './slides/ContactForm';
+import Ownership from './slides/Ownership';
 
 import './App.css';
 
@@ -78,6 +79,7 @@ class App extends Component {
           <ShopArea goToSlide={this.goToSlide} />
           <ContactForm goToSlide={this.goToSlide} />
           <ThankYouPage />
+          <Ownership goToSlide={this.goToSlide}/>
         </Slider>
       </div>
     );

@@ -48,53 +48,82 @@ const PropertyType = ({
     });
     goToSlide(slideNumber);
   };
+  
+  // const handleNextClick = slideNumber => {
+  //       if (!selectedState) {
+  //         updateAppData({ error: true });
+  //         return;
+  //       }
+    
+  //       updateAppData({
+  //         totalSteps: 10,
+  //         currentStep: 1.5,
+  //       });
+  //       goToSlide(slideNumber);
+  //     };
 
   return (
     <div>
       <div className="tiles-wrapper">
         <Tile
-          handleOnClick={() =>
-            onTileClick(1, 3, 10, {
-              key: 'propertyType',
-              value: 'Wohnung',
-            })
-          }
+          // handleOnClick={() =>
+          //   onTileClick(1, 3, 10, {
+          //     key: 'propertyType',
+          //     value: 'Wohnung',
+          //   })
+          // }
+          handleOnClick={() => onTileClick(16, 1.5, 10, {
+            key: 'propertyType',
+            value: 'Wohnung',
+          })}
           title={'Wohnung'}
           iconName="icon icon--wohnung"
           selected={selectedState === 'Wohnung' ? true : false}
           className={error === true ? 'tile-error' : null}
         />
         <Tile
-          handleOnClick={() =>
-            onTileClick(2, 2, 10, {
-              key: 'propertyType',
-              value: 'Haus',
-            })
-          }
+          // handleOnClick={() =>
+          //   onTileClick(2, 2, 10, {
+          //     key: 'propertyType',
+          //     value: 'Haus',
+          //   })
+          // }
+          handleOnClick={() => onTileClick(16, 1.5, 10, {
+            key: 'propertyType',
+            value: 'Haus',
+          })}
           title={'Haus'}
           iconName="icon icon--haus"
           selected={selectedState === 'Haus' ? true : false}
           className={error === true ? 'tile-error' : null}
         />
         <Tile
-          handleOnClick={() =>
-            onTileClick(3, 2.5, 10, {
-              key: 'propertyType',
-              value: 'Grundstück',
-            })
-          }
+          // handleOnClick={() =>
+          //   onTileClick(3, 2.5, 10, {
+          //     key: 'propertyType',
+          //     value: 'Grundstück',
+          //   })
+          // }
+          handleOnClick={() => onTileClick(16, 1.5, 10, {
+            key: 'propertyType',
+            value: 'Grundstück',
+          })}
           title={'Grundstück'}
           iconName="icon icon--grundstueck"
           selected={selectedState === 'Grundstück' ? true : false}
           className={error === true ? 'tile-error' : null}
         />
         <Tile
-          handleOnClick={() =>
-            onTileClick(4, 2, 10, {
-              key: 'propertyType',
-              value: 'Gewerbe',
-            })
-          }
+          // handleOnClick={() =>
+          //   onTileClick(4, 2, 10, {
+          //     key: 'propertyType',
+          //     value: 'Gewerbe',
+          //   })
+          // }
+          handleOnClick={() => onTileClick(16, 1.5, 10, {
+            key: 'propertyType',
+            value: 'Gewerbe',
+          })}
           title={'Gewerbe'}
           iconName="icon icon--gewerbe"
           selected={selectedState === 'Gewerbe' ? true : false}

@@ -80,6 +80,11 @@ export const countAppDataFromSlideNumber = slideNumber => {
         title: '',
         currentSlideId: 'thankYouPage',
       };
+    case 16:
+      return {
+        title: 'Eigentumsverhältnisse des Grundes?',
+        currentSlideId: 'ownership',
+      };
 
     default:
       return {
