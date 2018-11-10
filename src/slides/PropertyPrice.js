@@ -1,15 +1,18 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { updateAppData } from '../store/appReducer';
-import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
-import ReactSlider from '../components/common/ReactSlider/ReactSlider';
-import ProgressBar from '../components/common/ProgressBar/ProgressBar';
-import Footer from '../components/common/Footer/Footer';
+import { updateAppData } from "../store/appReducer";
+import {
+  updateCustomerData,
+  selectCustomerDataItem
+} from "../store/customerDataReducer";
+import ReactSlider from "../components/common/ReactSlider/ReactSlider";
+import ProgressBar from "../components/common/ProgressBar/ProgressBar";
+import Footer from "../components/common/Footer/Footer";
 
 class PropertyPrice extends Component {
   state = {
-    value: 10000,
+    value: 10000
   };
 
   handleSliderChange = value => {
@@ -18,24 +21,29 @@ class PropertyPrice extends Component {
 
   handleNextClick = () => {
     let slideNumber = 6;
-    const { goToSlide, updateCustomerData, updateAppData, propertyType } = this.props;
-    if (propertyType === 'Gewerbe') {
+    const {
+      goToSlide,
+      updateCustomerData,
+      updateAppData,
+      propertyType
+    } = this.props;
+    if (propertyType === "Gewerbe") {
       slideNumber = 13;
     }
-    updateCustomerData({ key: 'propertyPrice', value: this.state.value });
+    updateCustomerData({ key: "propertyPrice", value: this.state.value });
     updateAppData({
       totalSteps: 10,
-      currentStep: 4,
+      currentStep: 4
     });
     goToSlide(slideNumber);
   };
 
   handlePrevClick = () => {
     const { updateAppData, goToSlide } = this.props;
-    goToSlide(null, 'prev');
+    goToSlide(null, "prev");
     updateAppData({
       totalSteps: 10,
-      currentStep: 3,
+      currentStep: 3
     });
   };
 
@@ -84,7 +92,7 @@ class PropertyPrice extends Component {
 }
 export default connect(
   store => ({
-    propertyType: selectCustomerDataItem(store, 'propertyType'),
+    propertyType: selectCustomerDataItem(store, "propertyType")
   }),
   { updateAppData, updateCustomerData }
 )(PropertyPrice);

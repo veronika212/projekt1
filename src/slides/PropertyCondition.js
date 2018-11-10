@@ -1,13 +1,16 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
-import { updateAppData, selectAppDataItem } from '../store/appReducer';
-import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
-import ProgressBar from '../components/common/ProgressBar/ProgressBar';
-import Tile from '../components/common/Tile/Tile';
-import Footer from '../components/common/Footer/Footer';
+import { updateAppData, selectAppDataItem } from "../store/appReducer";
+import {
+  updateCustomerData,
+  selectCustomerDataItem
+} from "../store/customerDataReducer";
+import ProgressBar from "../components/common/ProgressBar/ProgressBar";
+import Tile from "../components/common/Tile/Tile";
+import Footer from "../components/common/Footer/Footer";
 
-import './PropertyCondition.css';
+import "./PropertyCondition.css";
 
 const PropertyCondition = ({
   goToSlide,
@@ -15,12 +18,12 @@ const PropertyCondition = ({
   updateCustomerData,
   selectedState,
   propertyType,
-  error,
+  error
 }) => {
   const onTileClick = (totalSteps, data) => {
     let nextSlideNumber = 11;
     let currentStep = 9;
-    if (propertyType === 'Wohnung') {
+    if (propertyType === "Wohnung") {
       nextSlideNumber = 10;
       currentStep = 7;
     }
@@ -31,14 +34,14 @@ const PropertyCondition = ({
   };
 
   const handlePrevClick = (currentStep, totalSteps) => {
-    goToSlide(null, 'prev');
+    goToSlide(null, "prev");
     updateAppData({ totalSteps, currentStep });
   };
 
   const handleNextClick = () => {
     let nextSlideNumber = 11;
     let currentStep = 9;
-    if (propertyType === 'Wohnung') {
+    if (propertyType === "Wohnung") {
       nextSlideNumber = 10;
       currentStep = 7;
     }
@@ -50,7 +53,7 @@ const PropertyCondition = ({
 
     updateAppData({
       totalSteps: 10,
-      currentStep,
+      currentStep
     });
     goToSlide(nextSlideNumber);
   };
@@ -60,38 +63,38 @@ const PropertyCondition = ({
         <Tile
           handleOnClick={() =>
             onTileClick(10, {
-              key: 'propertyCondition',
-              value: 'Renovierungs­bedürftig',
+              key: "propertyCondition",
+              value: "Sanierungsbedürftig"
             })
           }
-          title={'Renovierungs­bedürftig'}
+          title={"Sanierungsbedürftig"}
           iconName="icon icon--renovierungsbeduerftig"
-          selected={selectedState === 'Renovierungs­bedürftig' ? true : false}
-          className={`tile-width ${error === true ? 'tile-error' : null}`}
+          selected={selectedState === "Sanierungsbedürftig" ? true : false}
+          className={`tile-width ${error === true ? "tile-error" : null}`}
         />
         <Tile
           handleOnClick={() =>
             onTileClick(10, {
-              key: 'propertyCondition',
-              value: 'Gepflegt',
+              key: "propertyCondition",
+              value: "Gepflegt"
             })
           }
-          title={'Gepflegt'}
+          title={"Gepflegt"}
           iconName="icon icon--gepflegt"
-          selected={selectedState === 'Gepflegt' ? true : false}
-          className={`tile-width ${error === true ? 'tile-error' : null}`}
+          selected={selectedState === "Gepflegt" ? true : false}
+          className={`tile-width ${error === true ? "tile-error" : null}`}
         />
         <Tile
           handleOnClick={() =>
             onTileClick(10, {
-              key: 'propertyCondition',
-              value: 'Neuwertig',
+              key: "propertyCondition",
+              value: "Neu"
             })
           }
-          title={'Neuwertig'}
+          title={"Neu"}
           iconName="icon icon--neuwertig"
-          selected={selectedState === 'Neuwertig' ? true : false}
-          className={`tile-width ${error === true ? 'tile-error' : null}`}
+          selected={selectedState === "Neu" ? true : false}
+          className={`tile-width ${error === true ? "tile-error" : null}`}
         />
       </div>
       <ProgressBar />
@@ -108,9 +111,9 @@ const PropertyCondition = ({
 
 export default connect(
   store => ({
-    selectedState: selectCustomerDataItem(store, 'propertyCondition'),
-    propertyType: selectCustomerDataItem(store, 'propertyType'),
-    error: selectAppDataItem(store, 'error'),
+    selectedState: selectCustomerDataItem(store, "propertyCondition"),
+    propertyType: selectCustomerDataItem(store, "propertyType"),
+    error: selectAppDataItem(store, "error")
   }),
   { updateAppData, updateCustomerData }
 )(PropertyCondition);

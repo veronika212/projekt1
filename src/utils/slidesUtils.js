@@ -2,94 +2,94 @@ export const countAppDataFromSlideNumber = slideNumber => {
   switch (slideNumber) {
     case 0:
       return {
-        title: 'Angaben zur Immobilie',
-        currentSlideId: 'propertyType',
+        title: "Um welche Art von Immobilie handelt es sich?",
+        currentSlideId: "propertyType"
       };
     case 1:
       return {
-        title: 'Welcher Wohnstatus liegt vor?',
-        currentSlideId: 'propertyOccupation',
+        title: "Wird die Immobilie aktuell genutzt?",
+        currentSlideId: "propertyOccupation"
       };
     case 2:
       return {
-        title: 'Angaben zu Ihrem Haus',
-        currentSlideId: 'houseType',
+        title: "Art des Hauses",
+        currentSlideId: "houseType"
       };
     case 3:
       return {
-        title: 'Angaben zu Ihrem Grundstück',
-        currentSlideId: 'landType',
+        title: "Art des Grundstücks",
+        currentSlideId: "landType"
       };
     case 4:
       return {
-        title: 'Angaben zu Ihrer Gewerbeimmobilie',
-        currentSlideId: 'businessType',
+        title: "Angaben zu Ihrer Gewerbeimmobilie",
+        currentSlideId: "businessType"
       };
     case 5:
       return {
-        title: 'Ist das Grundstück bebaubar?',
-        currentSlideId: 'buildingType',
+        title: "Ist eine Bebauung möglich?",
+        currentSlideId: "buildingType"
       };
     case 6:
       return {
-        title: 'Welche Wohnfläche besitzt das Objekt?',
-        currentSlideId: 'propertyArea',
+        title: "Wie groß ist die Wohnfläche?",
+        currentSlideId: "propertyArea"
       };
     case 7:
       return {
-        title: 'Wie hoch ist die Nettojahresmiete des Objekts?',
-        currentSlideId: 'propetyPrice',
+        title: "Angaben zur Nettojahresmiete der Immobilie",
+        currentSlideId: "propetyPrice"
       };
     case 8:
       return {
-        title: 'Wann wurde die Immobilie gebaut?',
-        currentSlideId: 'buildYear',
+        title: "In welchem Jahr wurde die Immobilie erbaut?",
+        currentSlideId: "buildYear"
       };
     case 9:
       return {
-        title: 'In welchem Zustand befindet sich die Immobilie?',
-        currentSlideId: 'propertyCondition',
+        title: "Wie ist der aktuelle Zustand der Immobilie?",
+        currentSlideId: "propertyCondition"
       };
     case 10:
       return {
-        title: 'Gibt es einen Balkon oder eine Terrasse?',
-        currentSlideId: 'propertyExtension',
+        title: "Verfügt die Immobilie über Freiflächen?",
+        currentSlideId: "propertyExtension"
       };
     case 11:
       return {
-        title: 'In welcher Region befindet sich das Objekt?',
-        currentSlideId: 'regionForm',
+        title: "Wo befindet sich die Immobilie?",
+        currentSlideId: "regionForm"
       };
     case 12:
       return {
-        title: 'Welche Fläche besitzt das Grundstück?',
-        currentSlideId: 'landArea',
+        title: "Wie groß ist die Fläche des Grundstücks?",
+        currentSlideId: "landArea"
       };
     case 13:
       return {
-        title: 'Welche Fläche besitzt das Gewerbe?',
-        currentSlideId: 'shopArea',
+        title: "Welche Fläche besitzt das Gewerbe?",
+        currentSlideId: "shopArea"
       };
     case 14:
       return {
-        title: 'Wer soll die Bewertung erhalten?',
-        currentSlideId: 'contactForm',
+        title: "Wem sollen wir die Bewertung zukommen lassen?",
+        currentSlideId: "contactForm"
       };
     case 15:
       return {
-        title: 'Vielen Dank. Wir haben Ihre Anfrage erhalten!',
-        currentSlideId: 'thankYouPage',
+        title: "Vielen Dank. Wir haben Ihre Anfrage erhalten!",
+        currentSlideId: "thankYouPage"
       };
     case 16:
       return {
-        title: 'Eigentumsverhältnisse des Grundes?',
-        currentSlideId: 'ownership',
+        title: "Eigentumsverhältnisse des Grundes?",
+        currentSlideId: "ownership"
       };
 
     default:
       return {
-        title: 'Angaben zur Immobilie',
-        currentSlideId: 'propertyType',
+        title: "Um welche Art von Immobilie handelt es sich?",
+        currentSlideId: "propertyType"
       };
   }
 };

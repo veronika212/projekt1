@@ -1,4 +1,4 @@
-@import '../../../variables.scss';
+@import "../../../variables.scss";
 
 .tile {
   padding: 15px 15px 0px 15px;
@@ -15,7 +15,7 @@
   transition: all 0.1s ease-in-out;
   &:hover,
   &.active {
-    border: 3px solid $green;
+    border: 3px solid $pantone-cool-gray;
   }
   &.active {
     transform: scale(1.05);

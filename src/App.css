@@ -116,7 +116,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none; }
 
 table {
@@ -124,15 +124,35 @@ table {
   border-spacing: 0; }
 
 /* End css reset */
+@font-face {
+  font-family: "Icons";
+  src: url("./fonts//iv-icons.woff") format("woff"); }
+
+@font-face {
+  font-family: "SansRegular";
+  src: url("/fonts/EncodeSansSemiExpanded-Regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "SansLight";
+  src: url("/fonts/EncodeSansSemiExpanded-ExtraLight.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "SansMedium";
+  src: url("/fonts/EncodeSansSemiExpanded-Medium.ttf") format("truetype"); }
+
+@font-face {
+  font-family: "SansBold";
+  src: url("/fonts/EncodeSansSemiExpanded-SemiBold.ttf") format("truetype"); }
+
 * {
   box-sizing: border-box; }
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0; }
 
-input[type='radio'] {
+input[type="radio"] {
   position: absolute;
   top: 15px;
   left: 10px;
@@ -148,9 +168,9 @@ input[type='radio'] {
   position: relative;
   cursor: pointer;
   background-color: #d9e8f3;
-  border: 2px solid #257db8; }
+  border: 2px solid #003594; }
   .radiobtn:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 2px;
     left: 2px;
@@ -159,14 +179,10 @@ input[type='radio'] {
     height: 12px;
     width: 12px; }
   .radiobtn.checked:before {
-    background-color: #257db8; }
+    background-color: #003594; }
 
-@font-face {
-  font-family: 'Icons';
-  src: url("./fonts//iv-icons.woff") format("woff"); }
-
-[class*=' icon-']:before,
-[class^='icon-']:before,
+[class*=" icon-"]:before,
+[class^="icon-"]:before,
 [data-icon]:before {
   font-family: Icons !important;
   font-weight: 400 !important;
@@ -183,17 +199,17 @@ textarea {
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #9d9c9c;
+  color: #64666a;
   opacity: 1;
   /* Firefox */ }
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #9d9c9c; }
+  color: #64666a; }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #9d9c9c; }
+  color: #64666a; }
 
 .required-asterisk {
   color: #ff7171;
@@ -204,10 +220,10 @@ body {
   font-size: 15px;
   line-height: 1.46667;
   text-align: center;
-  color: #6a6a6a;
+  color: #64666a;
   background-color: #fff;
   font-weight: 300;
-  font-family: 'Signika Negative', Helvetica, Arial, sans-serif !important; }
+  font-family: SansRegular, "Signika Negative", Helvetica, Arial, sans-serif !important; }
 
 li {
   list-style: none; }
@@ -215,12 +231,14 @@ li {
 .checkbox-wrapper {
   display: flex; }
   .checkbox-wrapper input {
-    width: 30px;
-    height: 12px;
+    min-width: 1rem;
+    max-width: 1rem;
+    height: 1rem;
     cursor: pointer; }
 
 .app {
   max-width: 100%;
+  overflow: hidden;
   margin: auto;
   background-color: #fff;
   border: 1px solid #ddd;
@@ -228,7 +246,7 @@ li {
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); }
   .app__header {
-    color: #333;
+    color: #64666a;
     background-color: #f5f5f5;
     padding: 10px 15px;
     border-bottom: 1px solid #ddd;
@@ -236,6 +254,7 @@ li {
     border-top-left-radius: 0;
     border-top-right-radius: 0; }
   .app__title {
+    font-family: SansBold, "Signika Negative", Helvetica, Arial, sans-serif !important;
     margin-top: 0;
     margin-bottom: 0;
     font-size: 16px;
@@ -245,111 +264,18 @@ li {
     line-height: 1.1; }
 
 .icon {
-  background: url(/images/icons4.png) no-repeat;
+  background: url(/images/logo.png) no-repeat;
   background-size: auto;
   background-repeat: no-repeat;
   display: inline-block;
   width: 90px;
-  height: 91px; }
+  height: 91px;
+  background-size: contain; }
   .icon.slider-image {
     margin-left: 5%; }
-  .icon.icon--wohnung {
-    background-position: 0 0; }
-  .icon.icon--haus {
-    background-position: 0 -90px; }
-  .icon.icon--grundstueck {
-    background-position: 0 -450px; }
-  .icon.icon--gewerbe {
-    background-position: 0 -540px; }
-  .icon.icon--status-selbst {
-    background-position: 0 -3330px; }
-  .icon.icon--status-frei {
-    background-position: 0 -2070px; }
-  .icon.icon--status-vermietet {
-    background-position: 0 -3240px; }
-  .icon.icon--status-teilweise {
-    background-position: 0 -3600px; }
-  .icon.icon--renovierungsbeduerftig {
-    background-position: 0 -1800px; }
-  .icon.icon--gepflegt {
-    background-position: 0 -1890px; }
-  .icon.icon--neuwertig {
-    background-position: 0 -1980px; }
-  .icon.icon--balkon {
-    background-position: 0 -2610px; }
-  .icon.icon--haus {
-    background-position: 0 -90px; }
-  .icon.icon--mehrfamilienhaus {
-    background-position: 0 -360px; }
-  .icon.icon--reihenhaus {
-    background-position: 0 -270px; }
-  .icon.icon--doppelhaus {
-    background-position: 0 -180px; }
-  .icon.icon--baugrundstueck {
-    background-position: 0 -3060px; }
-  .icon.icon--bauerwartungsland {
-    background-position: 0 -1170px; }
-  .icon.icon--gewerbegrundstueck {
-    background-position: 0 -4770px; }
-  .icon.icon--agrarflaeche {
-    background-position: 0 -1080px; }
-  .icon.icon--bebaubar-kurzfristig {
-    background-position: 0 -1080px; }
-  .icon.icon--bebaubar-eingeschraenkt {
-    background-position: 0 -4140px; }
-  .icon.icon--bebaubar-nicht {
-    background-position: 0 -4230px; }
-  .icon.icon--bebaubar-unbekannt {
-    background-position: 0 -1170px; }
-  .icon.icon--buero {
-    background-position: 0 -4500px; }
-  .icon.icon--gastgewerbe {
-    background-position: 0 -4590px; }
-  .icon.icon--fabrik {
-    background-position: 0 -540px; }
-  .icon.icon--hotel {
-    background-position: 0 -4680px; }
-  .icon.icon--at {
-    background-position: 0 -3150px;
-    margin-left: 45px;
-    margin-right: 45px;
-    width: 142px; }
-    @media screen and (max-width: 767px) {
-      .icon.icon--at {
-        margin-bottom: 2%; } }
-  .icon.icon--nettomiete {
-    background-position: 0 -3240px;
-    width: 130px; }
-    @media screen and (max-width: 991px) {
-      .icon.icon--nettomiete {
-        display: none; } }
-  .icon.icon--wohnflaeche {
-    background-position: 0 -2970px;
-    width: 137px; }
-    @media screen and (max-width: 991px) {
-      .icon.icon--wohnflaeche {
-        display: none; } }
-  .icon.icon--grundstuecksgroesse {
-    background-position: 0 -1170px;
-    width: 130px; }
-    @media screen and (max-width: 991px) {
-      .icon.icon--grundstuecksgroesse {
-        display: none; } }
-  .icon.icon--baujahr {
-    background-position: 0 -3060px;
-    width: 140px; }
-    @media screen and (max-width: 991px) {
-      .icon.icon--baujahr {
-        display: none; } }
-  .icon.icon--gewerbeflaeche {
-    background-position: 0 -4770px;
-    width: 140px; }
-    @media screen and (max-width: 991px) {
-      .icon.icon--gewerbeflaeche {
-        display: none; } }
   .icon.glyphicon-send {
-    content: '\e171';
-    font-family: 'Glyphicons Halflings'; }
+    content: "\e171";
+    font-family: "Glyphicons Halflings"; }
     @media screen and (max-width: 450px) {
       .icon.glyphicon-send {
         display: none; } }
@@ -392,7 +318,7 @@ li {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  align-items: flex-start; }
+  align-items: center; }
 
 .visibility {
   display: none; }
@@ -402,7 +328,7 @@ li {
 
 .directinput-note {
   text-align: center;
-  color: #000;
+  color: #3d3934;
   font-weight: 400;
   line-height: 1.2;
   margin-bottom: 3px; }
@@ -412,8 +338,8 @@ li {
   justify-content: flex-end;
   margin-right: 20%; }
   .bulb:before {
-    font-family: 'iv-icons';
-    content: '\66';
+    font-family: "iv-icons";
+    content: "\66";
     line-height: 1;
     font-weight: 400; }
   @media screen and (max-width: 991px) {

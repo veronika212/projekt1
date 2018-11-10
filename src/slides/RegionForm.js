@@ -1,42 +1,49 @@
-import React, { Component } from 'react';
-import { Field, reduxForm, formValueSelector } from 'redux-form';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { Field, reduxForm, formValueSelector } from "redux-form";
+import { connect } from "react-redux";
 
 import {
   createRegionData,
   updateCustomerData,
-  selectCustomerDataItem,
-} from '../store/customerDataReducer';
-import { updateAppData } from '../store/appReducer';
-import Footer from '../components/common/Footer/Footer';
-import ProgressBar from '../components/common/ProgressBar/ProgressBar';
-import { required, number, zip, renderField } from '../utils/formUtils';
-import './RegionForm.css';
+  selectCustomerDataItem
+} from "../store/customerDataReducer";
+import { updateAppData } from "../store/appReducer";
+import Footer from "../components/common/Footer/Footer";
+import ProgressBar from "../components/common/ProgressBar/ProgressBar";
+import { required, number, zip, renderField } from "../utils/formUtils";
+import "./RegionForm.css";
 
-const selector = formValueSelector('RegionForm');
+const selector = formValueSelector("RegionForm");
 
 class RegionForm extends Component {
   onSubmit = (values, nextTitle, totalSteps, currentStep, nextSliderNumber) => {
     this.props.createRegionData(values);
-    console.log(createRegionData, 'values');
+    console.log(createRegionData, "values");
     this.props.updateAppData({
-      title: 'Wer soll die Bewertung erhalten?',
+      title: "Wem sollen wir die Bewertung zukommen lassen?",
       totalSteps: 10,
-      currentStep: 9,
+      currentStep: 9
     });
     this.props.goToSlide(nextSliderNumber);
   };
 
   handleNextClick = () => {
-    const { valid, updateCustomerData, streetNumber, zipCode, place, goToSlide } = this.props;
+    const {
+      valid,
+      updateCustomerData,
+      streetNumber,
+      zipCode,
+      place,
+      goToSlide
+    } = this.props;
     if (valid) {
       updateCustomerData({
-        key: 'address',
+        key: "address",
         value: {
           streetAndNumber: streetNumber,
           zipCode: zipCode,
-          place: place,
-        },
+          place: place
+        }
       });
       goToSlide(14);
     }
@@ -44,24 +51,24 @@ class RegionForm extends Component {
 
   handlePrevClick = () => {
     let currentStep = 7;
-    if (this.props.propertyType === 'Haus') {
+    if (this.props.propertyType === "Haus") {
       currentStep = 6;
     }
 
-    if (this.props.propertyType === 'Grundstück') {
+    if (this.props.propertyType === "Grundstück") {
       currentStep = 5;
     }
 
-    if (this.props.propertyType === 'Gewerbe') {
+    if (this.props.propertyType === "Gewerbe") {
       currentStep = 5.5;
     }
 
     const { updateAppData, goToSlide } = this.props;
 
-    goToSlide(null, 'prev');
+    goToSlide(null, "prev");
     updateAppData({
       totalSteps: 10,
-      currentStep,
+      currentStep
     });
   };
 
@@ -76,10 +83,10 @@ class RegionForm extends Component {
               name="address.streetAndNumber"
               component={renderField}
               type="text"
-              placeholder="Straße / Nr."
+              placeholder="Adresse"
               className="item__input"
               validate={[required]}
-              label="Straße & Nr."
+              label="Adresse"
             />
 
             <Field
@@ -117,7 +124,7 @@ class RegionForm extends Component {
         <Footer
           handlePrevClick={() => this.handlePrevClick()}
           handleNextClick={this.handleNextClick}
-          type={'submit'}
+          type={"submit"}
           className="required-explanation"
           glyphPrevBefore="glyphicon-arrow-left"
           glyphNextAfter="glyphicon-arrow-right"
@@ -128,15 +135,15 @@ class RegionForm extends Component {
 }
 
 RegionForm = reduxForm({
-  form: 'RegionForm',
+  form: "RegionForm"
 })(RegionForm);
 
 export default connect(
   state => ({
-    streetNumber: selector(state, 'address.streetAndNumber'),
-    zipCode: selector(state, 'address.zipCode'),
-    place: selector(state, 'address.place'),
-    propertyType: selectCustomerDataItem(state, 'propertyType'),
+    streetNumber: selector(state, "address.streetAndNumber"),
+    zipCode: selector(state, "address.zipCode"),
+    place: selector(state, "address.place"),
+    propertyType: selectCustomerDataItem(state, "propertyType")
   }),
   { createRegionData, updateAppData, updateCustomerData }
 )(RegionForm);

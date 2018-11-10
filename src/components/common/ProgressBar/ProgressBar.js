@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import './ProgressBar.css';
+import "./ProgressBar.css";
 
 class ProgressBar extends Component {
   render() {
@@ -10,19 +10,26 @@ class ProgressBar extends Component {
       return null;
     }
 
-    if (app.title === 'Angaben zur Immobilie') {
+    if (app.title === "Um welche Art von Immobilie handelt es sich?") {
       return (
         <div className="progress">
           <div className={`progress-bar ${className}`} />
         </div>
       );
     } else {
-      const progressBarWidth = Math.round((app.currentStep / app.totalSteps) * 100);
+      const progressBarWidth = Math.round(
+        (app.currentStep / app.totalSteps) * 100
+      );
 
       return (
         <div className="progress">
-          <div className="progress-bar" style={{ width: `${progressBarWidth}%` }}>
-            <span className={`progress-bar-value ${className}`}>{progressBarWidth}%</span>
+          <div
+            className="progress-bar"
+            style={{ width: `${progressBarWidth}%` }}
+          >
+            <span className={`progress-bar-value ${className}`}>
+              {progressBarWidth}%
+            </span>
           </div>
         </div>
       );
@@ -32,7 +39,7 @@ class ProgressBar extends Component {
 
 const mapStateToProps = store => {
   return {
-    app: store.app,
+    app: store.app
   };
 };
 

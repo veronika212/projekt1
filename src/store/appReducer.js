@@ -1,26 +1,26 @@
 //action type
-const UPDATE_APP_DATA = 'UPDATE_APP_DATA';
-const APPEND_HISTORY_INDEX = 'APPEND_HISTORY_INDEX';
-const REMOVE_HISTORY_INDEX = 'REMOVE_HISTORY_INDEX';
+const UPDATE_APP_DATA = "UPDATE_APP_DATA";
+const APPEND_HISTORY_INDEX = "APPEND_HISTORY_INDEX";
+const REMOVE_HISTORY_INDEX = "REMOVE_HISTORY_INDEX";
 
 // action creator
 export const updateAppData = payload => {
   return {
     type: UPDATE_APP_DATA,
-    payload,
+    payload
   };
 };
 
 export const apendHistoryIndex = payload => {
   return {
     type: APPEND_HISTORY_INDEX,
-    payload,
+    payload
   };
 };
 
 export const removeHistoryIndex = payload => {
   return {
-    type: REMOVE_HISTORY_INDEX,
+    type: REMOVE_HISTORY_INDEX
   };
 };
 
@@ -28,10 +28,10 @@ export const removeHistoryIndex = payload => {
 const defaultState = {
   currentStep: 1,
   totalSteps: 1,
-  title: 'Angaben zur Immobilie',
-  currentSlideId: 'propertyType',
+  title: "Um welche Art von Immobilie handelt es sich?",
+  currentSlideId: "propertyType",
   history: [0],
-  error: false,
+  error: false
 };
 
 export const appReducer = (state = defaultState, action) => {
@@ -39,19 +39,19 @@ export const appReducer = (state = defaultState, action) => {
     case UPDATE_APP_DATA:
       return {
         ...state,
-        ...action.payload,
+        ...action.payload
       };
 
     case APPEND_HISTORY_INDEX:
       return {
         ...state,
-        history: [action.payload, ...state.history],
+        history: [action.payload, ...state.history]
       };
 
     case REMOVE_HISTORY_INDEX:
       return {
         ...state,
-        history: [...state.history.slice(1)],
+        history: [...state.history.slice(1)]
       };
 
     default:

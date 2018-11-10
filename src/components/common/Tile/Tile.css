@@ -2,7 +2,7 @@
   padding: 15px 15px 0px 15px;
   height: 180px;
   width: 25%;
-  border: 3px solid #257eb8;
+  border: 3px solid #003594;
   border-radius: 3px;
   margin-right: 3%;
   display: flex;
@@ -12,13 +12,13 @@
   cursor: pointer;
   transition: all 0.1s ease-in-out; }
   .tile:hover, .tile.active {
-    border: 3px solid #33a723; }
+    border: 3px solid #64666a; }
   .tile.active {
     transform: scale(1.05); }
   .tile:hover .tile__title {
-    color: #2780ba; }
+    color: #003594; }
   .tile.active .tile_title {
-    color: #2780ba; }
+    color: #003594; }
   .tile.tile-error {
     border-color: #c53925; }
   .tile:nth-child(4) {

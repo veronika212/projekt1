@@ -1,4 +1,4 @@
-@import '../../../variables.scss';
+@import "../../../variables.scss";
 
 .footer {
   display: flex;
@@ -23,7 +23,7 @@
     border-radius: 3px;
     outline: none;
     &.active {
-      background: $green;
+      background: $pantone-blue;
       color: $white;
     }
   }
@@ -35,7 +35,7 @@
     margin-left: auto;
     outline: none;
     &.active {
-      background: $green;
+      background: $pantone-blue;
       color: $white;
     }
   }

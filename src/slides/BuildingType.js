@@ -1,15 +1,24 @@
-import React from 'react';
+import React from "react";
 
-import { connect } from 'react-redux';
-import { updateAppData, selectAppDataItem } from '../store/appReducer';
-import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
+import { connect } from "react-redux";
+import { updateAppData, selectAppDataItem } from "../store/appReducer";
+import {
+  updateCustomerData,
+  selectCustomerDataItem
+} from "../store/customerDataReducer";
 
-import Footer from '../components/common/Footer/Footer';
-import ProgressBar from '../components/common/ProgressBar/ProgressBar';
+import Footer from "../components/common/Footer/Footer";
+import ProgressBar from "../components/common/ProgressBar/ProgressBar";
 
-import Tile from '../components/common/Tile/Tile';
+import Tile from "../components/common/Tile/Tile";
 
-const BuildingType = ({ goToSlide, updateAppData, updateCustomerData, selectedState, error }) => {
+const BuildingType = ({
+  goToSlide,
+  updateAppData,
+  updateCustomerData,
+  selectedState,
+  error
+}) => {
   const onTileClick = (nextSlideNumber, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
     updateAppData({ totalSteps, currentStep });
@@ -17,7 +26,7 @@ const BuildingType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
   };
 
   const handlePrevClick = (currentStep, totalSteps) => {
-    goToSlide(null, 'prev');
+    goToSlide(null, "prev");
     updateAppData({ totalSteps, currentStep });
   };
 
@@ -29,7 +38,7 @@ const BuildingType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
 
     updateAppData({
       totalSteps: 10,
-      currentStep: 5,
+      currentStep: 5
     });
     goToSlide(slideNumber);
   };
@@ -40,50 +49,50 @@ const BuildingType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
         <Tile
           handleOnClick={() =>
             onTileClick(12, 5, 10, {
-              key: 'buildingType',
-              value: 'Kurzfristig bebaubar',
+              key: "buildingType",
+              value: "Sofort bebaubar"
             })
           }
-          title={'Kurzfristig bebaubar'}
+          title={"Sofort bebaubar"}
           iconName="icon icon--bebaubar-kurzfristig"
-          selected={selectedState === 'Kurzfristig bebaubar' ? true : false}
-          className={error === true ? 'tile-error' : null}
+          selected={selectedState === "Sofort bebaubar" ? true : false}
+          className={error === true ? "tile-error" : null}
         />
         <Tile
           handleOnClick={() =>
             onTileClick(12, 5, 10, {
-              key: 'buildingType',
-              value: 'Eingeschränkt',
+              key: "buildingType",
+              value: "Eingeschränkt bebaubar"
             })
           }
-          title={'Eingeschränkt'}
+          title={"Eingeschränkt bebaubar"}
           iconName="icon icon--bebaubar-eingeschraenkt"
-          selected={selectedState === 'Eingeschränkt' ? true : false}
-          className={error === true ? 'tile-error' : null}
+          selected={selectedState === "Eingeschränkt bebaubar" ? true : false}
+          className={error === true ? "tile-error" : null}
         />
         <Tile
           handleOnClick={() =>
             onTileClick(12, 5, 10, {
-              key: 'buildingType',
-              value: 'Nicht bebaubar',
+              key: "buildingType",
+              value: "Nicht bebaubar"
             })
           }
-          title={'Nicht bebaubar'}
+          title={"Nicht bebaubar"}
           iconName="icon icon--bebaubar-nicht"
-          selected={selectedState === 'Nicht bebaubar' ? true : false}
-          className={error === true ? 'tile-error' : null}
+          selected={selectedState === "Nicht bebaubar" ? true : false}
+          className={error === true ? "tile-error" : null}
         />
         <Tile
           handleOnClick={() =>
             onTileClick(12, 5, 10, {
-              key: 'buildingType',
-              value: 'Unbekannt',
+              key: "buildingType",
+              value: "Unbekannt"
             })
           }
-          title={'Unbekannt'}
+          title={"Unbekannt"}
           iconName="icon icon--bebaubar-unbekannt"
-          selected={selectedState === 'Unbekannt' ? true : false}
-          className={error === true ? 'tile-error' : null}
+          selected={selectedState === "Unbekannt" ? true : false}
+          className={error === true ? "tile-error" : null}
         />
       </div>
 
@@ -101,8 +110,8 @@ const BuildingType = ({ goToSlide, updateAppData, updateCustomerData, selectedSt
 
 export default connect(
   state => ({
-    selectedState: selectCustomerDataItem(state, 'buildingType'),
-    error: selectAppDataItem(state, 'error'),
+    selectedState: selectCustomerDataItem(state, "buildingType"),
+    error: selectAppDataItem(state, "error")
   }),
   { updateAppData, updateCustomerData }
 )(BuildingType);
