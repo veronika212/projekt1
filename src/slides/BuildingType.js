@@ -54,7 +54,7 @@ const BuildingType = ({
             })
           }
           title={"Sofort bebaubar"}
-          iconName="icon icon--bebaubar-kurzfristig"
+          iconName="icon icon--sofort-bebaubar"
           selected={selectedState === "Sofort bebaubar" ? true : false}
           className={error === true ? "tile-error" : null}
         />
@@ -66,7 +66,7 @@ const BuildingType = ({
             })
           }
           title={"Eingeschränkt bebaubar"}
-          iconName="icon icon--bebaubar-eingeschraenkt"
+          iconName="icon icon--bebaubar-eingeschraenkt2"
           selected={selectedState === "Eingeschränkt bebaubar" ? true : false}
           className={error === true ? "tile-error" : null}
         />

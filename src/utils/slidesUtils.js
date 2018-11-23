@@ -52,7 +52,7 @@ export const countAppDataFromSlideNumber = slideNumber => {
       };
     case 10:
       return {
-        title: "Verfügt die Immobilie über Freiflächen?",
+        title: "Gibt es einen Balkon oder eine Terasse",
         currentSlideId: "propertyExtension"
       };
     case 11:

@@ -1,20 +1,23 @@
-import React from 'react';
+import React from "react";
 
-import { connect } from 'react-redux';
-import { updateAppData, selectAppDataItem } from '../store/appReducer';
-import { updateCustomerData, selectCustomerDataItem } from '../store/customerDataReducer';
+import { connect } from "react-redux";
+import { updateAppData, selectAppDataItem } from "../store/appReducer";
+import {
+  updateCustomerData,
+  selectCustomerDataItem
+} from "../store/customerDataReducer";
 
-import Footer from '../components/common/Footer/Footer';
-import ProgressBar from '../components/common/ProgressBar/ProgressBar';
+import Footer from "../components/common/Footer/Footer";
+import ProgressBar from "../components/common/ProgressBar/ProgressBar";
 
-import Tile from '../components/common/Tile/Tile';
+import Tile from "../components/common/Tile/Tile";
 
 const PropertyExtension = ({
   goToSlide,
   updateAppData,
   updateCustomerData,
   selectedState,
-  error,
+  error
 }) => {
   const onTileClick = (nextSlideNumber, currentStep, totalSteps, data) => {
     goToSlide(nextSlideNumber);
@@ -23,7 +26,7 @@ const PropertyExtension = ({
   };
 
   const handlePrevClick = (currentStep, totalSteps) => {
-    goToSlide(null, 'prev');
+    goToSlide(null, "prev");
     updateAppData({ totalSteps, currentStep });
   };
 
@@ -35,7 +38,7 @@ const PropertyExtension = ({
 
     updateAppData({
       totalSteps: 10,
-      currentStep: 9,
+      currentStep: 9
     });
     goToSlide(slideNumber);
   };
@@ -46,50 +49,50 @@ const PropertyExtension = ({
         <Tile
           handleOnClick={() =>
             onTileClick(11, 9, 10, {
-              key: 'propertyExtension',
-              value: 'Balkon',
+              key: "propertyExtension",
+              value: "Balkon"
             })
           }
-          title={'Balkon'}
+          title={"Balkon"}
           iconName="icon icon--balkon"
-          selected={selectedState === 'Balkon' ? true : false}
-          className={error === true ? 'tile-error' : null}
+          selected={selectedState === "Balkon" ? true : false}
+          className={error === true ? "tile-error" : null}
         />
         <Tile
           handleOnClick={() =>
             onTileClick(11, 9, 10, {
-              key: 'propertyExtension',
-              value: 'Terrasse',
+              key: "propertyExtension",
+              value: "Terrasse"
             })
           }
-          title={'Terrasse'}
+          title={"Terrasse"}
           iconName="icon icon--Terrasse"
-          selected={selectedState === 'Terrasse' ? true : false}
-          className={error === true ? 'tile-error' : null}
+          selected={selectedState === "Terrasse" ? true : false}
+          className={error === true ? "tile-error" : null}
         />
         <Tile
           handleOnClick={() =>
             onTileClick(11, 9, 10, {
-              key: 'propertyExtension',
-              value: 'Balkon & Terrasse',
+              key: "propertyExtension",
+              value: "Balkon & Terrasse"
             })
           }
-          title={'Balkon & Terrasse'}
+          title={"Balkon & Terrasse"}
           iconName="icon icon--balkonTerrasse"
-          selected={selectedState === 'Balkon & Terrasse' ? true : false}
-          className={error === true ? 'tile-error' : null}
+          selected={selectedState === "Balkon & Terrasse" ? true : false}
+          className={error === true ? "tile-error" : null}
         />
         <Tile
           handleOnClick={() =>
             onTileClick(11, 9, 10, {
-              key: 'propertyExtension',
-              value: 'Weder noch',
+              key: "propertyExtension",
+              value: "Weder noch"
             })
           }
-          title={'Weder noch'}
+          title={"Weder noch"}
           iconName="icon icon--keinbalkonTerrasse"
-          selected={selectedState === 'Weder noch' ? true : false}
-          className={error === true ? 'tile-error' : null}
+          selected={selectedState === "Weder noch" ? true : false}
+          className={error === true ? "tile-error" : null}
         />
       </div>
 
@@ -107,8 +110,8 @@ const PropertyExtension = ({
 
 export default connect(
   state => ({
-    selectedState: selectCustomerDataItem(state, 'propertyExtension'),
-    error: selectAppDataItem(state, 'error'),
+    selectedState: selectCustomerDataItem(state, "propertyExtension"),
+    error: selectAppDataItem(state, "error")
   }),
   { updateAppData, updateCustomerData }
 )(PropertyExtension);

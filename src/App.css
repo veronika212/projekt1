@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* Start css reset*/
 html,
 body,
@@ -264,13 +265,128 @@ li {
     line-height: 1.1; }
 
 .icon {
-  background: url(/images/logo.png) no-repeat;
-  background-size: auto;
   background-repeat: no-repeat;
   display: inline-block;
   width: 90px;
   height: 91px;
-  background-size: contain; }
+  background-size: cover; }
+  .icon.icon--wohnung {
+    background-image: url(/icons/Wohnung.svg); }
+  .icon.icon--haus {
+    background-image: url(/icons/Haus.svg); }
+  .icon.icon--grundstueck {
+    background-image: url(/icons/Grundstück.svg);
+    width: 105px; }
+  .icon.icon--gewerbe {
+    background-image: url(/icons/Gewerbe.svg); }
+  .icon.icon--status-selbst {
+    background-image: url(/icons/SelbstBewohnt.svg);
+    width: 99px; }
+  .icon.icon--status-frei {
+    background-image: url(/icons/Leerstehend.svg);
+    width: 99px; }
+  .icon.icon--status-vermietet {
+    background-image: url(/icons/Vermietet.svg);
+    width: 99px; }
+  .icon.icon--status-teilweise {
+    width: 99px;
+    background-image: url(/icons/Teilvermietet.svg); }
+  .icon.icon--renovierungsbeduerftig {
+    background-image: url(/icons/Sanierungsbedürftigt.svg);
+    height: 104px; }
+  .icon.icon--gepflegt {
+    background-image: url(/icons/Gepflegt.svg);
+    height: 104px; }
+  .icon.icon--neuwertig {
+    background-image: url(/icons/Neu.svg);
+    height: 104px; }
+  .icon.icon--balkon {
+    background-image: url(/icons/balkon.svg); }
+  .icon.icon--Terrasse {
+    background-image: url(/icons/terasse.svg);
+    width: 100px;
+    height: 84px; }
+  .icon.icon--balkonTerrasse {
+    background-image: url(/icons/balkonAndTerasse.svg);
+    width: 97px; }
+  .icon.icon--keinbalkonTerrasse {
+    background-image: url(/icons/keinbalkonTerrasse.svg); }
+  .icon.icon--einfamilienhaus {
+    background-image: url(/icons/Einfamilienhaus.png); }
+  .icon.icon--mehrfamilienhaus {
+    background-image: url(/icons/Mehrfamilienhaus.png); }
+  .icon.icon--reihenhaus {
+    background-image: url(/icons/Reihenhaus.png); }
+  .icon.icon--doppelhaus {
+    background-image: url(/icons/Dobbelhaushälfte.png); }
+  .icon.icon--baugrundstueck {
+    background-image: url(/icons/Baugrundstuck.png); }
+  .icon.icon--bauerwartungsland {
+    background-image: url(/icons/Bauerwartungsland.png); }
+  .icon.icon--gewerbegrundstueck {
+    background-image: url(/icons/Gewerbegrundstuck.png); }
+  .icon.icon--agrarflaeche {
+    background-image: url(/icons/Agrarflache.png); }
+  .icon.icon--bebaubar-kurzfristig {
+    background-image: url(/icons/Eigentum.png); }
+  .icon.icon--bebaubar-eingeschraenkt {
+    background-image: url(/icons/Pacht.png); }
+  .icon.icon--bebaubar-eingeschraenkt2 {
+    background-image: url(/icons/EingeschranktBebaubar.png); }
+  .icon.icon--sofort-bebaubar {
+    background-image: url(/icons/SofortBebaubar.png); }
+  .icon.icon--bebaubar-nicht {
+    background-image: url(/icons/NichtBebaubar.png); }
+  .icon.icon--bebaubar-unbekannt {
+    background-image: url(/icons/Unbekannt.png); }
+  .icon.icon--buero {
+    background-image: url(/icons/Büro.png); }
+  .icon.icon--gastgewerbe {
+    background-image: url(/icons/Gastgewerbe.png); }
+  .icon.icon--fabrik {
+    background-image: url(/icons/Fabrik.png); }
+  .icon.icon--hotel {
+    background-image: url(/icons/Hotel.png); }
+  .icon.icon--at {
+    background-image: url(/icons/glass.png);
+    margin-left: 45px;
+    margin-right: 45px;
+    width: 142px; }
+    @media screen and (max-width: 767px) {
+      .icon.icon--at {
+        margin-bottom: 2%; } }
+  .icon.icon--nettomiete {
+    background-position: 0 -3240px;
+    width: 130px; }
+    @media screen and (max-width: 991px) {
+      .icon.icon--nettomiete {
+        display: none; } }
+  .icon.icon--wohnflaeche {
+    background-image: url(/icons/wohnflaeche.svg);
+    height: 102px;
+    width: 137px; }
+    @media screen and (max-width: 991px) {
+      .icon.icon--wohnflaeche {
+        display: none; } }
+  .icon.icon--grundstuecksgroesse {
+    background-image: url(/icons/FlacheGrundstücks.png);
+    width: 130px; }
+    @media screen and (max-width: 991px) {
+      .icon.icon--grundstuecksgroesse {
+        display: none; } }
+  .icon.icon--baujahr {
+    background-position: 0 -3060px;
+    width: 140px; }
+    @media screen and (max-width: 991px) {
+      .icon.icon--baujahr {
+        display: none; } }
+  .icon.icon--gewerbeflaeche {
+    background-image: url(/icons/area.svg);
+    width: 140px;
+    height: 104px; }
+    @media screen and (max-width: 991px) {
+      .icon.icon--gewerbeflaeche {
+        display: none; } }
   .icon.slider-image {
     margin-left: 5%; }
   .icon.glyphicon-send {
