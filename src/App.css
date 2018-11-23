@@ -354,7 +354,8 @@ li {
     width: 142px; }
     @media screen and (max-width: 767px) {
       .icon.icon--at {
-        margin-bottom: 2%; } }
+        margin-bottom: 2%;
+        width: 128px; } }
   .icon.icon--nettomiete {
     background-position: 0 -3240px;
     width: 130px; }
@@ -426,9 +427,6 @@ li {
 
 .tile-wrapper--modifier {
   justify-content: center; }
-  @media screen and (max-width: 450px) {
-    .tile-wrapper--modifier {
-      display: block; } }
 
 .slider__flex-wrapper {
   display: flex;

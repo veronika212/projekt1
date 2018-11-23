@@ -75,7 +75,7 @@ const Ownership = ({
 
   return (
     <div>
-      <div className="tiles-wrapper">
+      <div className="tiles-wrapper tile-wrapper--modifier">
         <Tile
           handleOnClick={() =>
             onTileClick(1, 3, 10, {

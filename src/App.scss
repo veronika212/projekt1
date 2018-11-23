@@ -412,6 +412,7 @@ li {
     width: 142px;
     @media screen and (max-width: $breakpoint-medium) {
       margin-bottom: 2%;
+      width: 128px;
     }
   }
 
@@ -498,9 +499,6 @@ li {
 
 .tile-wrapper--modifier {
   justify-content: center;
-  @media screen and (max-width: $breakpoint-small) {
-    display: block;
-  }
 }
 
 .slider__flex-wrapper {

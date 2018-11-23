@@ -24,8 +24,8 @@ const PropertyType = ({
   };
 
   const handleNextClick = () => {
-    let slideNumber = 1;
-    let currentStep = 3;
+    let slideNumber = 16;
+    let currentStep = 1.5;
     if (propertyType === "Haus") {
       slideNumber = 2;
       currentStep = 2;

@@ -9,7 +9,7 @@
       margin-bottom: 2%; } }
   @media screen and (max-width: 450px) {
     .tile-width {
-      width: 50%;
+      width: 48%;
       margin: auto;
       margin-bottom: 3%; }
       .tile-width:nth-child(2) {
